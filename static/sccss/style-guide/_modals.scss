@@ -1,0 +1,157 @@
+//Alert boxes, media, modals and badges
+
+.alert{
+    padding:15px;
+    margin-bottom:20px;
+    transition:all 0.3s ease-out;
+    .close{
+        float:right;
+        color:#000;
+        opacity:0.3;
+        border:none;
+        background-color:transparent;
+        transition:opacity 0.3s ease-out;
+        cursor:pointer;
+        &:hover{
+            opacity:0.6;
+        }
+    }
+     span:before{
+     font-family: FontAwesome;
+     display:inline-block;
+     margin-right:5px;
+    }
+}
+
+.alert-info{
+    background-color:$sky-blue;
+    color:$snow;
+    span:before{
+     content:'\f05a';
+    }
+}
+
+.alert-error{
+    background-color:$hot-red;
+    color:$snow;
+    span:before{
+     content:'\f071';
+    }
+}
+
+.alert-warning{
+    background-color:$gold-yellow;
+    color:$snow;
+    span:before{
+     content:'\f071';
+    }
+}
+
+.alert-success{
+    background-color:$green;
+    color:$snow;
+    span:before{
+     content:'\f00c';
+    }
+}
+
+//Media
+
+.media{
+
+    padding:10px 15px;
+}
+
+
+
+.media-body, .media-left, .media-right{
+   display:table-cell;
+}
+.media-left{
+ vertical-align:top;
+ padding-right:10px;
+}
+.media-left, .media-right{
+ vertical-align:middle;
+}
+.media-right{
+ padding-left:10px;
+}
+
+
+//Mask
+/*masks are used in combination with modals*/
+.mask{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    visibility:hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    &.mask-on{
+      visibility:visible;
+      opacity:1;
+    }
+}
+
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index: 101;
+    background-color:$snow;
+}
+
+.modal-header{
+        background-color:$azure;
+        color:$snow;
+        min-height:40px;
+        line-height:40px;
+        padding:10px;
+}
+
+.modal-body, .modal-footer{
+    padding:10px;
+}
+
+/***badges***/
+
+.badge{
+    border-radius: 50%;
+    position:absolute;
+    width:18px;
+    height:18px;
+    line-height:18px; 
+    font-size:10px;
+    text-align:center;
+}
+
+.badge-left{
+    top:-5px;
+    left:0;
+}
+
+.badge-right{ 
+    top:2px;
+    right:0;
+}
+
+.badge-blue{
+    background-color:$sky-blue;
+    color:$snow;
+}
+
+.badge-purple{
+    background-color:$purple;
+    color:$snow;
+}
+
+.badge-red{
+    background-color:#FE5E3A;
+    color:$snow;
+}

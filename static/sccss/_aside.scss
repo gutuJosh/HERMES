@@ -1,0 +1,31 @@
+.site-sidebar{
+    width:240px;
+    background-color: $snow;
+}
+.library-menu{
+    li{
+        position: relative;
+    }
+    li:after{
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size:1rem;
+        content: "\f054";
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        @include align-right;
+        margin-right:2rem;
+        color:$azure;
+    }
+    a{
+        font-weight: 400;
+        line-height: 4rem;
+        color:$deep-grey;
+        transition:color 0.3s ease-out;
+        &:hover{
+            color:$azure;
+        }
+    }
+}

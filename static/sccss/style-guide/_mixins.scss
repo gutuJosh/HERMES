@@ -1,0 +1,67 @@
+@mixin centered-absolute{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin align-right{
+    position: absolute;
+    top:50%;
+    right:0;
+    transform: translateY(-50%);
+}
+
+//genereate columns width in a old-fashion grid system
+@mixin set-column-width($column-prefix, $element){
+    $column-width: 8.33;
+    @for $i from 1 through 12 {
+        $width: $column-width * $i;
+        @if $i % 3 == 0 {
+            $width: round($column-width * $i);
+        }
+        @else{
+            @if $width < round($width){
+                $width: floor($width)+0.66;
+            }
+            @else{
+                $width: floor($width)+0.33;
+            }
+        }
+
+        @if $element == 'flex'{
+            .flex-#{$i} {
+                flex: 0 0 $width + %; 
+                max-width: $width + %; 
+            }
+        }
+        @else{
+            .col-#{$column-prefix}-#{$i} {
+                width: $width + %; 
+            }
+        }
+    }
+}
+
+//set margin-left to columns
+
+@mixin set-offset($start, $stop){
+    
+    @for $i from $start through $stop {
+        $margin: 8.33 * $i;
+        @if $i % 3 == 0 {
+            margin: round($margin * $i);
+        }
+        @else{
+            @if $margin < round($margin){
+                $margin: floor($margin)+0.66;
+            }
+            @else{
+                $margin: floor($margin)+0.33;
+            }
+        }
+        .offset-#{$i} {
+            margin-left: $margin+%; 
+        }
+    }
+}

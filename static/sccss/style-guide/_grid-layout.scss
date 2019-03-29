@@ -1,0 +1,137 @@
+/****Css Grid Layout****/
+//CSS Grid Layout is the most powerful layout system available in CSS. 
+//It is a 2-dimensional system, meaning it can handle both columns and rows.
+//You work with Grid Layout by applying CSS rules both to a parent element (which becomes the Grid Container) and to that elements children (which become Grid Items).
+
+.grid{
+  width:100%;
+  display:grid;
+  display:-webkit-grid;
+  display: -ms-grid;
+  &.grid-inline{
+    display:inline-grid;
+    display:-webkit-inline-grid;
+    display:-ms-inline-grid;
+  }
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -webkit-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 0;
+  &.items-top{
+    align-items: top;
+  }
+  &.items-bottom{
+    align-items: bottom;
+  }
+  &.items-middle{
+    align-items: center;
+  }
+  &.items-v-stretch{
+    align-items: stretch;
+  }
+  &.items-left{
+    justify-items: start;
+  }
+  &.items-right{
+    justify-items: end;
+  }
+  &.items-center{
+    justify-items: center;
+  }
+  &.items-h-stretch{
+    justify-items: stretch;
+  }
+  &.align-left{
+    justify-content: start;
+  }
+  &.align-right{
+    justify-content: end;
+  }
+  &.align-center{
+    justify-content: center;
+  }
+  &.align-stretch{
+    justify-content: stretch;
+  }
+  &.v-align-top{
+    align-content: top;
+  }
+  &.v-align-bottom{
+    align-content: bottom;
+  }
+  &.v-align-middle{
+    align-content: center;
+  }
+  &.v-align-stretch{
+    align-content: stretch;
+  }
+  &.v-align-space-between{
+    align-content: space-between;
+  }
+  &.v-align-space-around{
+    align-content: space-around;
+  }
+}
+
+.subgrid{
+  display:subgrid;
+}
+
+.item-full{
+  grid-column-start:1;
+  grid-column-end:13;
+}
+
+.item-half-left{
+  grid-column-start:1;
+  grid-column-end:7;
+}
+.item-half-right{
+  grid-column-start:7;
+  grid-column-end:13;
+}
+
+.item-one-third-left{
+  grid-column-start:1;
+  grid-column-end:5;
+}
+
+.item-one-third-middle{
+  grid-column-start:5;
+  grid-column-end:9;
+}
+
+.item-one-third-right{
+  grid-column-start:9;
+  grid-column-end:13;
+}
+
+.item-two-thirds-left{
+  grid-column-start:1;
+  grid-column-end:9;
+}
+
+.item-two-thirds-right{
+  grid-column-start:5;
+  grid-column-end:13;
+}
+
+.item-one-quarter-1{
+  grid-column-start:1;
+  grid-column-end:4;
+}
+
+.item-one-quarter-2{
+  grid-column-start:4;
+  grid-column-end:7;
+}
+
+.item-one-quarter-3{
+  grid-column-start:7;
+  grid-column-end:10;
+}
+
+.item-one-quarter-4{
+  grid-column-start:10;
+  grid-column-end:13;
+}

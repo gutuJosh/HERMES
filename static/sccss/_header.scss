@@ -1,0 +1,28 @@
+html{
+    height:100%;
+}
+body{
+    font-family: 'Comfortaa';
+    background-color:$super-light-purple;
+    height:100%;
+} 
+.main-header{
+    background-color: $snow;
+    box-shadow: rgba(255, 255, 255, 0.09) 0px 1px 0px inset, rgba(0, 0, 0, 0.075) 0px 1px 5px;
+    min-height: 6rem;
+    .hamburger{
+        width:60px;
+        line-height: 60px;
+        font-size:2rem;
+        transition:all 0.3s ease-out;
+        &:hover{
+            background-color: $super-light-grey;
+        }
+    }
+}
+.logo-holder{
+    width:240px;
+    background-color: $azure;
+    align-self:stretch; 
+    p{line-height: 6rem;}
+}

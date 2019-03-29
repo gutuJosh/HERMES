@@ -1,0 +1,41 @@
+.list-group{
+  margin-bottom:20px;
+  li{
+    padding:10px 15px;
+	  border-bottom:1px solid $dirty-snow;
+	  position:relative;
+	  display:block;
+  }
+}
+
+.list-group-divided{
+  @extend .list-group;
+  li{
+    padding:10px 15px;
+	border-bottom:1px solid $light-grey;
+	position:relative;
+	display:block;
+  }
+  li:last-child{
+   border-bottom:none;
+  }
+}
+
+.list-group-item{
+  &.active{
+   background-color:$mf-red;
+   color:$snow;
+   a{
+    color:$snow;
+   }
+  }
+  .disabled{
+   background-color:$asphalt-grey;
+   color:$deep-grey;
+   a{
+    color:$deep-grey;
+   }
+  }
+}
+
+
