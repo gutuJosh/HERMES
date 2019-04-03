@@ -1,0 +1,75 @@
+//Accordion
+.accordion{
+    .toggle-accordion{
+        display:none;
+    }
+    .toggle-accordion:checked  ~ .accordion-content{
+        transition: max-height 0.3s ease-out;
+        max-height: 1000px;
+    }
+}
+.accordion-wrapper{
+    position:relative;
+    margin-bottom:5px;
+    label{
+        position: relative;
+        display: block;
+        cursor: pointer;
+        padding-left:1rem;
+        font-size:1.4rem;
+        line-height: 1.6rem;
+        border-bottom: 1px solid $light-grey;
+    }
+    label:after{
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size:1rem;
+        content: "\f0d7";
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        @include align-right;
+    }
+    .toggle-accordion:checked ~ label:after{
+        content: "\f0d8";
+    }
+}
+
+.accordion-content{
+    position: relative;
+    max-height: 0px;
+    height: auto;
+    overflow: hidden;
+    z-index: 10;
+    transition: max-height 0.3s ease-out;
+}
+
+//tabs
+.tabs-container{
+  position: relative;
+  label{
+    display: inline-block;
+    margin-bottom:20px;
+    padding: 0.5rem 1rem;
+    line-height: 2rem;
+  }
+  input:checked ~ label{
+      border-top:1px solid $super-light-grey;
+      border-right:1px solid $super-light-grey;
+      border-bottom:2px solid $snow;
+      border-left:1px solid $super-light-grey;
+  }
+  .tab-item{
+    border-top:1px solid $super-light-grey;
+    padding:20px;
+    display:none;
+    visibility: hidden;
+    transition:visiblity 0.3s ease-out;
+  }
+
+  input:checked ~ .tab-item{
+    display:block;  
+    visibility: visible;
+  }
+}

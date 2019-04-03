@@ -1,0 +1,41 @@
+.column{
+    background-color: $super-light-grey;
+    border-top:1px solid $light-grey;
+    border-bottom:1px solid $light-grey;
+}
+.old-grid .row{
+    margin-bottom:10px;
+    div[class*="col-"]{
+        border-right:1px solid $light-grey;
+        &:first-child{
+            border-left:1px solid $light-grey;
+        }
+    }
+}
+
+div[class*="offset"]{
+    border-left:1px solid $light-grey; 
+}
+
+.flex-grid-system{
+    .column{
+        border-right:1px solid $light-grey;
+        margin-bottom:5px;
+        &:first-child{
+            border-left:1px solid $light-grey;
+        }
+    }
+}
+div[class*="flex-lg-"]{
+    background-color: $super-light-grey;
+}
+.grid {
+    
+ .column{
+    border-left:1px solid $light-grey;
+    border-right:1px solid $light-grey;
+ }
+}
+.bg-snow{
+    background-color:$snow;
+}

@@ -12,7 +12,7 @@
     transform: translateY(-50%);
 }
 
-//genereate columns width in a old-fashion grid system
+//genereate columns width in a old-fashion grid & flexbox grid systems
 @mixin set-column-width($column-prefix, $element){
     $column-width: 8.33;
     @for $i from 1 through 12 {
@@ -30,9 +30,10 @@
         }
 
         @if $element == 'flex'{
-            .flex-#{$i} {
-                flex: 0 0 $width + %; 
-                max-width: $width + %; 
+            $width: $width + %;
+            .flex-#{$column-prefix}-#{$i} {
+                flex: 0 0 calc(#{$width} - #{$flex-grid-gap}); 
+                max-width: calc(#{$width} - #{$flex-grid-gap}); 
             }
         }
         @else{
@@ -64,4 +65,35 @@
             margin-left: $margin+%; 
         }
     }
+}
+
+//generate grid items in a css grid layout
+@mixin grid-items($prefix){
+   
+     $columns: 1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7,
+               8,
+               9,
+               10,
+               11,
+               12;
+
+    @each $item in $columns{
+           $stop: $item + 1;
+           $max-point:13 - nth($item, 1);
+           @for $i from 1 through $max-point {
+            .item-#{$prefix}-#{nth($item, 1)}-#{$i}{
+                 grid-column-start:$i;
+                 grid-column-end:$stop;
+               }
+               $stop: $i + ($item + 1);
+           }
+      
+    }
+
 }

@@ -4,8 +4,8 @@
   border-spacing:0;
   width:100%;
   margin-bottom:20px;
-  &.table-bordered{
 
+  &.table-bordered{
    border-top:1px solid $light-grey;
    th, td{
     border-bottom:1px solid $light-grey;
@@ -13,14 +13,13 @@
    }
    th:first-child, td:first-child{
   	border-left:1px solid $light-grey;
-
+   }
    th, td{
     border-bottom:1px solid $light-grey;
-	border-right:1px solid $light-grey;
+	  border-right:1px solid $light-grey;
    }
    th:first-child, td:first-child{
-	border-left:1px solid $light-grey;
-
+	  border-left:1px solid $light-grey;
    }
   }
   &.table-borderless{
@@ -35,16 +34,13 @@
   }
   &.zebra-stripes {
     tr:nth-child(odd){
-
      background-color:$super-light-grey;
-
     }
   } 
   th{
    border-bottom:2px solid $asphalt-grey;
    text-align:left;
-
-   padding:8px;
+   padding:10px;
    &.vertical-align{
     vertical-align:middle;
    }
@@ -52,7 +48,7 @@
   }
   td{
    border-top:1px solid $asphalt-grey;
-
+   padding:10px;
    &.vertical-align{
      vertical-align:middle;
    }

@@ -1,26 +1,43 @@
- 
+import Link from 'next/link';
+
  const Sidebar = (props) => (
     <aside className="site-sidebar">
      <ul className="list-group library-menu">
       <li>
-       <a href="#grid" className="block">
-        <i class="fas fa-chess-board"></i> Old fashion grid
-       </a>
+       <div className="accordion">
+        <div className="accordion-wrapper m0">
+         <input type="checkbox" className="toggle-accordion" id="gridTypes" />
+         <label htmlFor="gridTypes"><i className="fab fa-buromobelexperte"></i> Grid system</label>
+         <div className="accordion-content">
+          <ul className="grid-types">
+           <li>
+             <Link href="/old-grid"> 
+              <a> Old fashion grid</a>
+             </Link>
+            </li>
+            <li>
+             <Link href="/flex-grid"> 
+              <a>Flex grid</a>
+             </Link>
+            </li>
+            <li>
+            <Link href="/modern-grid">
+             <a>
+              Modern grid layout
+             </a>
+            </Link>
+            </li>
+          </ul>
+         </div>
+        </div>
+       </div>
       </li>
       <li>
-       <a href="#flexGrid" className="block">
-        <i className="fab fa-buromobelexperte"></i> Flex grid
-       </a>
-      </li>
-      <li>
-       <a href="#grid" className="block">
-        <i className="fas fa-th"></i> Modern grid layout
-       </a>
-      </li>
-      <li>
-       <a href="#grid" className="block">
+      <Link href="/typography">
+       <a className="block">
         <i className="fas fa-pen-fancy"></i> Typography
        </a>
+      </Link>
       </li>
       <li>
        <a href="#grid" className="block">

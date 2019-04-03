@@ -14,6 +14,8 @@
 @import "style-guide/flex-grid";
 @import "style-guide/forms";
 @import "style-guide/lists";
+@import "style-guide/tables";
+@import "style-guide/accordions-and-tabs";
 @import "style-guide/modals";
 @import "style-guide/widgets";
 @import "style-guide/helpers";
@@ -21,13 +23,16 @@
 //custom style
 @import "header.scss";
 @import "aside.scss";
+@import "grid-system.scss";
 
 #__next{
    height: 100%; 
 }
 .content-wrapper{
-    height:calc(100% - 60px);
+    box-sizing: border-box;
+    min-height:calc(100% - 60px);
 }
+
   
 
 

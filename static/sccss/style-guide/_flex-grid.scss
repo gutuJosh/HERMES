@@ -3,7 +3,7 @@
 .flex-grid{
     width:100%;
     display:flex;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     //alignements
@@ -28,8 +28,29 @@
     &.v-align-stretch{
         align-items: stretch;
     }
+    
     //columns 1 to 12
-    @include set-column-width(false,'flex');
+    @media (max-width: $screen-xs-max) {
+       @include set-column-width('xs','flex');
+    }
+
+    @media (max-width: $screen-sm-max) {
+        @include set-column-width('sm','flex');
+    }
+    
+    @media (max-width: $screen-md-max) {
+        @include set-column-width('md','flex');
+    }
+    
+    @media (min-width: $screen-lg-min) {
+        @include set-column-width('lg','flex');
+    }
+     
+    @if $flex-grid-gap != 0px {
+        [class*="flex-"]{
+            margin:($flex-grid-gap/2);
+        }
+    }
     //pieces
     .flex-one-third{
         flex: 0 0 33.33%; 
