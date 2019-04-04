@@ -8,12 +8,15 @@
  .text-center{
   text-align:center;
  }
+ .text-justify{
+  text-align:justify; 
+ }
  
  /****Text color****/
  .text-white{
    color:#fff;
  }
- .text-red{
+ .text-red, .text-alert{
    color:$red;
  }
  .text-yellow{
@@ -28,10 +31,10 @@
  .text-azure, a.text-azure{
    color:$azure;
  }
- .text-sky{
+ .text-sky, .text-info{
    color:$sky-blue;
  }
- .text-green{
+ .text-green, .text-success{
    color:$green;
  }
  .text-asphalt{
@@ -43,6 +46,9 @@
  .text-light-grey{
    color:$light-grey;
  }
+ .text-middle-grey{
+  color:$middle-grey;
+}
  .text-light-purple{
    color:$light-purple;
  }
@@ -60,6 +66,10 @@
  .txt-wrapped{
      white-space: pre-line;
      word-wrap: break-word;
+ }
+ .txt-highlight{
+   background-color: #fcf8e3;
+   color:$dark-grey;
  }
  
  /****separators*/

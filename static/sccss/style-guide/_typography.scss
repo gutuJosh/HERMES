@@ -29,8 +29,8 @@ body{
   margin-top:2rem;
   small{
     font-size:75%;
-    color:$middle-grey;
-    font-weight: normal;
+    color:$asphalt-grey;
+    font-weight: normal; 
   }
 }
 
@@ -55,7 +55,7 @@ p{
   margin-bottom:0.75rem;
   &.large{
     font-size:1.8rem;
-    line-height:2.4rem;
+    line-height:2.6rem;
     margin-bottom:1rem;
   }
 }
@@ -64,7 +64,7 @@ small{
 }
 .small, a.small, button.small{
   font-size:1.2rem;
-  line-height:1.4rem;
+  line-height:1.8rem;
 }
 
 b, strong{
@@ -76,10 +76,50 @@ b, strong{
   font-style: italic;
 }
 
-/****Custom****/
-.title-bar{
-  margin:0;
-  display:block;
-  font-size:24px;
-  line-height:32px;
+
+/****Blockquote****/
+.quote{
+  padding:10px 20px;
+  margin-bottom:10px;
+  position: relative;
+  &:before{
+    content:'';
+    display: block;
+    width:5px;
+    height:100%;
+    background-color: $light-grey;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+  &:after{
+   content:'\201C'; 
+   font-size:4rem;
+   position:absolute;
+   top:0;
+   left:-20px;
+   color: $light-grey;
+  }
+  &.reverse:before{
+      left: inherit;
+      right: 0;
+  }
+  &.reverse:after{
+    content:'\201D';
+    left: inherit;
+    right: -20px;
+  }
+  small{
+    display: inline-block;
+    margin-top:20px; 
+  }
+}
+
+/***Formated text****/
+pre{
+  @extend .small;
+  border:3px solid $super-light-grey;
+  background-color:#f7f7f7;
+  padding:20px;
+  color:$dark-grey;
 }

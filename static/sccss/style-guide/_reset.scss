@@ -19,22 +19,22 @@ body, header, nav, section, footer, article, aside, ul, ol, li, form, input, but
  
  //Forms
  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-     color:$deep-grey;
+     color:$middle-grey;
  }
  
  /*placeholders*/
  input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="url"]::-moz-placeholder{
-   color:$deep-grey;
+   color:$middle-grey;
    opacity: 0.6;
   
  }
  input[type="text"]::-webkit-placeholder, input[type="password"]::-webkit-placeholder, input[type="email"]::-webkit-placeholder, input[type="url"]::-webkit-placeholder{
-   color:$deep-grey;
+   color:$middle-grey;
    opacity: 0.6;
    
  }
  input[type="text"]::-ms-placeholder, input[type="password"]::-ms-placeholder, input[type="email"]::-ms-placeholder, input[type="url"]::-ms-placeholder{
-   color:$deep-grey;
+   color:$middle-grey;
    opacity: 0.6;
  
  }

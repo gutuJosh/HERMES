@@ -12,7 +12,7 @@ import Link from 'next/link';
           <ul className="grid-types">
            <li>
              <Link href="/old-grid"> 
-              <a> Old fashion grid</a>
+              <a>Old fashion grid</a>
              </Link>
             </li>
             <li>
@@ -40,9 +40,11 @@ import Link from 'next/link';
       </Link>
       </li>
       <li>
-       <a href="#grid" className="block">
+      <Link href="/lists">
+       <a className="block">
         <i className="fas fa-list"></i> Lists
        </a>
+      </Link>
       </li>
       <li>
        <a href="#grid" className="block">

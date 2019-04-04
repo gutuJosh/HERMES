@@ -268,7 +268,7 @@ select{
        content:'\f00d';
        font-family: FontAwesome;
        padding:4px 5px 0 0;
-       color:$deep-grey;
+       color:$middle-grey;
        cursor:pointer;
        float:right;
       }
@@ -362,7 +362,7 @@ select{
          content:'\f00d';
          font-family: FontAwesome;
          margin-left:5px;
-         color:$deep-grey;
+         color:$middle-grey;
          cursor:pointer;
         }
       }
@@ -432,7 +432,7 @@ select{
 }
 
 .btn-default{
-  background-color:$deep-grey;
+  background-color:$middle-grey;
 }
 
 
@@ -462,13 +462,13 @@ select{
 
 .btn-superlight-grey{
   background-color:$super-light-grey;
-  color:$deep-grey;
+  color:$middle-grey;
 }
 
 
 .btn-middle-grey{
   background-color:$asphalt-grey;
-  color:$deep-grey;
+  color:$middle-grey;
 }
 
 .btn-dark-grey{
@@ -478,7 +478,7 @@ select{
 
 .btn-middle-yellow{
   background-color:$yellow;
-  color:$deep-grey;
+  color:$middle-grey;
 }
 
 
