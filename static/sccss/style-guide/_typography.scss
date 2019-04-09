@@ -122,4 +122,20 @@ pre{
   background-color:#f7f7f7;
   padding:20px;
   color:$dark-grey;
+  overflow-x: auto;
+  width:100%;
+  box-sizing: border-box;
+  
+ @media (max-width: $screen-md-max) {
+    max-width: 900px; 
+ }
+
+ @media (max-width: $screen-sm-max) {
+  max-width: 600px; 
+ }
+
+ @media (max-width: $screen-xs-max) {
+  max-width: 300px;
+ }
+
 }

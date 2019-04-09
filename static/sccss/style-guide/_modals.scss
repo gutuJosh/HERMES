@@ -55,30 +55,6 @@
     }
 }
 
-//Media
-
-.media{
-
-    padding:10px 15px;
-}
-
-
-
-.media-body, .media-left, .media-right{
-   display:table-cell;
-}
-.media-left{
- vertical-align:top;
- padding-right:10px;
-}
-.media-left, .media-right{
- vertical-align:middle;
-}
-.media-right{
- padding-left:10px;
-}
-
-
 //Mask
 /*masks are used in combination with modals*/
 .mask{

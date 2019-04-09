@@ -1,28 +1,36 @@
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 
- const Sidebar = (props) => (
+
+ const Sidebar = (props) => {
+
+  const page = props.router.pathname.replace('/','');
+
+  return (
+    
     <aside className="site-sidebar">
+   
      <ul className="list-group library-menu">
       <li>
        <div className="accordion">
         <div className="accordion-wrapper m0">
-         <input type="checkbox" className="toggle-accordion" id="gridTypes" />
+         <input type="checkbox" className="toggle-accordion" id="gridTypes" defaultChecked={props.pageInfo.page === 'grid'}/>
          <label htmlFor="gridTypes"><i className="fab fa-buromobelexperte"></i> Grid system</label>
          <div className="accordion-content">
           <ul className="grid-types">
            <li>
-             <Link href="/old-grid"> 
-              <a>Old fashion grid</a>
+             <Link href="/grid/old-grid"> 
+              <a className={props.pageInfo.subcategory === 'old-grid' ? 'active' : ''}>Old fashion grid</a>
              </Link>
             </li>
             <li>
-             <Link href="/flex-grid"> 
-              <a>Flex grid</a>
+             <Link href="/grid/flex-grid"> 
+              <a className={props.pageInfo.subcategory === 'flex-grid' ? 'active' : ''}>Flex grid</a>
              </Link>
             </li>
             <li>
-            <Link href="/modern-grid">
-             <a>
+            <Link href="/grid/modern-grid">
+             <a className={props.pageInfo.subcategory === 'modern-grid' ? 'active' : ''}>
               Modern grid layout
              </a>
             </Link>
@@ -32,46 +40,49 @@ import Link from 'next/link';
         </div>
        </div>
       </li>
-      <li>
+      <li className={page === 'typography' ? 'block active' : 'block'}>
       <Link href="/typography">
        <a className="block">
         <i className="fas fa-pen-fancy"></i> Typography
        </a>
       </Link>
       </li>
-      <li>
+      <li className={page === 'lists' ? 'block active' : 'block'}>
       <Link href="/lists">
        <a className="block">
-        <i className="fas fa-list"></i> Lists
+        <i className="fas fa-list"></i> Lists & media {props.pageInfo.page}
+       </a>
+      </Link>
+      </li>
+      <li className={page === 'forms' ? 'block active' : 'block'}>
+      <Link href="/forms">
+       <a className="block">
+        <i className="fab fa-wpforms"></i> Forms
        </a>
       </Link>
       </li>
       <li>
-       <a href="#grid" className="block">
-        <i className="fab fa-wpforms"></i> Forms
-       </a>
-      </li>
-      <li>
-       <a href="#grid" className="block">
+       <a className="block">
         <i className="fas fa-server"></i> Tabs
        </a>
       </li>
       <li>
-       <a href="#grid" className="block">
+       <a className="block">
         <i className="fas fa-table"></i> Tables
        </a>
       </li>
       <li>
-       <a href="#grid" className="block">
+       <a className="block">
         <i className="fas fa-layer-group"></i> Accordions
        </a>
       </li>
       <li>
-       <a href="#grid" className="block">
+       <a className="block">
         <i className="fas fa-exclamation-triangle"></i> Modals & Alerts
        </a>
       </li>
      </ul>
     </aside>
- );
- export default Sidebar;
+  )
+};
+ export default withRouter(Sidebar);

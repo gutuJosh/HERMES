@@ -5,6 +5,10 @@
 .library-menu{
     li{
         position: relative;
+        &.active a, 
+        &.active:after{
+            color:$azure;
+        }
     }
     
 }
@@ -20,7 +24,7 @@
     text-rendering: auto;
     @include align-right;
     margin-right:2rem;
-    color:$azure;
+    //color:$azure;
 }
 
 .library-menu > li:first-child:after{

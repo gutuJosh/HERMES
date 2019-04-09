@@ -55,6 +55,19 @@
  .text-purple{
    color:$light-purple;
  }
+//the next 4 rules are used in forms.scss
+.text-hint{
+  color:$azure;
+}
+.text-error{
+  color:$red;
+}
+.text-warning{
+  color:$gold-yellow;
+}
+.text-sucess{
+  color:$dark-green;
+}
  
  /****Text decorations****/
  .underlined{
@@ -189,7 +202,11 @@
  }
  
  .mtop50{
-   margin-top:40px; 
+   margin-top:50px; 
+ }
+
+ .mtop100{
+  margin-top:100px; 
  }
  
  .mbottom5{
@@ -198,6 +215,21 @@
  .mbottom10{
    margin-bottom:10px; 
  }
+ .mbottom20{
+  margin-bottom:20px; 
+}
+
+.mbottom40{
+  margin-bottom:40px; 
+}
+
+.mbottom50{
+  margin-bottom:50px; 
+}
+
+.mbottom100{
+ margin-bottom:100px; 
+}
  //padding
  .pad0{
    padding:0;

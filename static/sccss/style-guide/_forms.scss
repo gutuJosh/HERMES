@@ -10,6 +10,12 @@
   margin-bottom:0.5rem;
   font-weight:700;
  }
+  //validation
+ .text-hint, .text-error, .text-warning, .text-sucess{
+  display:none;
+  opacity:0;
+  transition:all 0.3s ease-out;
+ }
 }
 
 
@@ -31,6 +37,7 @@ input[type="url"]{
  background-clip:padding-box;
  outline:none;
  border:none;
+ transition:border-color 0.3s ease-out;
  &:after{
   display:block;
   font-family: FontAwesome;
@@ -39,13 +46,23 @@ input[type="url"]{
   right:10px;
   transform:translateX(-50%);
  }
+ &.input-default, .input-hint{
+   border:1px solid $light-grey;
+   &:focus{
+     border-color: $azure;
+   }
+ }
  &.input-success{
   color:$dark-green;
-  border-color:$dark-green;
+  border:1px solid $green;
  }
  &.input-error{
-  color:$hot-red;
-  border-color:$hot-red;
+  color:$red;
+  border:1px solid $red;
+ }
+ &.input-warning{
+  color:$gold-yellow;
+  border:1px solid $yellow;
  }
  &.input-error:after{
   content:'\f00d';
@@ -65,56 +82,17 @@ input[type="url"]{
   font-family:FontAwesome;
   color:$gold-yellow;
  }
- &.input-error ~ span.text-error{
-   display:inline-block;
-   visibility:visible;
- }
- &.input-warning ~ span.text-warning{
-   display:inline-block;
-   visibility:visible;
- }
- &.input-success ~ span.text-succes{
-   display:inline-block;
-   visibility:visible;
- }
- &.input-error ~ span.text-hint, .input-warning ~ span.text-hint{
-   display:none;
+ &.input-error ~ span.text-error, 
+ &.input-warning ~ span.text-warning, 
+ &.input-success ~ span.text-succes, 
+ &.input-hint:focus ~ span.text-hint{
+  display:inline-block;
+  opacity:1;
  }
  &.border-none{
   border:none;
  }
-}
 
-
-
-//validation
-.text-hint{
-  color:$middle-grey;
-}
-.text-error{
-  color:$hot-red;
-  display:none;
-}
-.text-warning{
-  color:$gold-yellow;
-  display:none;
-}
-
-.text-sucess{
-
-  color:$dark-green;
-  display:none;
-}
-
-
-.input-container.error ~ .text-error{
-    display:block
-}
-.input-container.warning ~ .text-warning{
-  display:block
-}
-.input-container.success ~ .text-success{
-  display:block
 }
 
 
@@ -147,7 +125,6 @@ input[type="url"]{
 	   height:40px;
 	   float:left;
 	   line-height:40px;
-
    }
    input{
     padding-left:40px;
@@ -194,7 +171,6 @@ select{
   padding:3px;
   font-size:14px;
 }
-
 
 .custom-select-container{
    position: relative;
@@ -431,14 +407,10 @@ select{
   min-height: 4rem;
 }
 
-.btn-default{
+.btn-dark{
   background-color:$middle-grey;
 }
 
-
-.btn-azure{
-  background-color:$azure;
-}
  
 .btn-info{
   background-color:$azure;
@@ -449,7 +421,7 @@ select{
   color:$azure;
 }
 
-.btn-red{
+.btn-alert{
   background-color:$red;
   color:$snow;
 }
@@ -466,17 +438,17 @@ select{
 }
 
 
-.btn-middle-grey{
+.btn-default{
   background-color:$asphalt-grey;
   color:$middle-grey;
 }
 
-.btn-dark-grey{
+.btn-dark{
   background-color:$dark-grey;
   color:$snow;
 }
 
-.btn-middle-yellow{
+.btn-warning{
   background-color:$yellow;
   color:$middle-grey;
 }
@@ -533,17 +505,6 @@ select{
   width:100%;
 }
 
-.btn-large{
-  padding:5px;
-  font-size:18px;
-  height:46px;
-}
-
-.btn-xs{
- font-size:12px;
- padding:1px 5px;
-
-}
 
 //checkbox
 label.custom-checkbox{

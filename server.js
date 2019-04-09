@@ -3,21 +3,28 @@ const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const handle = app.getRequestHandler()
+const handle = app.getRequestHandler();
+
+const grid = require('./routes/Grid');
+const typography = require('./routes/Typography');
+const lists = require('./routes/Lists');
+const forms = require('./routes/Forms');
 
 app.prepare()
 .then(() => {
   const server = express();
 
-  server.get('/p/:id', (req, res) => {
-    const actualPage = '/post'
-    const queryParams = { title: req.params.id } 
-    app.render(req, res, actualPage, queryParams)
-  });
-
+  server.use('/grid', grid);
+  server.use('/typography', typography);
+  server.use('/lists', lists);
+  server.use('/forms', forms);
+  
   server.get('*', (req, res) => {
     return handle(req, res)
-  })
+  });
+
+  //set global var to use in routes
+  server.set('app', app);
 
   server.listen(3000, (err) => {
     if (err) throw err

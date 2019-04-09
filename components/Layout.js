@@ -4,7 +4,7 @@ const Layout = (props) => (
   <>
     <Header />
      <div className="content-wrapper flex-grid">
-       <Sidebar/>
+       <Sidebar pageInfo={props.pageInfo}/>
        <main className="content-wrapper flex-auto">
         {props.children}
        </main>

@@ -1,4 +1,4 @@
-/****Css Grid System based on flexbox****/
+/****Css Flexbox Grid System****/
 
 .flex-grid{
     width:100%;
@@ -30,20 +30,21 @@
     }
     
     //columns 1 to 12
-    @media (max-width: $screen-xs-max) {
-       @include set-column-width('xs','flex');
+    
+    @media (min-width: $screen-lg-min) {
+        @include set-column-width('lg','flex');
+    }
+
+    @media (max-width: $screen-md-max) {
+        @include set-column-width('md','flex');
     }
 
     @media (max-width: $screen-sm-max) {
         @include set-column-width('sm','flex');
     }
-    
-    @media (max-width: $screen-md-max) {
-        @include set-column-width('md','flex');
-    }
-    
-    @media (min-width: $screen-lg-min) {
-        @include set-column-width('lg','flex');
+
+    @media (max-width: $screen-xs-max) {
+        @include set-column-width('xs','flex');
     }
      
     @if $flex-grid-gap != 0px {

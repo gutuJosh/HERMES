@@ -31,6 +31,22 @@
     display: block;
 }
 
+
+@media (min-width: $screen-lg-min) {
+    @include set-column-width('lg','div');
+}
+
+
+@media (max-width: $screen-md-max) {
+	@include set-column-width('md','div');
+}
+
+
+@media (max-width: $screen-sm-max) {
+	@include set-column-width('sm','div');
+}
+
+
 @media (max-width: $screen-xs-max) {
     /*.col-xs-1 {width: 8.33%;}
 	.col-xs-2 {width: 16.66%;}
@@ -45,16 +61,4 @@
 	.col-xs-11 {width: 91.66%;}
 	.col-xs-12 {width: 100%;}*/
 	@include set-column-width('xs','div');
-}
-
-@media (max-width: $screen-sm-max) {
-	@include set-column-width('sm','div');
-}
-
-@media (max-width: $screen-md-max) {
-	@include set-column-width('md','div');
-}
-
-@media (min-width: $screen-lg-min) {
-    @include set-column-width('lg','div');
 }
