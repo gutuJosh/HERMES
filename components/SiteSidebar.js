@@ -18,22 +18,22 @@ import { withRouter } from 'next/router';
          <label htmlFor="gridTypes"><i className="fab fa-buromobelexperte"></i> Grid system</label>
          <div className="accordion-content">
           <ul className="grid-types">
-           <li>
-             <Link href="/grid/old-grid"> 
-              <a className={props.pageInfo.subcategory === 'old-grid' ? 'active' : ''}>Old fashion grid</a>
+            <li>
+             <Link href="/grid/flexbox-grid"> 
+              <a className={props.pageInfo.subcategory === 'flex-grid' ? 'active' : ''}>Flexbox grid</a>
              </Link>
             </li>
             <li>
-             <Link href="/grid/flex-grid"> 
-              <a className={props.pageInfo.subcategory === 'flex-grid' ? 'active' : ''}>Flex grid</a>
-             </Link>
-            </li>
-            <li>
-            <Link href="/grid/modern-grid">
+            <Link href="/grid/css-grid">
              <a className={props.pageInfo.subcategory === 'modern-grid' ? 'active' : ''}>
               Modern grid layout
              </a>
             </Link>
+            </li>
+            <li>
+             <Link href="/grid/classic-grid"> 
+              <a className={props.pageInfo.subcategory === 'old-grid' ? 'active' : ''}>Old fashion grid</a>
+             </Link>
             </li>
           </ul>
          </div>

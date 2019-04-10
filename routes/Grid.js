@@ -14,4 +14,19 @@ router.get('/:type', async(req, res) => {
 });
 
 
+router.get('/:type/page-info', (req, res) => {
+    const gridType = decodeURIComponent(req.params.type);
+    let page = `/${gridType}`;
+    const pageInfo = {
+        'page': 'grid',
+        'title': 'Grid system',
+        'subcategory': gridType
+    }
+    res.json({
+        status: 200,
+        info: pageInfo
+    });
+});
+
+
 module.exports = router;

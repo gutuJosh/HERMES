@@ -2,7 +2,7 @@ import Layout from '../components/Layout.js';
 import BreakPointsTable from '../components/BreakPointsTable';
 
 
-export default class oldGrid  extends React.Component {
+export default class classicGrid  extends React.Component {
 
     constructor(props) {
         super(props);

@@ -25,10 +25,7 @@ export default class lists extends React.Component {
       return(
         <Layout pageInfo={this.state.pageInfo}> 
           <div className="col-full pad20">
-            <p className="large">
-              Lists &amp; media:
-            </p>
-            <p>The following examples show how different components can be composed to produce lists.</p>
+            <p className="large">The following examples show how different components can be composed to produce lists.</p>
           </div>
 
         

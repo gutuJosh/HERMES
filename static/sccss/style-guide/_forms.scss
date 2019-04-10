@@ -1,4 +1,5 @@
 .form-group{
+  position:relative;
   margin-bottom:1.5rem;
   &:before{
     content:'';
@@ -10,15 +11,33 @@
   margin-bottom:0.5rem;
   font-weight:700;
  }
-  //validation
- .text-hint, .text-error, .text-warning, .text-sucess{
-  display:none;
-  opacity:0;
-  transition:all 0.3s ease-out;
+ 
+ .input-error,
+ .input-warning,
+ .input-success,
+ .input-hint{
+   padding-right:2rem;
  }
+ .input-hint ~ .info-sign{
+   @include align-right;
+   right:1rem;
+ }
+ .input-hint:focus ~ .info-sign{
+    color:$azure;
+ }
+
+  //show simbols
+  .text-warning:after{
+    content:"\f071"; 
+  }
+  .text-error:after{
+    content:"\f00d"; 
+  }
+  .text-success:after{
+    content:"\f00c"; 
+  }
+ 
 }
-
-
 
 input[type="text"], 
 input[type="email"], 
@@ -27,26 +46,20 @@ input[type="date"],
 input[type="time"], 
 input[type="number"], 
 input[type="password"], 
-input[type="file"], 
+input[type="file"],
 input[type="url"]{
  position:relative;
  font-size:1.4rem;
  width:100%;
  height:3.4rem;
  padding:0.3rem 1.2rem;
+ background-color: transparent;
  background-clip:padding-box;
  outline:none;
  border:none;
  transition:border-color 0.3s ease-out;
- &:after{
-  display:block;
-  font-family: FontAwesome;
-  position:absolute;
-  top:50%;
-  right:10px;
-  transform:translateX(-50%);
- }
- &.input-default, .input-hint{
+ z-index: 1;
+ &.input-default, .input-hint, .input-file{
    border:1px solid $light-grey;
    &:focus{
      border-color: $azure;
@@ -64,27 +77,10 @@ input[type="url"]{
   color:$gold-yellow;
   border:1px solid $yellow;
  }
- &.input-error:after{
-  content:'\f00d';
-  font-family:FontAwesome;
-  color:$hot-red;
-  display:inline-block;
- }
- &.input-success:after{
-  content:'\f071';
-  font-family:FontAwesome;
-  color:$dark-green;
-  display:inline-block;
-  width:20px;height:20px;
- }
- &.input-warning:after{
-  content:'\f071';
-  font-family:FontAwesome;
-  color:$gold-yellow;
- }
+
  &.input-error ~ span.text-error, 
  &.input-warning ~ span.text-warning, 
- &.input-success ~ span.text-succes, 
+ &.input-success ~ span.text-success, 
  &.input-hint:focus ~ span.text-hint{
   display:inline-block;
   opacity:1;
@@ -96,11 +92,75 @@ input[type="url"]{
 }
 
 
+ //validation
+ .text-hint, .text-error, .text-warning, .text-success{
+  display:none;
+  opacity:0;
+  transition:all 0.3s ease-out;
+  &:after{
+    display:block;
+    position:absolute;
+    top:3.5rem;
+    right:1rem;
+    z-index:0;
+    font-family: "Font Awesome 5 Free";
+    font-size:1rem;
+    font-style: normal; 
+    font-variant: normal;
+    text-rendering: auto;
+    font-weight: 900;
+  }
+ }
+
 
 //custom input
-.basic-input{
-  border:1px solid $asphalt-grey;
-  position: relative;
+.basic-upload-input{
+   position: relative;
+  .placeholder{
+    border:1px solid $asphalt-grey;
+    width:100%;
+    height: 3.4rem;
+    font-weight: normal;
+    z-index: 1;
+    margin:0;
+  }
+  input[type="file"]{
+    cursor:pointer;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  .input-file ~ .text-default,
+  .placeholder span{
+    @include align-left;
+    top:1.8rem;
+    left:1.2rem;
+  }
+  .placeholder span{
+    color:$middle-grey;
+    opacity: 0.6;
+    font-weight: normal;
+  }
+  .input-file ~ .thumb-icon{
+    @include align-right;
+    top:1.8rem;
+    right:1rem;
+  }
+
+  .text-error:after,
+  .text-warning:after,
+  .text-success:after{
+    content:'';
+    opacity:0;
+  }
+  .text-default:after{
+    @extend .text-error:after; 
+    color: $middle-grey;
+  }
 }
 
 .input-lg{
@@ -130,6 +190,13 @@ input[type="url"]{
     padding-left:40px;
    }
    
+}
+
+
+.basic-upload{
+ @extend input[type="text"];
+ border:1px solid $light-grey;
+
 }
 
 .custom-file{

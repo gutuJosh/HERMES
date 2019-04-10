@@ -1,7 +1,7 @@
 import Layout from '../components/Layout.js';
 import BreakPointsTable from '../components/BreakPointsTable';
 
-export default class modernGrid extends React.Component {
+export default class cssGrid extends React.Component {
 
     constructor(props) {
       super(props);

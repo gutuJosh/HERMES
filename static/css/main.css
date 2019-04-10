@@ -28,23 +28,23 @@ a {
 }
 
 /*placeholders*/
-input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="url"]::-moz-placeholder {
+input[type="text"]::-moz-placeholder, .basic-upload::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="url"]::-moz-placeholder {
   color: #6a6a6a;
   opacity: 0.6;
 }
 
-input[type="text"]::-webkit-placeholder, input[type="password"]::-webkit-placeholder, input[type="email"]::-webkit-placeholder, input[type="url"]::-webkit-placeholder {
+input[type="text"]::-webkit-placeholder, .basic-upload::-webkit-placeholder, input[type="password"]::-webkit-placeholder, input[type="email"]::-webkit-placeholder, input[type="url"]::-webkit-placeholder {
   color: #6a6a6a;
   opacity: 0.6;
 }
 
-input[type="text"]::-ms-placeholder, input[type="password"]::-ms-placeholder, input[type="email"]::-ms-placeholder, input[type="url"]::-ms-placeholder {
+input[type="text"]::-ms-placeholder, .basic-upload::-ms-placeholder, input[type="password"]::-ms-placeholder, input[type="email"]::-ms-placeholder, input[type="url"]::-ms-placeholder {
   color: #6a6a6a;
   opacity: 0.6;
 }
 
 /*appearance*/
-input[type="text"], input[type="email"], input[type="search"], input[type="number"], input[type="password"], input[type="file"], input[type="radio"], input[type="checkbox"] {
+input[type="text"], .basic-upload, input[type="email"], input[type="search"], input[type="number"], input[type="password"], input[type="file"], input[type="radio"], input[type="checkbox"] {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -2614,6 +2614,7 @@ pre {
 }
 
 .form-group {
+  position: relative;
   margin-bottom: 1.5rem;
 }
 
@@ -2629,14 +2630,39 @@ pre {
   font-weight: 700;
 }
 
-.form-group .text-hint, .form-group .text-error, .form-group .text-warning, .form-group .text-sucess {
-  display: none;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+.form-group .input-error,
+.form-group .input-warning,
+.form-group .input-success,
+.form-group .input-hint {
+  padding-right: 2rem;
 }
 
-input[type="text"],
+.form-group .input-hint ~ .info-sign {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 1rem;
+}
+
+.form-group .input-hint:focus ~ .info-sign {
+  color: #00bfed;
+}
+
+.form-group .text-warning:after {
+  content: "\f071";
+}
+
+.form-group .text-error:after, .form-group .basic-upload-input .text-default:after, .basic-upload-input .form-group .text-default:after {
+  content: "\f00d";
+}
+
+.form-group .text-success:after {
+  content: "\f00c";
+}
+
+input[type="text"], .basic-upload,
 input[type="email"],
 input[type="search"],
 input[type="date"],
@@ -2650,72 +2676,72 @@ input[type="url"] {
   width: 100%;
   height: 3.4rem;
   padding: 0.3rem 1.2rem;
+  background-color: transparent;
   background-clip: padding-box;
   outline: none;
   border: none;
   -webkit-transition: border-color 0.3s ease-out;
   transition: border-color 0.3s ease-out;
+  z-index: 1;
 }
 
-input[type="text"]:after,
-input[type="email"]:after,
-input[type="search"]:after,
-input[type="date"]:after,
-input[type="time"]:after,
-input[type="number"]:after,
-input[type="password"]:after,
-input[type="file"]:after,
-input[type="url"]:after {
-  display: block;
-  font-family: FontAwesome;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-input[type="text"].input-default, input[type="text"] .input-hint,
+input[type="text"].input-default, .input-default.basic-upload, input[type="text"] .input-hint, .basic-upload .input-hint, input[type="text"] .input-file, .basic-upload .input-file,
 input[type="email"].input-default,
 input[type="email"] .input-hint,
+input[type="email"] .input-file,
 input[type="search"].input-default,
 input[type="search"] .input-hint,
+input[type="search"] .input-file,
 input[type="date"].input-default,
 input[type="date"] .input-hint,
+input[type="date"] .input-file,
 input[type="time"].input-default,
 input[type="time"] .input-hint,
+input[type="time"] .input-file,
 input[type="number"].input-default,
 input[type="number"] .input-hint,
+input[type="number"] .input-file,
 input[type="password"].input-default,
 input[type="password"] .input-hint,
+input[type="password"] .input-file,
 input[type="file"].input-default,
 input[type="file"] .input-hint,
+input[type="file"] .input-file,
 input[type="url"].input-default,
-input[type="url"] .input-hint {
+input[type="url"] .input-hint,
+input[type="url"] .input-file {
   border: 1px solid #dfdfdd;
 }
 
-input[type="text"].input-default:focus, input[type="text"] .input-hint:focus,
+input[type="text"].input-default:focus, .input-default.basic-upload:focus, input[type="text"] .input-hint:focus, .basic-upload .input-hint:focus, input[type="text"] .input-file:focus, .basic-upload .input-file:focus,
 input[type="email"].input-default:focus,
 input[type="email"] .input-hint:focus,
+input[type="email"] .input-file:focus,
 input[type="search"].input-default:focus,
 input[type="search"] .input-hint:focus,
+input[type="search"] .input-file:focus,
 input[type="date"].input-default:focus,
 input[type="date"] .input-hint:focus,
+input[type="date"] .input-file:focus,
 input[type="time"].input-default:focus,
 input[type="time"] .input-hint:focus,
+input[type="time"] .input-file:focus,
 input[type="number"].input-default:focus,
 input[type="number"] .input-hint:focus,
+input[type="number"] .input-file:focus,
 input[type="password"].input-default:focus,
 input[type="password"] .input-hint:focus,
+input[type="password"] .input-file:focus,
 input[type="file"].input-default:focus,
 input[type="file"] .input-hint:focus,
+input[type="file"] .input-file:focus,
 input[type="url"].input-default:focus,
-input[type="url"] .input-hint:focus {
+input[type="url"] .input-hint:focus,
+input[type="url"] .input-file:focus {
   border-color: #00bfed;
 }
 
-input[type="text"].input-success,
+input[type="text"].input-success, .input-success.basic-upload,
 input[type="email"].input-success,
 input[type="search"].input-success,
 input[type="date"].input-success,
@@ -2728,7 +2754,7 @@ input[type="url"].input-success {
   border: 1px solid #469408;
 }
 
-input[type="text"].input-error,
+input[type="text"].input-error, .input-error.basic-upload,
 input[type="email"].input-error,
 input[type="search"].input-error,
 input[type="date"].input-error,
@@ -2741,7 +2767,7 @@ input[type="url"].input-error {
   border: 1px solid #FE5E3A;
 }
 
-input[type="text"].input-warning,
+input[type="text"].input-warning, .input-warning.basic-upload,
 input[type="email"].input-warning,
 input[type="search"].input-warning,
 input[type="date"].input-warning,
@@ -2754,93 +2780,50 @@ input[type="url"].input-warning {
   border: 1px solid #f1c40f;
 }
 
-input[type="text"].input-error:after,
-input[type="email"].input-error:after,
-input[type="search"].input-error:after,
-input[type="date"].input-error:after,
-input[type="time"].input-error:after,
-input[type="number"].input-error:after,
-input[type="password"].input-error:after,
-input[type="file"].input-error:after,
-input[type="url"].input-error:after {
-  content: '\f00d';
-  font-family: FontAwesome;
-  color: #d9230f;
-  display: inline-block;
-}
-
-input[type="text"].input-success:after,
-input[type="email"].input-success:after,
-input[type="search"].input-success:after,
-input[type="date"].input-success:after,
-input[type="time"].input-success:after,
-input[type="number"].input-success:after,
-input[type="password"].input-success:after,
-input[type="file"].input-success:after,
-input[type="url"].input-success:after {
-  content: '\f071';
-  font-family: FontAwesome;
-  color: #285504;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-}
-
-input[type="text"].input-warning:after,
-input[type="email"].input-warning:after,
-input[type="search"].input-warning:after,
-input[type="date"].input-warning:after,
-input[type="time"].input-warning:after,
-input[type="number"].input-warning:after,
-input[type="password"].input-warning:after,
-input[type="file"].input-warning:after,
-input[type="url"].input-warning:after {
-  content: '\f071';
-  font-family: FontAwesome;
-  color: #d9831f;
-}
-
-input[type="text"].input-error ~ span.text-error,
+input[type="text"].input-error ~ span.text-error, .input-error.basic-upload ~ span.text-error,
 input[type="text"].input-warning ~ span.text-warning,
-input[type="text"].input-success ~ span.text-succes,
+.input-warning.basic-upload ~ span.text-warning,
+input[type="text"].input-success ~ span.text-success,
+.input-success.basic-upload ~ span.text-success,
 input[type="text"].input-hint:focus ~ span.text-hint,
+.input-hint.basic-upload:focus ~ span.text-hint,
 input[type="email"].input-error ~ span.text-error,
 input[type="email"].input-warning ~ span.text-warning,
-input[type="email"].input-success ~ span.text-succes,
+input[type="email"].input-success ~ span.text-success,
 input[type="email"].input-hint:focus ~ span.text-hint,
 input[type="search"].input-error ~ span.text-error,
 input[type="search"].input-warning ~ span.text-warning,
-input[type="search"].input-success ~ span.text-succes,
+input[type="search"].input-success ~ span.text-success,
 input[type="search"].input-hint:focus ~ span.text-hint,
 input[type="date"].input-error ~ span.text-error,
 input[type="date"].input-warning ~ span.text-warning,
-input[type="date"].input-success ~ span.text-succes,
+input[type="date"].input-success ~ span.text-success,
 input[type="date"].input-hint:focus ~ span.text-hint,
 input[type="time"].input-error ~ span.text-error,
 input[type="time"].input-warning ~ span.text-warning,
-input[type="time"].input-success ~ span.text-succes,
+input[type="time"].input-success ~ span.text-success,
 input[type="time"].input-hint:focus ~ span.text-hint,
 input[type="number"].input-error ~ span.text-error,
 input[type="number"].input-warning ~ span.text-warning,
-input[type="number"].input-success ~ span.text-succes,
+input[type="number"].input-success ~ span.text-success,
 input[type="number"].input-hint:focus ~ span.text-hint,
 input[type="password"].input-error ~ span.text-error,
 input[type="password"].input-warning ~ span.text-warning,
-input[type="password"].input-success ~ span.text-succes,
+input[type="password"].input-success ~ span.text-success,
 input[type="password"].input-hint:focus ~ span.text-hint,
 input[type="file"].input-error ~ span.text-error,
 input[type="file"].input-warning ~ span.text-warning,
-input[type="file"].input-success ~ span.text-succes,
+input[type="file"].input-success ~ span.text-success,
 input[type="file"].input-hint:focus ~ span.text-hint,
 input[type="url"].input-error ~ span.text-error,
 input[type="url"].input-warning ~ span.text-warning,
-input[type="url"].input-success ~ span.text-succes,
+input[type="url"].input-success ~ span.text-success,
 input[type="url"].input-hint:focus ~ span.text-hint {
   display: inline-block;
   opacity: 1;
 }
 
-input[type="text"].border-none,
+input[type="text"].border-none, .border-none.basic-upload,
 input[type="email"].border-none,
 input[type="search"].border-none,
 input[type="date"].border-none,
@@ -2852,9 +2835,87 @@ input[type="url"].border-none {
   border: none;
 }
 
-.basic-input {
-  border: 1px solid #b7b7b7;
+.text-hint, .text-error, .text-warning, .text-success {
+  display: none;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.text-hint:after, .text-error:after, .basic-upload-input .text-default:after, .text-warning:after, .text-success:after {
+  display: block;
+  position: absolute;
+  top: 3.5rem;
+  right: 1rem;
+  z-index: 0;
+  font-family: "Font Awesome 5 Free";
+  font-size: 1rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  font-weight: 900;
+}
+
+.basic-upload-input {
   position: relative;
+}
+
+.basic-upload-input .placeholder {
+  border: 1px solid #b7b7b7;
+  width: 100%;
+  height: 3.4rem;
+  font-weight: normal;
+  z-index: 1;
+  margin: 0;
+}
+
+.basic-upload-input input[type="file"] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.basic-upload-input .input-file ~ .text-default,
+.basic-upload-input .placeholder span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 1.8rem;
+  left: 1.2rem;
+}
+
+.basic-upload-input .placeholder span {
+  color: #6a6a6a;
+  opacity: 0.6;
+  font-weight: normal;
+}
+
+.basic-upload-input .input-file ~ .thumb-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 1.8rem;
+  right: 1rem;
+}
+
+.basic-upload-input .text-error:after, .basic-upload-input .text-default:after,
+.basic-upload-input .text-warning:after,
+.basic-upload-input .text-success:after {
+  content: '';
+  opacity: 0;
+}
+
+.basic-upload-input .text-default:after {
+  color: #6a6a6a;
 }
 
 .input-lg {
@@ -2885,6 +2946,10 @@ input[type="url"].border-none {
 
 .input-with-icon input {
   padding-left: 40px;
+}
+
+.basic-upload {
+  border: 1px solid #dfdfdd;
 }
 
 .custom-file {
