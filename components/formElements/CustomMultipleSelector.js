@@ -8,7 +8,6 @@ const CustomMultipleSelector = (props) => {
   let close;
 
   function handleStatusChange(selected) {
-       clearTimeout(close);
        setSelected(selected);
        props.change('selectedValues',selected);
   }
