@@ -51,7 +51,7 @@
     }
 }
 
-//set margin-left to columns
+//set margin-left to grid columns
 
 @mixin set-offset($start, $stop){
     
@@ -103,4 +103,16 @@
       
     }
 
+}
+
+//add an icon :before or :after
+@mixin add-icon($icon, $size){
+    content: "#{$icon}";
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size:$size;
+    font-style: normal; 
+    font-variant: normal;
+    text-rendering: auto;
 }

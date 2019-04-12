@@ -128,6 +128,10 @@
  .flex{
    display: -webkit-flex;/* Safari */
    display:flex;
+   flex-wrap: nowrap;
+   &.wrap{
+    flex-wrap: wrap;
+   }
  }
  
  .flex-row{
@@ -148,18 +152,28 @@
  }
  /****Flex items alignment****/
  .flex-center{
-   -webkit-align-items: center; /* Safari 7.0+ */
-   align-items: center;
+   -webkit-justify-content: center; /* Safari 7.0+ */
+   justify-content: center;
  }
- 
  .flex-left{
-   -webkit-align-items: flex-start; /* Safari 7.0+ */
-   align-items: flex-start;
+   -webkit-justify-content: flex-start; /* Safari 7.0+ */
+   justify-content: flex-start;
  }
- 
  .flex-right{
-   -webkit-align-items: flex-end; /* Safari 7.0+ */
-   align-items: flex-end;
+   -webkit-justify-content: flex-end; /* Safari 7.0+ */
+   justify-content: flex-end;
+ }
+ .flex-top{
+  align-items: flex-start;
+ }
+ .flex-middle{
+  align-items: center;
+ }
+ .flex-bottom{
+  align-items: flex-end;
+ }
+ .flex-horizontal-gap{
+  justify-content: space-between;
  }
  /****Flex items****/
  .flex-item{
@@ -278,7 +292,7 @@
  
  //cursors
  .pointer{
-    cursor:pointer;
+    cursor:pointer; 
  }
 
 

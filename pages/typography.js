@@ -120,7 +120,7 @@ export default class typography extends React.Component {
             <div className="pad20 m0">
               <Paragraph type="long" title="Text info" cssClass="text-info"/>
               <Paragraph type="long" title="Text alert" cssClass="text-alert"/>
-              <Paragraph type="long" title="Text success" cssClass="text-success"/>
+              <Paragraph type="long" title="Text success" cssClass="text-green"/>
             </div>
             </div>
             <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">

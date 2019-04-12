@@ -26,7 +26,7 @@ div[class*="offset"]{
         }
     }
 }
-div[class*="flex-lg-"]{
+.flex-grid-system div[class*="flex-lg-"]{
     background-color: $super-light-grey;
 }
 .grid {

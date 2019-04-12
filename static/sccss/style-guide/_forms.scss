@@ -77,11 +77,22 @@ input[type="url"]{
   color:$gold-yellow;
   border:1px solid $yellow;
  }
-
+ &.input-disabled{
+   border:1px solid $light-grey;
+   background-color: $super-light-grey;
+   cursor: not-allowed;
+ }
+ &.input-readonly{
+  border:1px solid $light-grey;
+  background-color: $super-light-grey;
+  cursor: copy;
+}
  &.input-error ~ span.text-error, 
  &.input-warning ~ span.text-warning, 
  &.input-success ~ span.text-success, 
- &.input-hint:focus ~ span.text-hint{
+ &.input-hint:focus ~ span.text-hint,
+ &.input-readonly:focus ~ .text-disabled,
+ &.input-disabled:hover ~ .text-disabled{
   display:inline-block;
   opacity:1;
  }
@@ -93,7 +104,11 @@ input[type="url"]{
 
 
  //validation
- .text-hint, .text-error, .text-warning, .text-success{
+ .text-hint, 
+ .text-error, 
+ .text-warning, 
+ .text-success,
+ .text-disabled{
   display:none;
   opacity:0;
   transition:all 0.3s ease-out;
@@ -113,7 +128,7 @@ input[type="url"]{
  }
 
 
-//custom input
+//custom file input
 .basic-upload-input{
    position: relative;
   .placeholder{
@@ -193,43 +208,10 @@ input[type="url"]{
 }
 
 
-.basic-upload{
- @extend input[type="text"];
- border:1px solid $light-grey;
-
-}
-
-.custom-file{
-  position:relative;
-  font-size:14px;
-  width:100%;
-  height:34px;
-  padding:3px 12px;
-  background-clip:padding-box;
-  outline:none;
-  input[type="file"]{
-    opacity:0;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:10;
-  }
- .file-name{
-  font-size:14px;
-  line-height:34px;
-  position:absolute;
-  top:0;
-  left:0px;
-  width:100%;
-  padding:0 15px;
-  &.pointer{
-    z-index:100;
-  }
- }
-}
-
-
 //select
+.select-box{
+ position: relative;
+}
 select{
   appearance:none;
   -moz-appearance:none;
@@ -237,22 +219,111 @@ select{
   height:36px;
   padding:3px;
   font-size:14px;
+  border:1px solid $asphalt-grey;
+  box-shadow: none;
+  width:100%;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
 }
-
-.custom-select-container{
-   position: relative;
-}
-
-.custom-select-container:after{
-  content:'\f0d7';
-  font-family: FontAwesome;
-  font-size:20px;
-  position:absolute;
-  top:50%;
+select ~ .arrow:after, select ~ .arrow2:after{
+  content: "\f0d7";
+  display: block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size:1rem;
+  font-style: normal; 
+  font-variant: normal;
+  text-rendering: auto;
+  @include align-right;
   right:10px;
-  transform:translateY(-50%);
   z-index: 0;
+  color:$asphalt-grey;
 }
+select ~ .arrow2:after{
+  transform: none;
+  top:40px;
+}
+.selector-label{
+  display:inline-block;
+  margin-bottom:0.5rem;
+  font-weight:700;
+}
+.custom-selector{
+   position: relative;
+   @extend select;
+   height:auto;
+   min-height:36px;
+   padding:0 1rem;
+   transition:height 0.3s ease-out;
+   input{
+     display:none;
+   }
+   .select-menu{
+     max-height:0;
+     overflow:hidden;
+     transition:max-height 0.3s ease-out;
+   }
+   .placeholder{
+     font-size:1.4rem;
+     line-height: 34px;
+   }
+   .placeholder:after{
+    @include add-icon("\f0d7", 1rem);
+    position: absolute;
+    top:2px;
+    right:10px;
+    z-index: 0;
+    color:$asphalt-grey;
+   }
+   .select-options{
+     height: auto;
+     li{
+      position: relative;
+      padding:0;
+     }
+     label{
+       display:block;
+       font-size:1.4rem;
+       line-height: 1.4rem;
+       padding:10px 15px;
+       transition:background-color 0.3s ease-out;
+        &:hover{
+          background-color: $super-light-grey;
+        }
+    }
+    
+   }
+   .open-select-list:checked ~ .select-menu{
+     transition:max-height 0.3s ease-out;
+     max-height: 200px;
+     overflow-y: auto;
+   }
+}
+
+.custom-option:checked ~ label{
+  background-color: $super-light-grey;
+  &:after{
+    @include add-icon("\f00c", 1rem);
+    @include align-right;
+    right:10px;
+    color:$asphalt-grey;
+  }
+}
+
+.selected-label{
+   display: inline-block;
+   background-color: $super-light-grey;
+   padding:5px 15px 5px 10px;
+   position: relative;
+   margin:10px 5px 0 0;
+   &:after{
+    @include add-icon("\f00d", 1rem);
+    @include align-right;
+    right:5px;
+   }
+}
+
 
 .custom-select-box{
   width:100%;
@@ -323,7 +394,8 @@ select{
     }
 }
 
-.custom-select-box input:focus ~ .custom-select-options, .multiple-select-box input:focus ~ .custom-select-options{
+.custom-select-box input:focus ~ .custom-select-options, 
+.multiple-select-box input:focus ~ .custom-select-options{
      display:block;
 }
 
@@ -572,42 +644,87 @@ select{
   width:100%;
 }
 
-
-//checkbox
-label.custom-checkbox{
+//checkbox & radio
+.custom-checkbox{
   display:inline-block;
   position: relative;
   padding-left:24px;
   cursor: pointer;
   font-weight:normal;
   line-height:18px;
+  .checkmark{
+   position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color:transparent;
+    border:1px solid $asphalt-grey;
+    &.info{
+      border:1px solid $azure;
+    }
+    &.error{
+      border:1px solid $red;
+    }
+    &.warning{
+      border:1px solid $yellow;
+    }
+    &.success{
+      border:1px solid $green;
+    }
+  
+  }
+  &.large{
+    line-height:30px;
+    padding-left:40px;
+    .checkmark{
+      width:30px;
+      height:30px;
+    }
+    input:checked ~ .checkmark:after {
+      width: 6px;
+      height: 14px;
+      left:12px;
+      top:4px;
+    }
+  }
+  &.small{
+    padding-left:25px;
+    .checkmark{
+      width:15px;
+      height:15px;
+    }
+    input:checked ~ .checkmark:after {
+      width: 3px;
+      height: 6px;
+      top:2px;
+      left:5px;
+    }
+  }
   input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    border:1px solid $asphalt-grey;
+  input:checked ~ .checkmark {
+    background-color:$asphalt-grey;
   }
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  input:checked ~ .checkmark.azure {
+  input:checked ~ .checkmark.info {
     background-color:$azure;
-    border-color:$azure;
   }
-  input:checked ~ .checkmark.red {
+  input:checked ~ .checkmark.error {
     background-color:$red;
-    border-color:$red;
+  }
+  input:checked ~ .checkmark.warning {
+    background-color:$yellow;
+  }
+  input:checked ~ .checkmark.success {
+    background-color:$green;
   }
   input:checked ~ .checkmark:after {
+    content:'';
+    position:absolute;
+    z-index: 3;
     display: block;
     left: 5px;
     top: 1px;
@@ -619,39 +736,38 @@ label.custom-checkbox{
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+
   }
+  input:checked ~ .checkmark:after{
+    border-right:3px solid $snow;
+    border-bottom:3px solid $snow;
+  }
+  input:checked ~ .checkmark.warning:after{
+    border-right:3px solid $dark-grey;
+    border-bottom:3px solid $dark-grey;
+  }
+
 }
 
-//checkbox & radio
-.custom-checkbox{
-  input{
-    display:none;
-  }
-  label{
-   width:100%;
-   cursor:pointer;
-   &:before{
-     content:'\f096';
-     font-family:FontAwesome;
-     color:$middle-grey;
-     font-size:14px;
-     display:inline-block;
-     margin-right:5px;
-   }
-  }
-  input:checked ~ label:before{
-  content:'\f14a';
- }
+.custom-checkbox ~ .text-error{
+  display:none;
+  padding-left:10px;
+}
+
+
+.custom-checkbox.error ~ .text-error, 
+.custom-checkbox.warning ~ .text-warning{
+   display:inline-block;
 }
 
 //radio button
-label.custom-radio-btn{
+.custom-radio-btn{
   display:inline-block;
   position: relative;
-  padding-left:24px;
+  padding-left:30px;
   cursor: pointer;
   font-weight:normal;
-  line-height:18px;
+  line-height:22px;
   input {
     position: absolute;
     opacity: 0;
@@ -661,24 +777,32 @@ label.custom-radio-btn{
     position: absolute;
     top: 0;
     left: 0;
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
-    background-color:$light-grey;
-    border:1px solid $light-grey;
+    background-color:$asphalt-grey;
+    border:1px solid $asphalt-grey;
   }
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  input:checked ~ .checkmark.azure {
+  input:checked ~ .checkmark.info{
     background-color:$azure;
     border-color:$azure;
   }
-  input:checked ~ .checkmark.red {
+  input:checked ~ .checkmark.error {
     background-color:$red;
     border-color:$red;
+  }
+  input:checked ~ .checkmark.warning {
+    background-color:$yellow;
+    border-color:$yellow;
+  }
+  input:checked ~ .checkmark.success {
+    background-color:$green;
+    border-color:$green;
   }
   input:checked ~ .checkmark:after {
     display: block;
@@ -690,5 +814,29 @@ label.custom-radio-btn{
     background-color:$snow;
     transform:translate(-50%,-50%);
     
+  }
+  &.large{
+    line-height:32px;
+    padding-left:40px;
+    .checkmark{
+      width:30px;
+      height:30px;
+    }
+    input:checked ~ .checkmark:after {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  &.small{
+    line-height: 18px;
+    padding-left:25px;
+    .checkmark{
+      width:14px;
+      height:14px;
+    }
+    input:checked ~ .checkmark:after {
+      width: 6px;
+      height: 6px;
+    }
   }
 }

@@ -26,8 +26,9 @@ const BasicInput = (props) => (
      <span className="text-warning small mtop10">{props.warningMessage}</span>
      <span className="text-success small mtop10">{props.successMessage}</span>
      <span className="text-hint small mtop10">{props.hintMessage}</span>
+     <span className="text-disabled small mtop10">{props.disabledMessage}</span>
      {props.hintMessage &&
-     <span className="info-sign">
+     <span className="info-sign pointer">
       <i className="fas fa-info-circle"></i>
      </span>
      }
@@ -52,6 +53,7 @@ BasicInput.protoTypes = {
     warningMessage: PropTypes.string,
     successMessage: PropTypes.string,
     hintMessage: PropTypes.string,
+    disabledMessage: PropTypes.string
 }
 
 export default BasicInput;

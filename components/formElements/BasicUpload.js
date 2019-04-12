@@ -21,7 +21,6 @@ const BasicUpload = (props) => (
       id={props.id}
       type="file" 
       name={props.name} 
-      placeholder={props.placeholder}
       defaultValue={props.defaultValue} 
       className="input-file"
       onFocus={props.focus} 
