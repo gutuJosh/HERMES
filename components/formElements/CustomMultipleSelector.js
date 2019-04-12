@@ -1,14 +1,30 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const CustomMultipleSelector = (props) => {
   
   const [selected, setSelected] = useState(!props.selectedValues ? [] : props.selectedValues);
+  const [values] = useState(selected.map((item) => item.value));
+  let close;
 
   function handleStatusChange(selected) {
-      setSelected(selected);
-      props.change('selectedValues',selected);
+       clearTimeout(close);
+       setSelected(selected);
+       props.change('selectedValues',selected);
   }
+
+  function removeItem(event){
+    let getSelectedValues = selected.filter( (element) => {
+        if(element.value !== event.target.dataset.value){
+            return element;
+        }
+        else{
+            document.querySelector('#'+props.name+' input[value="'+element.value+'"]').checked = false;
+        }
+    }); 
+    handleStatusChange(getSelectedValues);
+  }
+
 
 
   let counter = 0;
@@ -20,7 +36,7 @@ const CustomMultipleSelector = (props) => {
      <input type="checkbox" id={props.selectorId} className="open-select-list"/>
      <label className="placeholder pointer" htmlFor={props.selectorId}>{props.placeholder}</label>
      <div className="select-menu">
-       <ul className="select-options list-group">
+       <ul className="select-options list-group" id={props.name}>
         {props.options.map((item, i) => {
            counter++;
            return (
@@ -32,7 +48,7 @@ const CustomMultipleSelector = (props) => {
                value={item.value} 
                data-title={item.title}
                className="custom-option"
-               defaultChecked={selected.join().indexOf(item.title) !== -1 ? true : false} 
+               defaultChecked={values.join().indexOf(item.value) !== -1 ? true : false} 
                onChange={(event) => {
                  let getPreviousSelectedValues = selected;
                  if(event.target.checked === true){
@@ -40,6 +56,7 @@ const CustomMultipleSelector = (props) => {
                         'value': event.target.value,
                         'title': event.target.dataset.title
                     });
+                    
                  }
                  else{
                     getPreviousSelectedValues = selected.filter( (element) => {
@@ -50,6 +67,7 @@ const CustomMultipleSelector = (props) => {
                  }
                  handleStatusChange(getPreviousSelectedValues);
                }}
+               
                />
               <label className="pointer" htmlFor={props.name+'_'+counter}>{item.title}</label>
           </li>
@@ -61,14 +79,7 @@ const CustomMultipleSelector = (props) => {
      <div className="selected-options-container flex wrap">
         {selected.map((item, i) =>{
             return(
-                <span className="selected-label pointer" data-value={item.value} key={i} onClick={(event) => {
-                    let getSelectedValues = selected.filter( (element) => {
-                        if(element.value !== event.target.dataset.value){
-                            return element;
-                        }
-                    }); 
-                    handleStatusChange(getSelectedValues);
-                }}>
+                <span className="selected-label pointer" data-value={item.value} key={i} onClick={removeItem}>
                  {item.title}
                 </span>
             )

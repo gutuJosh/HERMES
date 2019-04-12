@@ -13,7 +13,7 @@ export default class forms extends React.Component {
     super(props);
     this.state = {
         pageInfo:'',
-        defaultValues:[]
+        selectedValues:[]
     }
     this.updateState = this.updateState.bind(this);
    }
@@ -385,13 +385,13 @@ export default class forms extends React.Component {
              placeholder="Select your browser"
              name="multiple-selector"
              options={[
-              {'value': 'fx','title':'Firefox'},
-              {'value': 'gc','title':'Chrome'},
-              {'value': 'op','title':'Opera'},
-              {'value': 'vv','title':'Vivaldi'},
-              {'value': 'ed','title':'Edge'},
-              {'value': 'ie','title':'Internet Explorer'},
-              {'value': 'sf','title':'Safari'}
+              {'value': 'Firefox','title':'Firefox'},
+              {'value': 'Chrome','title':'Chrome'},
+              {'value': 'opera','title':'Opera'},
+              {'value': 'vivaldi','title':'Vivaldi'},
+              {'value': 'edge','title':'Edge'},
+              {'value': 'internet explorer','title':'Internet Explorer'},
+              {'value': 'safari','title':'Safari'}
 
             ]}
             selectedValues={this.state.selectedValues}
