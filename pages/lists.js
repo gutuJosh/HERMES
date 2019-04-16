@@ -67,11 +67,11 @@ export default class lists extends React.Component {
               <pre>
                 <code>
                   &lt;ul class="<span className="text-green">list-group</span>"&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li class="<span className="text-green">disabled</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li class="<span className="text-green">disabled</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
                   &lt;/ul&gt;
                 </code>
               </pre>
@@ -117,11 +117,11 @@ export default class lists extends React.Component {
              <pre>
                 <code>
                   &lt;ul class="<span className="text-green">list-group-divided</span>"&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
-                  &nbsp;&lt;li class="<span className="text-green">disabled</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;li class="<span className="text-green">disabled</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/li&gt;<br/>
                   &lt;/ul&gt;
                 </code>
               </pre>

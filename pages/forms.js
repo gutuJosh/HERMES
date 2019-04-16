@@ -1,11 +1,13 @@
 import Layout from '../components/Layout.js';
 import BasicInput from '../components/formElements/BasicInput';
 import BasicUpload from '../components/formElements/BasicUpload';
+import CustomUpload from '../components/formElements/CustomUpload';
 import BasicCheckBox from '../components/formElements/BasicCheckBox';
 import BasicRadioButton from '../components/formElements/BasicRadioButton';
 import BasicSelector from '../components/formElements/BasicSelector';
 import CustomSelector from '../components/formElements/CustomSelector';
 import CustomMultipleSelector from '../components/formElements/CustomMultipleSelector';
+import Switcher from '../components/formElements/Switcher';
 
 export default class forms extends React.Component {
 
@@ -125,15 +127,6 @@ export default class forms extends React.Component {
                label="Input disabled"
                disabledMessage="This field is disabled!"
               />
-
-              <BasicUpload
-               containerClass="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1" 
-               name="input-file" 
-               placeholder=".csv .pdf .txt"
-               errorMessage="Error message!"
-               default={false}
-              />
-              
              </form>
             </div>
            
@@ -141,9 +134,22 @@ export default class forms extends React.Component {
              <div className="pad20 m0">
               <h4>Code sample:</h4>
               <hr className="thin"/>
+        
               <pre>
-                <code></code>
+                <code>
+                  &lt;div&nbsp;class&#61;"form-group"&gt;<br/>
+                  &nbsp;&lt;label for="basic-text"&gt;<span className="text-middle-grey">Lorem ipsum:</span>&lt;/label&gt;<br/>
+                  &nbsp;&lt;input&nbsp;class&#61;"<span className="text-green">[input-default|input-warning|input-error|input-success|text-hint|input-readonly|input-disabled]</span>" type="text" name="basic-text" /&gt;<br/>
+                  &nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">text-warning</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet.</span>&lt;/span&gt;<br/>
+                  &nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">text-error</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet.</span>&lt;/span&gt;<br/>
+                  &nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">text-success</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet.</span>&lt;/span&gt;<br/>
+                  &nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">text-hint</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet.</span>&lt;/span&gt;<br/>
+                  &nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">text-disabled</span>"&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet.</span>&lt;/span&gt;<br/>
+                  &lt;/div&gt;
+                </code>
               </pre>
+
+              
              </div>
             </div>
 
@@ -330,17 +336,38 @@ export default class forms extends React.Component {
               <h4>Code sample:</h4>
               <hr className="thin"/>
               <pre>
-                <code></code>
+                <code>
+                  &lt;div&gt;<br/>
+                  &nbsp;&lt;label&nbsp;class&#61;"<span className="text-green">custom-checkbox [small|large]</span>"&gt;<br/>
+                  &nbsp;&nbsp;&lt;input type="checkbox"/&gt;<br/>
+                  &nbsp;&nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">checkmark [info|warning|error|success]</span>"&gt;&lt;/span&gt;<br/>
+                  &nbsp;&nbsp;&lt;span&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/span&gt;<br/>
+                  &nbsp;&lt;/label&gt;<br/>
+                  &lt;/div&gt;
+                </code>
               </pre>
+
+              <pre>
+                <code>
+                  &lt;div&gt;<br/>
+                  &nbsp;&lt;label&nbsp;class&#61;"<span className="text-green">custom-radio-button [small|large]</span>"&gt;<br/>
+                  &nbsp;&nbsp;<span className="text-middle-grey">Lorem ipsum</span><br/>
+                  &nbsp;&nbsp;&lt;input type="checkbox"/&gt;<br/>
+                  &nbsp;&nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">checkmark [info|warning|error|success]</span>"&gt;&lt;/span&gt;<br/>
+                  &nbsp;&lt;/label&gt;<br/>
+                  &lt;/div&gt;
+                </code>
+              </pre>
+
              </div>
             </div>
          </div>
 
-         <div className="grid">
+         <div className="grid pad10">
 
           <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
            <div className="pad20 m0">
-           <h4>Select:</h4>
+           <h4>Selectors and switchers:</h4>
            <hr className="thin"/>
            <div className="flex-grid wrap">
             <BasicSelector
@@ -399,6 +426,154 @@ export default class forms extends React.Component {
             errorMessage="This field is required"
             />
             </div>
+            <hr className="thin"/>
+            <div className="flex-grid wrap">
+             <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="normal"
+               id="custom-switcher" 
+               checked={false}
+               round="round"
+             />
+               <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="info"
+               id="custom-switcher" 
+               checked={true}
+               round="round"
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="warning"
+               id="custom-switcher" 
+               checked={true}
+               round="round"
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="error"
+               id="custom-switcher" 
+               checked={true}
+               round="round"
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="success"
+               id="custom-switcher" 
+               checked={true}
+               round="round"
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-12 flex-sx-12"
+               type="success large"
+               id="custom-switcher" 
+               checked={true}
+               round="round"
+             />
+            </div>
+
+            <div className="flex-grid wrap mtop20">
+             <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="normal"
+               id="custom-switcher" 
+               checked={false}
+             />
+               <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="info"
+               id="custom-switcher" 
+               checked={true}
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="warning"
+               id="custom-switcher" 
+               checked={true}
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="error"
+               id="custom-switcher" 
+               checked={true}
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-4 flex-sx-12"
+               type="success"
+               id="custom-switcher" 
+               checked={true}
+             />
+              <Switcher
+               containerClass="flex-lg-2 flex-md-2 flex-sm-12 flex-sx-12"
+               type="success large"
+               id="custom-switcher" 
+               checked={true}
+             />
+            </div>
+
+           </div>
+          </div>
+
+          <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
+             <div className="pad20 m0">
+              <h4>Code sample:</h4>
+              <hr className="thin"/>
+        
+              <pre>
+                <code>
+                  &lt;div&gt;<br/>
+                  &nbsp;&lt;label&nbsp;class&#61;"<span className="text-green">selector-label</span>"&gt;<span className="text-middle-grey">Lorem ipsum</span>&nbsp;&lt;/label&gt;<br/>
+                  &nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">custom-selector</span>"&gt;<br/>
+                  &nbsp;&nbsp;&lt;input type="checkbox"&nbsp;class&#61;"<span className="text-green">open-select-list</span>" id="browser-list" /&gt;<br/>
+                  &nbsp;&nbsp;&lt;label for="browser-list"&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/label&gt;<br/>
+                  &nbsp;&nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">select-menu</span>"&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&lt;ul&nbsp;class&#61;"<span className="text-green">select-options</span>"&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" id="input_1"&nbsp;class&#61;"<span className="text-green">custom-options</span>" /&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="input_1"&gt;<span className="text-middle-grey">Option ipsum</span>&lt;/label&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>
+                  &nbsp;&nbsp;&lt;/div&gt;<br/>
+                  &nbsp;&lt;/div&gt;<br/>
+                  &nbsp;&lt;!-- only for multiple selector --&gt;<br/>
+                  &nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">selected-options-container</span>"&gt;<br/>
+                  &nbsp;&nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">selected-label</span>"&gt;<span className="text-middle-grey">Option ipsum</span>&lt;/span&gt;<br/>
+                  &nbsp;&lt;/div&gt;<br/>
+                  &lt;/div&gt;
+                </code>
+              </pre>
+
+              <pre>
+                <code>
+                  &lt;div&gt;<br/>
+                  &nbsp;&lt;label&nbsp;class&#61;"<span className="text-green">switch [info|warning|error|success]</span>"&gt;<br/>
+                  &nbsp;&nbsp;&lt;input type="checkbox" /&gt;<br/>
+                  &nbsp;&nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">slider [round]</span>"&gt;&lt;/span&gt;<br/>
+                  &nbsp;&lt;/label&gt;<br/>
+                  &lt;/div&gt;
+                </code>
+              </pre>
+
+             </div>
+          </div>
+
+          <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
+           <div className="pad20 m0">
+            <h4>Uploaders:</h4>
+            <hr className="thin"/>
+            <BasicUpload
+               containerClass="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1" 
+               name="input-file" 
+               placeholder=".csv .pdf .txt"
+               errorMessage="Error message!"
+               default={false}
+              />
+              <CustomUpload
+               containerClass="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1 mtop10" 
+               name="custom-input-file" 
+               id="custom-input-file" 
+               label="Click or drop your images here"
+              />
            </div>
           </div>
 
@@ -409,8 +584,10 @@ export default class forms extends React.Component {
               <pre>
                 <code></code>
               </pre>
-             </div>
-          </div>
+            </div>
+        </div>
+
+
         </div>
         </Layout>
       )

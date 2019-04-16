@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-const BasicUpload = (props) => (
+const BasicUpload = (props) => {
 
+    const [imagename, setImagename] = useState(props.placeholder);
+
+    function getFileName(event){
+        let fileName = event.target.files[0].name;
+        setImagename(fileName);
+        props.change;
+    }
+
+    return(
      <div className={`form-group ${props.containerClass}`}>
       <label>Upload file</label>
       <div className="basic-upload-input">
@@ -12,7 +22,7 @@ const BasicUpload = (props) => (
         </span>
         :
         <span className="block">
-        {props.placeholder}
+        {imagename}
         </span>
         }
        </label>
@@ -25,7 +35,7 @@ const BasicUpload = (props) => (
       className="input-file"
       onFocus={props.focus} 
       onBlur={props.blur}
-      onChange={props.change}
+      onChange={getFileName}
       />
      <span className="text-error small mtop10">{props.errorMessage}</span>
      <span className="text-warning small mtop10">{props.warningMessage}</span>
@@ -41,7 +51,8 @@ const BasicUpload = (props) => (
      </div>
 
     </div>
-);
+ );
+};
 
 
 BasicUpload.protoTypes = {
