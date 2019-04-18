@@ -17,11 +17,11 @@ const BasicUpload = (props) => {
       <div className="basic-upload-input">
        <label className="placeholder" htmlFor={!props.id ? props.name : props.id}>
         {props.fileName ?
-        <span className="block">
+        <span>
         {props.fileName}
         </span>
         :
-        <span className="block">
+        <span>
         {imagename}
         </span>
         }
@@ -45,9 +45,7 @@ const BasicUpload = (props) => {
        {props.default}
       </span>
      }
-     <span className="thumb-icon">
-      <i className="fas fa-file-upload"></i>
-     </span>
+   
      </div>
 
     </div>

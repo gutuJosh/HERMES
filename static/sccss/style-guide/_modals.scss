@@ -131,3 +131,34 @@
     background-color:#FE5E3A;
     color:$snow;
 }
+
+//Labels
+.label{
+    display:inline-block;
+    position:relative;
+    width:100%;
+    font-size:1.2rem;
+    border:0.1rem solid transparent;
+    text-align:center;
+    padding:0.3rem 0.6rem;
+    &:before{
+      @include add-icon('\f00d', '0.8rem');
+      position:absolute;
+      top:0.4rem;
+      right:0.5rem;
+      cursor: pointer;
+    }
+  }
+  .label-default{ 
+    background-color:$light-grey;
+  }
+  
+  .label-info{
+    background-color:$azure;
+    color:$snow;
+  }
+  
+  .label-success{
+    background-color:$green;
+    color:$snow;
+  }

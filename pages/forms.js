@@ -8,6 +8,7 @@ import BasicSelector from '../components/formElements/BasicSelector';
 import CustomSelector from '../components/formElements/CustomSelector';
 import CustomMultipleSelector from '../components/formElements/CustomMultipleSelector';
 import Switcher from '../components/formElements/Switcher';
+import ButtonGroup from '../components/formElements/ButtonGroup';
 
 export default class forms extends React.Component {
 
@@ -582,12 +583,193 @@ export default class forms extends React.Component {
               <h4>Code sample:</h4>
               <hr className="thin"/>
               <pre>
-                <code></code>
+                <code>
+                  &lt;div&nbsp;class&#61;"form-group"&gt;<br/>
+                  &nbsp;&lt;label&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/label&gt;<br/>
+                  &nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">basic-upload-input</span>"&gt;<br/>
+                  &nbsp;&nbsp;&lt;label&nbsp;class&#61;"<span className="text-green">placeholder</span>" for="input-file"&gt;<br/>
+                  &nbsp;&nbsp;&nbsp;&lt;span&gt;<span className="text-middle-grey">.csv .pdf .txt</span>&lt;/span&gt;<br/>
+                  &nbsp;&nbsp;&lt;/label&gt;<br/>
+                  &nbsp;&nbsp;&lt;input&nbsp;class&#61;"<span className="text-green">input-file</span>" type="file" name="input-file"/&gt;<br/>
+                  &nbsp;&nbsp;&lt;span&nbsp;class&#61;"<span className="text-green">[text-warning|text-error|text-succes]</span>"&gt;
+                  <span className="text-middle-grey">Lorem ipsum</span>&lt;/span&gt;<br/>
+                  &lt;/div&gt;
+                </code>
               </pre>
+
+              <pre>
+                <code>
+                  &lt;div&nbsp;class&#61;"<span className="text-green">custom-uploader</span>"&gt;<br/>
+                  &nbsp;&lt;input type="file" name="filename" id="custom-input"/&gt;<br/>
+                  &nbsp;&lt;label for="custom-input"&gt;<span className="text-middle-grey">Lorem impsum dolor</span>&lt;/label&gt;<br/>
+                  &lt;/div&gt;
+                </code>
+              </pre>
+
             </div>
         </div>
 
+        <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
+         <div className="pad20 m0 grid">
+          <div className="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1 mtop10">
+           <h4>Textarea and buttons:</h4>
+           <hr className="thin"/>
+           </div>
 
+           <div className="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1">
+             <div className="form-group">
+              <label htmlFor="textarea">Message:</label>
+              <textarea id="textarea" className="textarea"></textarea>
+            </div>
+            </div>
+
+            <div className="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1 text-center">
+             <button className="btn-default btn-small mtop10"><span>.btn-default .btn-small</span></button>&nbsp;
+             <button className="btn-dark btn-large mtop10"><span>.btn-dark .btn-large</span></button>&nbsp;
+             <button className="btn-info mtop10"><span className="text-white">.btn-info</span></button>&nbsp;
+             <button className="btn-warning mtop10"><span className="">.btn-warning</span></button>&nbsp;
+             <button className="btn-alert mtop10"><span className="">.btn-alert</span></button>&nbsp;
+             <button className="btn-success mtop10"><span className="">.btn-success</span></button>
+             <button className="btn-info btn-full mtop10"><span className="">.btn-full</span></button>
+            </div>
+
+            <div className="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1 text-center">
+             <button className="btn-outline-info mtop10"><span className="">.btn-outline-info</span></button>&nbsp;
+             <button className="btn-outline-warning mtop10"><span className="">.btn-outline-warning</span></button>&nbsp;
+             <button className="btn-outline-alert mtop10"><span className="">.btn-outline-red</span></button>&nbsp;
+             <button className="btn-outline-success mtop10"><span className="">.btn-outline-success</span></button>&nbsp;
+            </div>
+            </div>
+            <div className="pad20 m0 grid">
+            <div className="item-lg-2-1 item-md-3-1 item-sm-3-1 item-xs-12-1 mtop10">
+              <ButtonGroup 
+               id="groupBtn"
+               placeholder="Dropdown"
+               name="actions"
+               options={[
+                  {'title':'Option 1', 'value':1},
+                  {'title':'Option 2', 'value':2},
+                  {'title':'Option 3', 'value':3},
+                  {'title':'Option 4', 'value':4},
+               ]}
+              />
+            </div>
+            <div className="item-lg-2-3 item-md-3-4 item-sm-3-4 item-xs-12-1 mtop10">
+              <ButtonGroup 
+               type="info"
+               id="group-info"
+               placeholder="Dropdown"
+               name="actn"
+               options={[
+                  {'title':'Option 1', 'value':1},
+                  {'title':'Option 2', 'value':2},
+                  {'title':'Option 3', 'value':3},
+                  {'title':'Option 4', 'value':4},
+               ]}
+              />
+            </div>
+            <div className="item-lg-2-5 item-md-3-7 item-sm-3-7 item-xs-12-1 mtop10">
+              <ButtonGroup 
+               type="warning"
+               id="group-warning"
+               placeholder="Dropdown"
+               name="act"
+               options={[
+                  {'title':'Option 1', 'value':1},
+                  {'title':'Option 2', 'value':2},
+                  {'title':'Option 3', 'value':3},
+                  {'title':'Option 4', 'value':4},
+               ]}
+              />
+            </div>
+            <div className="item-lg-2-7 item-md-3-10 item-sm-3-10 item-xs-12-1 mtop10">
+              <ButtonGroup 
+               type="error"
+               id="group-alert"
+               placeholder="Dropdown"
+               name="ac"
+               options={[
+                  {'title':'Option 1', 'value':1},
+                  {'title':'Option 2', 'value':2},
+                  {'title':'Option 3', 'value':3},
+                  {'title':'Option 4', 'value':4},
+               ]}
+              />
+            </div>
+            <div className="item-lg-2-9 item-md-3-1 item-sm-3-1 item-xs-12-1 mtop10">
+              <ButtonGroup 
+               type="success"
+               id="group-success"
+               placeholder="Dropdown"
+               name="success"
+               options={[
+                  {'title':'Option 1', 'value':1},
+                  {'title':'Option 2', 'value':2},
+                  {'title':'Option 3', 'value':3},
+                  {'title':'Option 4', 'value':4},
+               ]}
+              />
+            </div>
+            <div className="item-lg-2-11 item-md-3-4 item-sm-3-4 item-xs-12-1 mtop10">
+              <ButtonGroup 
+               type="dark"
+               id="group-dark"
+               placeholder="Dropdown"
+               name="actionsgrey"
+               options={[
+                  {'title':'Option 1', 'value':1},
+                  {'title':'Option 2', 'value':2},
+                  {'title':'Option 3', 'value':3},
+                  {'title':'Option 4', 'value':4},
+               ]}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
+         <div className="pad20 m0">
+              <h4>Code sample:</h4>
+              <hr className="thin"/>
+              <pre>
+                <code>
+                  &lt;div&gt;<br/>
+                  &nbsp;&lt;label for="textarea"&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/label&gt;<br/>
+                  &nbsp;&lt;textarea id="textarea"&nbsp;class&#61;"<span className="text-green">textarea</span>"&gt;&lt;/textarea&gt;<br/>
+                  &lt;/div&gt;
+                </code>
+              </pre>
+              <pre>
+                <code>
+                  &lt;button&nbsp;class&#61;"<span className="text-green">[btn-small|btn-large|btn-full] [btn-info|btn-warning|btn-alert|btn-sccess]</span>"&gt;<br/>
+                  &nbsp;&lt;span&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/span&gt;<br/>
+                  &lt;/button&gt;
+                </code>
+              </pre>
+              <pre>
+                <code>
+                  &lt;button&nbsp;class&#61;"<span className="text-green">[btn-outline-info|btn-outline-warning|btn-outline-alert|btn-outline-sccess]</span>"&gt;<br/>
+                  &nbsp;&lt;span&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/span&gt;<br/>
+                  &lt;/button&gt;
+                </code>
+              </pre>
+              <pre>
+                <code>
+                  &lt;div&nbsp;class&#61;"<span className="text-green">btn-group [info|warning|error|sccess]</span>"&gt;<br/>
+                  &nbsp;&lt;input id="groupBtn" /&gt;<br/>
+                  &nbsp;&lt;label for="groupBtn"&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/label&gt;<br/>
+                  &nbsp;&lt;ul&nbsp;class&#61;"<span className="text-green">dropdown-menu</span>"&gt;<br/>
+                  &nbsp;&nbsp;&lt;li&gt;<span className="text-middle-grey">Option ipsum</span>&lt;/li&gt;<br/>
+                  &nbsp;&nbsp;&lt;li&gt;<span className="text-middle-grey">Option ipsum</span>&lt;/li&gt;<br/>
+                  &nbsp;&nbsp;&lt;li&gt;<span className="text-middle-grey">Option ipsum</span>&lt;/li&gt;<br/>
+                  &nbsp;&lt;/ul&gt;<br/>
+                  &lt;/div&gt;
+                </code>
+              </pre>
+          </div>
+        </div>
+
+      
         </div>
         </Layout>
       )

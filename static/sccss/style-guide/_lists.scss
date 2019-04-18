@@ -43,6 +43,15 @@
   //style for li elements
 }
 
+.inline-list{
+  li{
+    display:inline;
+    list-style: none;
+    padding:10px 15px;
+    position: relative;
+  }
+}
+
 
 //Media
 

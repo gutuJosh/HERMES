@@ -9,9 +9,11 @@ const CustomUpload = (props) => {
         let container = event.target.parentNode;
         reader.onload = function(){
          let dataURL = reader.result;
-         let img =  document.createElement("img");
-         img.src = dataURL;
-         container.appendChild(img);
+         if(dataURL.indexOf('data:image') !== -1){
+            let img =  document.createElement("img");
+            img.src = dataURL;
+            container.appendChild(img);
+         }
        };
        reader.readAsDataURL(event.target.files[0]);
        props.change;
@@ -24,11 +26,18 @@ const CustomUpload = (props) => {
         let reader = new FileReader();
         reader.onload = function(){
             let dataURL = reader.result;
-            let img =  document.createElement("img");
-            img.src = dataURL;
-            container.appendChild(img);
+            if(dataURL.indexOf('data:image') !== -1){
+             let img =  document.createElement("img");
+             img.src = dataURL;
+             container.appendChild(img);
+            }
         };
-        reader.readAsDataURL(drop);
+        try{
+         reader.readAsDataURL(drop);
+        }
+        catch(error){
+            //console.log(error);
+        }
         props.change;
     }
 

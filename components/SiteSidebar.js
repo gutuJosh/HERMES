@@ -26,13 +26,13 @@ import { withRouter } from 'next/router';
             <li>
             <Link href="/grid/css-grid">
              <a className={props.pageInfo.subcategory === 'modern-grid' ? 'active' : ''}>
-              Modern grid layout
+              Css grid layout
              </a>
             </Link>
             </li>
             <li>
              <Link href="/grid/classic-grid"> 
-              <a className={props.pageInfo.subcategory === 'old-grid' ? 'active' : ''}>Old fashion grid</a>
+              <a className={props.pageInfo.subcategory === 'old-grid' ? 'active' : ''}>Classic grid</a>
              </Link>
             </li>
           </ul>
@@ -61,10 +61,12 @@ import { withRouter } from 'next/router';
        </a>
       </Link>
       </li>
-      <li>
+      <li className={page === 'tabs' ? 'block active' : 'block'}>
+      <Link href="/tabs">
        <a className="block">
-        <i className="fas fa-server"></i> Tabs
+        <i className="fas fa-layer-group"></i> Tabs &amp; Accordions
        </a>
+      </Link>
       </li>
       <li>
        <a className="block">
@@ -73,12 +75,7 @@ import { withRouter } from 'next/router';
       </li>
       <li>
        <a className="block">
-        <i className="fas fa-layer-group"></i> Accordions
-       </a>
-      </li>
-      <li>
-       <a className="block">
-        <i className="fas fa-exclamation-triangle"></i> Modals & Alerts
+        <i className="fas fa-exclamation-triangle"></i> Modals &amp; Alerts
        </a>
       </li>
      </ul>

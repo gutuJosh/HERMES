@@ -132,6 +132,7 @@ input[type="url"]{
 
 .basic-upload-input{
    position: relative;
+   max-height:3.4rem;
   .placeholder{
     border:1px solid $asphalt-grey;
     width:100%;
@@ -156,10 +157,22 @@ input[type="url"]{
     top:1.8rem;
     left:1.2rem;
   }
+  .placeholder:before{
+    @include add-icon('\f574', '1rem');
+    @include align-right;
+    right:1rem;
+  }
   .placeholder span{
     color:$middle-grey;
     opacity: 0.6;
     font-weight: normal;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:100%;
+    box-sizing: border-box;
+    padding-right:4rem;
   }
   .input-file ~ .thumb-icon{
     @include align-right;
@@ -182,7 +195,7 @@ input[type="url"]{
 .custom-uploader{
   display:flex;
   flex-wrap: wrap;
-  min-height:60px;
+  min-height:160px;
   padding:10px;
   border:2px dashed $asphalt-grey;
   box-sizing: border-box;
@@ -440,66 +453,17 @@ select ~ .arrow2:after{
 }
 
 //textarea
-.textarea textarea{
+ textarea{
   width:100%;
   min-height:100px;
-  border:1px solid $asphalt-grey;
+  //border:1px solid $asphalt-grey;
+  display:block;
+  padding:1rem;
+  box-sizing: border-box;
+  resize:vertical;
+  @extend pre;
 }
 
-
-.multiple-select-box{
-      width:100%;
-      min-height:34px;
-      padding:3px 12px;
-      position:relative;
-      border:1px solid $asphalt-grey;
-      background:$snow;
-      label{
-        line-height:14px;
-        margin-right:5px;
-        &:after{
-         content:'\f00d';
-         font-family: FontAwesome;
-         margin-left:5px;
-         color:$middle-grey;
-         cursor:pointer;
-        }
-      }
-      input{
-        border:none;
-        width:60px;
-        height:34px;
-      }
-      li{
-        cursor:pointer;
-      }
-      a{
-        pointer-events:none;
-      }
-}
-
-//Labels
-.label{
-  display:inline-block;
-  position:relative;
-  font-size:1.2rem;
-  border:0.1rem solid transparent;
-  text-align:center;
-  padding:0.3rem 0.6rem;
-}
-.label-default{ 
-  background-color:$light-grey;
-}
-
-.label-info{
-  background-color:$azure;
-  color:$snow;
-}
-
-.label-success{
-  background-color:$green;
-  color:$snow;
-}
 
 //Butons
 .btn{
@@ -510,8 +474,9 @@ select ~ .arrow2:after{
   border:none;
   box-sizing:border-box;
   background:none;
-  font-size:0.8rem;
-  line-height:1.4rem;
+  font-size:1.2rem;
+  padding:1.2rem;
+  min-height: 4rem;
   padding:0.6rem 1.2rem;
   text-align:center;
   vertical-align:middle;
@@ -519,108 +484,237 @@ select ~ .arrow2:after{
 }
 
 .btn-small{
-  font-size:0.75rem;
+  font-size:1.2rem;
   line-height:1.4rem;
   padding:0.6rem;
+  min-height: 2rem;
 }
 
 .btn-large{
-  font-size:1.2rem;
-  padding:1.2rem;
-  min-height: 4rem;
+  font-size:1.6rem;
+  padding:1.4rem;
+  min-height: 6rem;
 }
 
 .btn-dark{
+  @extend .btn;
   background-color:$middle-grey;
+  color:$snow;
 }
 
  
 .btn-info{
+  @extend .btn;
   background-color:$azure;
-}
-
-.btn-outline-info{
-  border:1px solid $azure;
-  color:$azure;
-}
-
-.btn-alert{
-  background-color:$red;
   color:$snow;
 }
 
-.btn-outline-red{
-  border:1px solid $red;
-  background-color:transparent;
-  color:$red;
+.btn-alert{
+  @extend .btn;
+  background-color:$red;
+  color:$snow;
 }
-
+.btn-success{
+  @extend .btn;
+  background-color:$green;
+  color:$snow;
+}
 .btn-superlight-grey{
+  @extend .btn;
   background-color:$super-light-grey;
   color:$middle-grey;
 }
 
-
 .btn-default{
-  background-color:$asphalt-grey;
+  @extend .btn;
+  background-color:$light-grey;
   color:$middle-grey;
 }
 
 .btn-dark{
+  @extend .btn;
   background-color:$dark-grey;
-  color:$snow;
 }
 
 .btn-warning{
+  @extend .btn;
   background-color:$yellow;
   color:$middle-grey;
 }
 
 
 .btn-white{
+  @extend .btn;
   background-color:$snow;
-  color:$azure;
+  $color:$asphalt-grey;
 }
 
 .btn-light-purple{
+   @extend .btn;
    background-color:$light-purple;
-   color:$snow;
 }
-
+//btn outline
 .btn-outline-white{
+  @extend .btn;
   border:1px solid $snow;
   color:$snow;
 }
 
+.btn-outline-info{
+  @extend .btn;
+  border:1px solid $azure;
+  color:$azure;
+}
+
+.btn-outline-alert{
+  @extend .btn;
+  border:1px solid $red;
+  background-color:transparent;
+  color:$red;
+}
+
+.btn-outline-warning{
+  @extend .btn;
+  border:1px solid $yellow;
+  background-color:transparent;
+  color:$yellow;
+}
+
+.btn-outline-success{
+  @extend .btn;
+  border:1px solid $green;
+  background-color:transparent;
+  color:$green;
+}
+
+//btn-group
 .btn-group{
+ @extend .btn;
  display:inline-block;
  position:relative;
+ background-color:$light-grey;
+ color:$middle-grey;
+ padding-right:3rem;
+ &.info{
+  background-color: $azure;
+  & > label{
+    color:$snow;
+  }
+  .dropdown-menu{
+    border-color:$azure;
+    li:hover{
+      background-color: $azure;
+      label{
+        color:$snow;
+      }
+    }
+  }
+ }
+ &.warning{
+   background-color: $yellow;
+   & > label{
+    color:$dark-grey;
+   }
+   .dropdown-menu{
+    border-color:$yellow;
+    li:hover{
+      background-color: $yellow;
+      label{
+        color:$dark-grey;
+      }
+    }
+  }
+ }
+ &.error{
+  background-color: $red;
+  & > label{
+    color:$snow;
+  }
+  .dropdown-menu{
+    border-color:$red;
+    li:hover{
+      background-color: $red;
+      label{
+        color:$snow;
+      }
+    }
+  }
+ }
+ &.success{
+  background-color:$green;
+  & > label{
+    color:$snow;
+  }
+  .dropdown-menu{
+    border-color:$green;
+    li:hover{
+      background-color: $green;
+      label{
+        color:$snow;
+      }
+    }
+  }
+ }
+ &.dark{
+  background-color:$dark-grey;
+  & > label{
+    color:$snow;
+  }
+  .dropdown-menu{
+    li:hover{
+      background-color: $dark-grey;
+      label{
+        color:$snow;
+      }
+    }
+  }
+ }
+ input{
+   display:none;
+ }
  .dropdown-menu{
   display:none;
   position:absolute;
   top:calc(100% + 5px);
-  box-shadow:0 2px 5px 0 rgba(0, 0, 0, 0.25);
-  border:1px solid $asphalt-grey;
+  left:0;
+  &.top{
+    top:inherit;
+    bottom: calc(100% + 5px);
+  }
+  box-shadow:1px 1px 5px 0 rgba(0, 0, 0, 0.25);
+  border:1px solid $light-grey;
   background-color:$snow;
-  min-width:180px;
+  min-width:100%;
+  width: calc(100% + 1rem);
+  z-index: 10;
+  li{
+    width:100%;
+    list-style: none;
+    padding: 0.6rem 0;
+    transition:background 0.3s ease-out;
+    color:$asphalt-grey;
+    &:hover{
+      background-color:$super-light-grey;
+    }
+    label{
+      font-size:1.2rem;
+    }
+  }
  }
- .btn:focus{
-   box-shadow:0 3px 5px rgba(0, 0, 0, 0.125) inset;
- }
- .btn:focus ~ .dropdown-menu{
+ .open-list:checked ~ .dropdown-menu{
    display:block;
  }
- li{
-   width:100%;
-   transition:background 0.3s ease-out;
-   &:hover{
-     background-color:$asphalt-grey;
-   }
- }
- .arrow-down{
-   line-height:16px;
-   margin-left:5px;
- }
+ 
+}
+
+.btn-group > label{
+  line-height:3.2rem;
+  &:before{
+    @include add-icon('\f0dd', '1rem');
+    @include align-right;
+    top:18px;
+    right:1rem;
+  }
 }
 
 .btn-full{
