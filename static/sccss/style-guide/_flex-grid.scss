@@ -51,7 +51,10 @@
     }
      
     @if $flex-grid-gap != 0px {
-        [class*="flex-"]{
+        [class*="flex-lg-"],
+        [class*="flex-md-"],
+        [class*="flex-sm-"],
+        [class*="flex-xs-"]{
             margin:($flex-grid-gap/2);
         }
     }

@@ -9,6 +9,15 @@
         &.active:after{
             color:$azure;
         }
+        input:checked ~ .accordion-content{
+            border:none;
+        }
+    }
+    .accordion-item{
+        label{
+            padding:inherit;
+            border:none;
+        }
     }
     
 }

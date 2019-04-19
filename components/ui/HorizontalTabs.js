@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-const DynamicTabs = (props) => {
+const HorizontalTabs = (props) => {
 
  const [active, setActive] = useState(props.activeTab);
  let counter = 0;
@@ -11,7 +11,7 @@ const DynamicTabs = (props) => {
  }
 
   return(
-    <div className="tabs-container">
+    <div className="tabs-container-horizontal">
       <nav className="tab-menu">
        <ul className={`flex ${props.flexType}`}>
        {props.tabs.map((item, i) => {
@@ -24,6 +24,7 @@ const DynamicTabs = (props) => {
                   name={props.name}
                   value={item.id}
                   onChange={switchTab}
+                  defaultChecked={props.activeTab === item.id ? true : false}
                  />
                  <label htmlFor={props.name.replace(/ /g, '-')+'_'+counter}>{item.title}</label>
                </li>
@@ -31,7 +32,7 @@ const DynamicTabs = (props) => {
            })}
        </ul>
       </nav>
-      <div className="tab-list">
+      <div className="tab-list pad20">
       {props.children.map((component, i) => {
            counter++;
            return (
@@ -45,11 +46,11 @@ const DynamicTabs = (props) => {
 );
   };
 
-DynamicTabs.protoTypes = {
+HorizontalTabs.protoTypes = {
     flexType: PropTypes.string,
-    tabs: PropTypes.array,
+    tabs: PropTypes.array.isRequired,
     children: PropTypes.element.isRequired
     
 }
 
-export default DynamicTabs;
+export default HorizontalTabs;

@@ -13,7 +13,7 @@ import { withRouter } from 'next/router';
      <ul className="list-group library-menu">
       <li>
        <div className="accordion">
-        <div className="accordion-wrapper m0">
+        <div className="accordion-item m0">
          <input type="checkbox" className="toggle-accordion" id="gridTypes" defaultChecked={props.pageInfo.page === 'grid'}/>
          <label htmlFor="gridTypes"><i className="fab fa-buromobelexperte"></i> Grid system</label>
          <div className="accordion-content">

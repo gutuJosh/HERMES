@@ -1,5 +1,5 @@
 //tabs
-.tabs-container{
+.tabs-container-horizontal{
     position: relative;
     nav{
         height:4.4rem;
@@ -37,66 +37,208 @@
             background-color:transparent;
         }
     }
-    
-    .tab-list{
-         border:1px solid $light-grey;
-         border-top:0;
-         padding:20px;
-     }
-   
+}
 
-    .tab-list > div{
-        display:none;
-        &.active{
+.tabs-container-vertical{ 
+    position: relative;
+    nav{
+        li{
+            padding:0;
+            list-style:none;
+            min-width: 120px;
+            &:last-child label{
+                border-bottom:1px solid $light-grey; 
+            }
+        }
+        label{
+            display: inline-block;
+            width:100%;
+            box-sizing: border-box;
+            padding:10px 15px;
+            border-top:1px solid $light-grey;
+            border-left:1px solid $light-grey;
+            font-weight:bold;
+            background-color: $super-light-grey;
+            cursor:pointer;
+        }
+        input{
+            display:none;
+        }
+        input:checked ~ label{
+            background-color:transparent;
+            position: relative;
+        }
+        input:checked ~ label:after{
+            content:'';
             display:block;
+            width:2px;
+            height:100%;
+            background-color: $snow;
+            position:absolute;
+            top:0;
+            right:-1px;
         }
     }
+
+    .tab-list{
+       border-top:1px solid $light-grey;
+    }
+    
+    &.flex-row-reverse nav{
+        label{
+            border-left:none;
+            border-right:1px solid $light-grey;
+        }
+        input:checked ~ label:after{
+           right: inherit;
+           left:-1px;
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        &.flex{
+            display: block;
+            nav{
+                display:block;
+                ul{
+                    display:flex;
+                    border:1px solid $light-grey;
+                    border-bottom:none;
+                }
+                li{
+                    flex:1;
+                    min-width: auto;
+                }
+                li:first-child label{
+                    border-left:none;
+                }
+                li:last-child input:checked ~ label:after{
+                    background-color:transparent;
+                }
+                
+                label{
+                    border-top:none;
+                    border-right:none;
+                    border-bottom:1px solid $light-grey;
+                }
+                input:checked ~ label{
+                    border-bottom:2px solid $snow;
+                 }
+            }
+            .tab-list{
+                border-top:none;
+             }
+        }
+    }
+
+}
+
+.tab-list{
+    border:1px solid $light-grey;
+    border-top:none;
+}
+
+
+.tab-list > div{
+   display:none;
+   &.active{
+       display:block;
+   }
 }
 
 
 //Accordion
-.accordion{
-    .toggle-accordion{
-        display:none;
-    }
-    .toggle-accordion:checked  ~ .accordion-content{
-        transition: max-height 0.3s ease-out;
-        max-height: 1000px;
-    }
-}
-.accordion-wrapper{
-    position:relative;
-    margin-bottom:5px;
-    label{
-        position: relative;
-        display: block;
-        cursor: pointer;
-        padding-left:1rem;
-        font-size:1.4rem;
-        line-height: 1.6rem;
-        border-bottom: 1px solid $light-grey;
-    }
-    label:after{
-        display: inline-block;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        font-size:1rem;
-        content: "\f0d7";
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        @include align-right;
-    }
-    .toggle-accordion:checked ~ label:after{
-        content: "\f0d8";
-    }
+
+.accordion-item{
+        margin-bottom:5px;
+        height: auto;
+       input{
+           display:none;
+       }
+       label{
+           display:block;
+           padding:20px 30px 20px 20px;
+           font-weight:500;
+           position: relative;
+           border-bottom:1px solid $light-grey;
+           font-size:1.4rem;
+           line-height: 1.6rem;
+           transition:color 0.3s ease-out;
+           cursor: pointer;
+           &:hover{
+               color:$azure;
+           }
+           &:after{
+             @include add-icon('\f0dd', '1rem');
+             @include align-right;
+             right:1rem;
+           }
+       }
+       input:checked ~ label{
+           color:$azure;
+           border-bottom:none;
+           &:after{
+            @include add-icon('\f0de', '1rem');
+          }
+       }
+       .accordion-content{
+           box-sizing: border-box;
+           max-height: 0rem;
+           overflow: hidden;
+           transition:max-height 0.3s ease-out;
+           
+       }
+       input:checked ~ .accordion-content{
+           transition: max-height 0.3s ease-out;
+           max-height: 100rem;
+           overflow-y: auto;
+           border-top:1px solid $light-grey;
+           border-bottom:1px solid $light-grey;
+       }
 }
 
-.accordion-content{
-    position: relative;
-    max-height: 0px;
-    height: auto;
-    overflow: hidden;
-    z-index: 10;
-    transition: max-height 0.3s ease-out;
+.accordion{
+    &.info{
+        .accordion-item{
+            border:1px solid $azure;
+            label, input:checked ~ label{
+                color:$snow;
+                background-color: $azure;
+                border:none;
+            }
+        }
+    }
+    &.warning{
+        .accordion-item{
+            border:1px solid $yellow;
+            label, input:checked ~ label{
+                color:$dark-grey;
+                background-color: $yellow;
+                border:none;
+            }
+        }
+    }
+    &.alert{
+        .accordion-item{
+            border:1px solid $red;
+            label, input:checked ~ label{
+                color:$snow;
+                background-color: $red;
+                border:none;
+            }
+        }
+    }
+    &.success{
+        .accordion-item{
+            border:1px solid $green;
+            label, input:checked ~ label{
+                color:$snow;
+                background-color: $green;
+                border:none;
+            }
+        }
+    }
+
 }
+   
+

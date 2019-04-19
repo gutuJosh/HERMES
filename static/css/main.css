@@ -17,6 +17,10 @@ body, header, nav, section, footer, article, aside, ul, ol, li, form, input, but
           box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 a {
   outline: none;
   color: #00bfed;
@@ -2583,7 +2587,10 @@ pre, textarea {
   }
 }
 
-.flex-grid [class*="flex-"] {
+.flex-grid [class*="flex-lg-"],
+.flex-grid [class*="flex-md-"],
+.flex-grid [class*="flex-sm-"],
+.flex-grid [class*="flex-xs-"] {
   margin: 5px;
 }
 
@@ -4051,34 +4058,34 @@ textarea {
   overflow: auto;
 }
 
-.tabs-container {
+.tabs-container-horizontal {
   position: relative;
 }
 
-.tabs-container nav {
+.tabs-container-horizontal nav {
   height: 4.4rem;
   border-bottom: 1px solid #dfdfdd;
 }
 
-.tabs-container nav .flex {
+.tabs-container-horizontal nav .flex {
   margin-right: 0;
   margin-left: 0;
 }
 
-.tabs-container nav li {
+.tabs-container-horizontal nav li {
   padding: 0;
   list-style: none;
 }
 
-.tabs-container nav li:last-child label {
+.tabs-container-horizontal nav li:last-child label {
   border-right: 1px solid #dfdfdd;
 }
 
-.tabs-container nav li.flex-item {
+.tabs-container-horizontal nav li.flex-item {
   margin: 0;
 }
 
-.tabs-container nav label {
+.tabs-container-horizontal nav label {
   display: inline-block;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -4091,60 +4098,160 @@ textarea {
   cursor: pointer;
 }
 
-.tabs-container nav input {
+.tabs-container-horizontal nav input {
   display: none;
 }
 
-.tabs-container nav input:checked ~ label {
+.tabs-container-horizontal nav input:checked ~ label {
   border-bottom: 2px solid #fff;
   background-color: transparent;
 }
 
-.tabs-container .tab-list {
-  border: 1px solid #dfdfdd;
-  border-top: 0;
-  padding: 20px;
-}
-
-.tabs-container .tab-list > div {
-  display: none;
-}
-
-.tabs-container .tab-list > div.active {
-  display: block;
-}
-
-.accordion .toggle-accordion {
-  display: none;
-}
-
-.accordion .toggle-accordion:checked ~ .accordion-content {
-  -webkit-transition: max-height 0.3s ease-out;
-  transition: max-height 0.3s ease-out;
-  max-height: 1000px;
-}
-
-.accordion-wrapper {
+.tabs-container-vertical {
   position: relative;
-  margin-bottom: 5px;
 }
 
-.accordion-wrapper label {
-  position: relative;
-  display: block;
-  cursor: pointer;
-  padding-left: 1rem;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
+.tabs-container-vertical nav li {
+  padding: 0;
+  list-style: none;
+  min-width: 120px;
+}
+
+.tabs-container-vertical nav li:last-child label {
   border-bottom: 1px solid #dfdfdd;
 }
 
-.accordion-wrapper label:after {
+.tabs-container-vertical nav label {
   display: inline-block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 15px;
+  border-top: 1px solid #dfdfdd;
+  border-left: 1px solid #dfdfdd;
+  font-weight: bold;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.tabs-container-vertical nav input {
+  display: none;
+}
+
+.tabs-container-vertical nav input:checked ~ label {
+  background-color: transparent;
+  position: relative;
+}
+
+.tabs-container-vertical nav input:checked ~ label:after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: -1px;
+}
+
+.tabs-container-vertical .tab-list {
+  border-top: 1px solid #dfdfdd;
+}
+
+.tabs-container-vertical.flex-row-reverse nav label {
+  border-left: none;
+  border-right: 1px solid #dfdfdd;
+}
+
+.tabs-container-vertical.flex-row-reverse nav input:checked ~ label:after {
+  right: inherit;
+  left: -1px;
+}
+
+@media (max-width: 768px) {
+  .tabs-container-vertical.flex {
+    display: block;
+  }
+  .tabs-container-vertical.flex nav {
+    display: block;
+  }
+  .tabs-container-vertical.flex nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 1px solid #dfdfdd;
+    border-bottom: none;
+  }
+  .tabs-container-vertical.flex nav li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    min-width: auto;
+  }
+  .tabs-container-vertical.flex nav li:first-child label {
+    border-left: none;
+  }
+  .tabs-container-vertical.flex nav li:last-child input:checked ~ label:after {
+    background-color: transparent;
+  }
+  .tabs-container-vertical.flex nav label {
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #dfdfdd;
+  }
+  .tabs-container-vertical.flex nav input:checked ~ label {
+    border-bottom: 2px solid #fff;
+  }
+  .tabs-container-vertical.flex .tab-list {
+    border-top: none;
+  }
+}
+
+.tab-list {
+  border: 1px solid #dfdfdd;
+  border-top: none;
+}
+
+.tab-list > div {
+  display: none;
+}
+
+.tab-list > div.active {
+  display: block;
+}
+
+.accordion-item {
+  margin-bottom: 5px;
+  height: auto;
+}
+
+.accordion-item input {
+  display: none;
+}
+
+.accordion-item label {
+  display: block;
+  padding: 20px 30px 20px 20px;
+  font-weight: 500;
+  position: relative;
+  border-bottom: 1px solid #dfdfdd;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+  cursor: pointer;
+}
+
+.accordion-item label:hover {
+  color: #00bfed;
+}
+
+.accordion-item label:after {
+  content: "";
+  display: block;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  font-size: 1rem;
-  content: "\f0d7";
+  font-size: "1rem";
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
@@ -4153,20 +4260,81 @@ textarea {
   right: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  right: 1rem;
 }
 
-.accordion-wrapper .toggle-accordion:checked ~ label:after {
-  content: "\f0d8";
+.accordion-item input:checked ~ label {
+  color: #00bfed;
+  border-bottom: none;
 }
 
-.accordion-content {
-  position: relative;
-  max-height: 0px;
-  height: auto;
+.accordion-item input:checked ~ label:after {
+  content: "";
+  display: block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: "1rem";
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+}
+
+.accordion-item .accordion-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-height: 0rem;
   overflow: hidden;
-  z-index: 10;
   -webkit-transition: max-height 0.3s ease-out;
   transition: max-height 0.3s ease-out;
+}
+
+.accordion-item input:checked ~ .accordion-content {
+  -webkit-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
+  max-height: 100rem;
+  overflow-y: auto;
+  border-top: 1px solid #dfdfdd;
+  border-bottom: 1px solid #dfdfdd;
+}
+
+.accordion.info .accordion-item {
+  border: 1px solid #00bfed;
+}
+
+.accordion.info .accordion-item label, .accordion.info .accordion-item input:checked ~ label {
+  color: #fff;
+  background-color: #00bfed;
+  border: none;
+}
+
+.accordion.warning .accordion-item {
+  border: 1px solid #f1c40f;
+}
+
+.accordion.warning .accordion-item label, .accordion.warning .accordion-item input:checked ~ label {
+  color: #474949;
+  background-color: #f1c40f;
+  border: none;
+}
+
+.accordion.alert .accordion-item {
+  border: 1px solid #FE5E3A;
+}
+
+.accordion.alert .accordion-item label, .accordion.alert .accordion-item input:checked ~ label {
+  color: #fff;
+  background-color: #FE5E3A;
+  border: none;
+}
+
+.accordion.success .accordion-item {
+  border: 1px solid #469408;
+}
+
+.accordion.success .accordion-item label, .accordion.success .accordion-item input:checked ~ label {
+  color: #fff;
+  background-color: #469408;
+  border: none;
 }
 
 .alert {
@@ -4652,6 +4820,12 @@ textarea {
           align-items: center;
 }
 
+.flex-vertical-stretch {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
 .flex-bottom {
   -webkit-box-align: end;
       -ms-flex-align: end;
@@ -4691,6 +4865,10 @@ textarea {
 
 .m0 {
   margin: 0;
+}
+
+.mtop0 {
+  margin-top: 0;
 }
 
 .mtop5 {
@@ -4844,6 +5022,15 @@ body {
 
 .library-menu li.active a, .library-menu li.active:after {
   color: #00bfed;
+}
+
+.library-menu li input:checked ~ .accordion-content {
+  border: none;
+}
+
+.library-menu .accordion-item label {
+  padding: inherit;
+  border: none;
 }
 
 .library-menu > li:after {
