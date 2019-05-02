@@ -77,6 +77,9 @@ export default class tabs extends React.Component {
            </div>
 
            <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
+            <div className="pad20 m0">
+            <h4>Accordion</h4>
+            <hr className="thin"/>
             <Accordion
              type="info"
              name="options"
@@ -90,6 +93,7 @@ export default class tabs extends React.Component {
              <TabSample id="group-2" key="group-2" title="Group 2" className="pad20"/>
              <TabSample id="group-3" key="group-3" title="Group 3" className="pad20"/>
             </Accordion>
+            </div>
            </div>
 
            <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
