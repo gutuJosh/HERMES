@@ -10,6 +10,7 @@ const typography = require('./routes/Typography');
 const lists = require('./routes/Lists');
 const forms = require('./routes/Forms');
 const tabs = require('./routes/Tabs');
+const table = require('./routes/Table');
 
 app.prepare()
 .then(() => {
@@ -20,6 +21,7 @@ app.prepare()
   server.use('/lists', lists);
   server.use('/forms', forms);
   server.use('/tabs', tabs);
+  server.use('/table', table);
   
   server.get('*', (req, res) => {
     return handle(req, res)

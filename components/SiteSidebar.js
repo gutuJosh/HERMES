@@ -68,10 +68,12 @@ import { withRouter } from 'next/router';
        </a>
       </Link>
       </li>
-      <li>
+      <li lassName={page === 'table' ? 'block active' : 'block'}>
+       <Link href="/table">
        <a className="block">
-        <i className="fas fa-table"></i> Tables
+        <i className="fas fa-table"></i> Table
        </a>
+       </Link>
       </li>
       <li>
        <a className="block">
