@@ -21,9 +21,9 @@
 @import "style-guide/helpers";
 
 //custom style
-@import "header.scss";
-@import "aside.scss";
-@import "grid-system.scss";
+@import "_header.scss";
+@import "_aside.scss";
+@import "_grid-system.scss";
 
 #__next{
    height: 100%; 

@@ -116,3 +116,11 @@
     font-variant: normal;
     text-rendering: auto;
 }
+
+//disabled li, tr, element
+@mixin disabled{
+    cursor:not-allowed;
+    background-image: -moz-repeating-linear-gradient(135deg, transparent, transparent 3px, #f8f8f7 3px, #f8f8f7 6px);
+    background-image: -webkit-repeating-linear-gradient(135deg, transparent, transparent 3px, #f8f8f7 3px, #f8f8f7 6px);
+    background-color: $super-light-grey;
+}

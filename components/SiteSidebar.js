@@ -9,7 +9,11 @@ import { withRouter } from 'next/router';
   return (
     
     <aside className="site-sidebar">
-   
+     <div className="logo-holder">
+      <p className="text-center text-white m0">
+       <i className="fas fa-th"></i> The Grid
+      </p>
+     </div>
      <ul className="list-group library-menu">
       <li>
        <div className="accordion">
@@ -68,7 +72,7 @@ import { withRouter } from 'next/router';
        </a>
       </Link>
       </li>
-      <li lassName={page === 'table' ? 'block active' : 'block'}>
+      <li className={page === 'table' ? 'block active' : 'block'}>
        <Link href="/table">
        <a className="block">
         <i className="fas fa-table"></i> Table

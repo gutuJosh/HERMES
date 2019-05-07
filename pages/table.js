@@ -31,11 +31,100 @@ export default class table extends React.Component {
           <div className="grid pad10">
            <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
             <div className="pad20 m0">
-              <h4>Tabs:</h4>
-              <hr className="thin"/>
-              
+             <h4>Basic, bordered, hover striped rows &amp; striped rows:</h4> 
+             <hr className="thin"/>
+              <table className="table">
+                <thead>
+                 <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>Horvath</td>
+                  <td>Cosmin</td>
+                  <td>@cos</td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Otilia</td>
+                  <td>Maier</td>
+                  <td>@oti</td>
+                 </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>Santa</td>
+                  <td>Klaus</td>
+                  <td>@santa</td>
+                 </tr>
+                </tbody>
+              </table>
 
+              <table className="table table-bordered table-hover">
+                <thead>
+                 <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>Horvath</td>
+                  <td>Cosmin</td>
+                  <td>@cos</td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Otilia</td>
+                  <td>Maier</td>
+                  <td>@oti</td>
+                 </tr>
+                 <tr className="disabled">
+                  <td>3</td>
+                  <td>Santa</td>
+                  <td>Klaus</td>
+                  <td>@santa</td>
+                 </tr>
+                </tbody>
+              </table>
            
+              <table className="table table-bordered zebra-stripes">
+                <thead>
+                 <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>Horvath</td>
+                  <td>Cosmin</td>
+                  <td>@cos</td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Otilia</td>
+                  <td>Maier</td>
+                  <td>@oti</td>
+                 </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>Santa</td>
+                  <td>Klaus</td>
+                  <td>@santa</td>
+                 </tr>
+                </tbody>
+              </table>
           
             </div>
            </div>
@@ -43,7 +132,7 @@ export default class table extends React.Component {
            <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
             <div className="pad20 m0">
              <h4>Code sample:</h4> 
-             <hr class="thin"/>
+             <hr className="thin"/>
              <pre>
               <code>
               &lt;div&nbsp;class&#61;"<span className="text-green">tabs-container-horizontal</span>"&gt;<br/>
@@ -63,16 +152,47 @@ export default class table extends React.Component {
 
            <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
             <div className="pad20 m0">
-            <h4>Accordions:</h4>
+            <h4>Responsive:</h4>
             <hr className="thin"/>
-            
+            <div className="table-flip-scroll">
+            <table className="table zebra-stripes">
+                <thead>
+                 <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>Horvath</td>
+                  <td>Cosmin</td>
+                  <td>@cos</td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Otilia</td>
+                  <td>Maier</td>
+                  <td>@oti</td>
+                 </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>Santa</td>
+                  <td>Klaus</td>
+                  <td>@santa</td>
+                 </tr>
+                </tbody>
+              </table>
+            </div>
             </div>
            </div>
 
            <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
            <div className="pad20 m0">
              <h4>Code sample:</h4> 
-             <hr class="thin"/>
+             <hr className="thin"/>
              <pre>
               <code>
               &lt;div&nbsp;class&#61;"<span className="text-green">accordion [info|warning|error|success]</span>"&gt;<br/>

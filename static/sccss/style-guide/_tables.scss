@@ -28,13 +28,24 @@
 	}
   }
   &.table-hover{
+   tr{
+     transition: all 0.3s ease-out;
+   }
    tr:hover{
-    background-color:$light-grey;
+    background-color:$super-light-grey; 
    }
   }
   &.zebra-stripes {
     tr:nth-child(odd){
      background-color:$super-light-grey;
+    }
+    thead > tr{
+      background-color:transparent!important;
+    }
+  } 
+  tr{
+    &.disabled{
+      @include disabled;
     }
   } 
   th{
@@ -44,7 +55,6 @@
    &.vertical-align{
     vertical-align:middle;
    }
-
   }
   td{
    border-top:1px solid $asphalt-grey;
@@ -60,5 +70,7 @@
 .table-flip-scroll{
    width:100%;
    max-width:100%;
-   overflow:auto;
+   min-height: .01%;
+   overflow-y:hidden;
+   overflow-x: auto;
 } 

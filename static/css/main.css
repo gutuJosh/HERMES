@@ -4025,11 +4025,26 @@ textarea {
   border: none;
 }
 
+.table.table-hover tr {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
 .table.table-hover tr:hover {
-  background-color: #dfdfdd;
+  background-color: #f1f1f1;
 }
 
 .table.zebra-stripes tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+.table.zebra-stripes thead > tr {
+  background-color: transparent !important;
+}
+
+.table tr.disabled {
+  cursor: not-allowed;
+  background-image: -webkit-repeating-linear-gradient(135deg, transparent, transparent 3px, #f8f8f7 3px, #f8f8f7 6px);
   background-color: #f1f1f1;
 }
 
@@ -4055,7 +4070,9 @@ textarea {
 .table-flip-scroll {
   width: 100%;
   max-width: 100%;
-  overflow: auto;
+  min-height: .01%;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .tabs-container-horizontal {
