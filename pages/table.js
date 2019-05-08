@@ -155,7 +155,39 @@ export default class table extends React.Component {
             <h4>Responsive:</h4>
             <hr className="thin"/>
             <div className="table-flip-scroll">
-            <table className="table zebra-stripes">
+            <table className="table table-borderless zebra-stripes">
+                <thead>
+                 <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>Horvath</td>
+                  <td>Cosmin</td>
+                  <td>@cos</td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Otilia</td>
+                  <td>Maier</td>
+                  <td>@oti</td>
+                 </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>Santa</td>
+                  <td>Klaus</td>
+                  <td>@santa</td>
+                 </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="table-flip-scroll mtop10">
+             <table className="table responsive table-bordered zebra-stripes">
                 <thead>
                  <tr>
                   <th>Id</th>

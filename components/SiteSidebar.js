@@ -15,28 +15,28 @@ import { withRouter } from 'next/router';
       </p>
      </div>
      <ul className="list-group library-menu">
-      <li>
+      <li className={props.pageInfo.page === 'grid' ? 'block active' : 'block'}>
        <div className="accordion">
         <div className="accordion-item m0">
          <input type="checkbox" className="toggle-accordion" id="gridTypes" defaultChecked={props.pageInfo.page === 'grid'}/>
          <label htmlFor="gridTypes"><i className="fab fa-buromobelexperte"></i> Grid system</label>
          <div className="accordion-content">
           <ul className="grid-types">
-            <li>
+            <li className={props.pageInfo.subcategory === 'flexbox-grid' ? 'active' : ''}>
              <Link href="/grid/flexbox-grid"> 
-              <a className={props.pageInfo.subcategory === 'flex-grid' ? 'active' : ''}>Flexbox grid</a>
+              <a>Flexbox grid</a>
              </Link>
             </li>
-            <li>
+            <li className={props.pageInfo.subcategory === 'css-grid' ? 'active' : ''}>
             <Link href="/grid/css-grid">
-             <a className={props.pageInfo.subcategory === 'modern-grid' ? 'active' : ''}>
+             <a>
               Css grid layout
              </a>
             </Link>
             </li>
-            <li>
+            <li className={props.pageInfo.subcategory === 'classic-grid' ? 'active' : ''}>
              <Link href="/grid/classic-grid"> 
-              <a className={props.pageInfo.subcategory === 'old-grid' ? 'active' : ''}>Classic grid</a>
+              <a>Classic grid</a>
              </Link>
             </li>
           </ul>
@@ -79,10 +79,12 @@ import { withRouter } from 'next/router';
        </a>
        </Link>
       </li>
-      <li>
-       <a className="block">
-        <i className="fas fa-exclamation-triangle"></i> Modals &amp; Alerts
+      <li className={page === 'modals' ? 'block active' : 'block'}>
+      <Link href="/modals">
+        <a className="block">
+         <i className="fas fa-exclamation-triangle"></i> Modals &amp; Alerts
        </a>
+      </Link>
       </li>
      </ul>
     </aside>

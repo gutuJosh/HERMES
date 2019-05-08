@@ -11,6 +11,9 @@ body{
     background-color: $snow;
     box-shadow: rgba(255, 255, 255, 0.09) 0px 1px 0px inset, rgba(0, 0, 0, 0.075) 0px 1px 5px;
     min-height: 6rem;
+    position: fixed;
+    top:0;
+    z-index: 10;
     .hamburger{
         width:60px;
         line-height: 60px;

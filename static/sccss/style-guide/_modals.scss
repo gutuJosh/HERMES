@@ -63,7 +63,9 @@
     left:0;
     width:100%;
     height: 100%;
-    background-color:rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color:rgba(255, 255, 255, 0.8);
     z-index: 100;
     visibility:hidden;
     opacity: 0;
@@ -75,7 +77,7 @@
 }
 
 .modal{
-    position:fixed;
+    position:relative;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
@@ -161,4 +163,86 @@
   .label-success{
     background-color:$green;
     color:$snow;
+  }
+
+  //Tips  
+  .tip-top{
+    @include tip(top, after, $dark-grey, $snow);
+    @include tip(top, before, $dark-grey, '');
+    &.info{
+        @include tip(top, after, $azure, $snow);
+        @include tip(top, before, $azure, '');
+    }
+    &.warning{
+        @include tip(top, after, $yellow, $snow);
+        @include tip(top, before, $yellow, '');
+    }
+    &.alert{
+        @include tip(top, after, $red, $snow);
+        @include tip(top, before, $red, '');
+    }
+    &.success{
+        @include tip(top, after, $green, $snow);
+        @include tip(top, before, $green, '');
+    } 
+  }
+  .tip-right{
+    @include tip(right, after, $dark-grey, $snow);
+    @include tip(right, before, $dark-grey, '');
+    &.info{
+        @include tip(right, after, $azure, $snow);
+        @include tip(right, before, $azure, '');
+    }
+    &.warning{
+        @include tip(right, after, $yellow, $snow);
+        @include tip(right, before, $yellow, '');
+    }
+    &.alert{
+        @include tip(right, after, $red, $snow);
+        @include tip(right, before, $red, '');
+    }
+    &.success{
+        @include tip(right, after, $green, $snow);
+        @include tip(right, before, $green, '');
+    } 
+  }
+  .tip-bottom{
+    @include tip(bottom, after, $dark-grey, $snow);
+    @include tip(bottom, before, $dark-grey, '');
+    &.info{
+        @include tip(bottom, after, $azure, $snow);
+        @include tip(bottom, before, $azure, '');
+    }
+    &.warning{
+        @include tip(bottom, after, $yellow, $snow);
+        @include tip(bottom, before, $yellow, '');
+    }
+    &.alert{
+        @include tip(bottom, after, $red, $snow);
+        @include tip(bottom, before, $red, '');
+    }
+    &.success{
+        @include tip(bottom, after, $green, $snow);
+        @include tip(bottom, before, $green, '');
+    } 
+  }
+  .tip-left{
+    @include tip(left, after, $dark-grey, $snow);
+    @include tip(left, before, $dark-grey, '');
+    &.info{
+        @include tip(left, after, $azure, $snow);
+        @include tip(left, before, $azure, '');
+    }
+    &.warning{
+        @include tip(left, after, $yellow, $snow);
+        @include tip(left, before, $yellow, '');
+    }
+    &.alert{
+        @include tip(left, after, $red, $snow);
+        @include tip(left, before, $red, '');
+    }
+    &.success{
+        @include tip(left, after, $green, $snow);
+        @include tip(left, before, $green, '');
+    } 
   }

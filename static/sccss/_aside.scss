@@ -1,16 +1,57 @@
 .site-sidebar{
-    min-width:240px;
+    max-width:240px;
+    height: 100%;
     background-color: $snow;
+    position: fixed;
+    top:0;
+    left:0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .library-menu{
-    li{
+    border:none;
+    & > li{
+        &:first-child{
+            &.active{
+              border-top:1px solid $snow;
+              .accordion label{
+                  color:$snow;
+              }
+            }
+        }
         position: relative;
+        &.active{
+            background-color: $azure;  
+        }
+        a:hover,
         &.active a, 
         &.active:after{
-            color:$azure;
+            color:$snow;
         }
         input:checked ~ .accordion-content{
             border:none;
+        }
+        &:before{
+            content:'';
+            display: block;
+            width:0;
+            height:100%;
+            position: absolute;
+            top:0;
+            left:0;
+            background-color: $azure;
+            transition:width 0.2s ease-out;
+            z-index: -1;
+        }
+        &:hover{
+            a,
+            &:after{
+              color:$snow;
+              z-index: 1;
+            }
+            &:before{
+                width:100%;
+            } 
         }
     }
     .accordion-item{
@@ -19,7 +60,6 @@
             border:none;
         }
     }
-    
 }
 
 .library-menu > li:after{
@@ -49,10 +89,18 @@
     transition:color 0.3s ease-out;
     border-bottom:none;
     &:hover{
-        color:$azure;
+        color:$snow;
     }
 }
-.grid-types a{
-    font-size:1.2rem;
-    line-height: 1.4rem;
+.grid-types {
+    li{
+     transition: background 0.3s ease-out;
+     &:hover, &.active{
+         background-color: rgba(255,255,255, 0.3);
+     }
+    }
+    a{
+     font-size:1.2rem;
+     line-height: 1.4rem;
+    }
 }

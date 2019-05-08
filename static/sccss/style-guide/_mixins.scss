@@ -117,10 +117,152 @@
     text-rendering: auto;
 }
 
-//disabled li, tr, element
+
+//create a shaded background
 @mixin disabled{
     cursor:not-allowed;
     background-image: -moz-repeating-linear-gradient(135deg, transparent, transparent 3px, #f8f8f7 3px, #f8f8f7 6px);
     background-image: -webkit-repeating-linear-gradient(135deg, transparent, transparent 3px, #f8f8f7 3px, #f8f8f7 6px);
     background-color: $super-light-grey;
 }
+
+
+//use pseudoclases :before & :after to show a speach bubble 
+//when user hover on element
+@mixin tip($type, $position, $bg-color, $text-color){
+    /*
+      $type= top | right | bottom | left
+      $position = :before | :after
+      $bg-color = hexadecimal | rgba
+      $text-color = hexadecimal | rgba
+   */
+    position: relative;
+
+    @if $position == before {//the arrow
+    &:before{   
+      content:'';
+      display:block;
+      width:0;
+      height:0;
+      position: absolute;
+      @if $type == top {
+          top:10px;
+          left:50%;
+          transform: translateX(-50%);
+          border-right:6px solid transparent;
+          border-top:6px solid $bg-color;
+          border-bottom:6px solid transparent;
+          border-left:6px solid transparent;
+      }
+      @if $type == right {
+         top:50%;
+         right:0;
+         transform: translateY(-50%);
+         border-right:6px solid $bg-color;
+         border-top:6px solid transparent;
+         border-bottom:6px solid transparent;
+         border-left:6px solid transparent;
+      }
+      @if $type == bottom {
+         bottom:10px;
+         left:50%;
+         transform: translateX(-50%);
+         border-right:6px solid transparent;
+         border-top:6px solid transparent;
+         border-bottom:6px solid $bg-color;
+         border-left:6px solid transparent;
+         
+      }
+      @if $type == left {
+         top:50%;
+         left:0;
+         transform: translateY(-50%);
+         border-right:6px solid transparent;
+         border-top:6px solid transparent;
+         border-bottom:6px solid transparent;
+         border-left:6px solid $bg-color;
+      }
+      transition: all 0.2s ease-out;
+      visibility: hidden;
+      opacity:0;
+    }
+   }//end before
+ 
+   @if $position == after { //content
+    &:after{
+         content:attr(data-title);
+         display:block;
+         background-color:$bg-color;
+         padding:0 10px;
+         font-size:12px;
+         line-height:20px;
+         color:$text-color;
+         white-space: nowrap;
+         position:absolute;
+         max-width: 100%;
+         //word-wrap: break-word;     
+         //overflow-wrap: break-word;
+         @if $type == left{
+             top:50%;
+             right:100%;
+             transform: translateY(-50%);
+         }
+         @if $type == top{
+             left:50%;
+             top:-10px;
+             transform: translateX(-50%);
+             box-shadow:-1px -1px 2px rgba(0,0,0,0.3);
+         }
+         @if $type == right{
+            top:50%;
+            left:100%;
+            transform: translateY(-50%);
+            box-shadow:1px -1px 2px rgba(0,0,0,0.3);
+         }
+         @if $type == bottom{
+            left:50%;
+            bottom:-10px;
+            transform: translateX(-50%);
+            box-shadow:-1px 1px 2px rgba(0,0,0,0.3);
+         }
+         transition: all 0.2s ease-out;
+         visibility: hidden;
+         opacity:0;
+    }
+   }//end after
+
+   &:hover:before{
+    visibility: visible;
+    opacity:1;
+    @if $type == top {
+        top:-10px;
+    }
+    @if $type == right {
+        right:-20px;
+    }
+    @if $type == bottom {
+        bottom:-10px;
+    }
+    @if $type == left {
+        left:-10px;
+    }
+   }
+
+   &:hover:after{
+    visibility: visible;
+    opacity:1;
+    @if $type == top{
+        top:-30px;
+    }
+    @if $type == right {
+        left:calc(100% + 20px);
+    }
+    @if $type == bottom{
+        bottom:-30px;
+    }
+    @if $type == left {
+        right:calc(100% + 10px);
+    }
+   }
+  
+ }

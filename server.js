@@ -11,6 +11,7 @@ const lists = require('./routes/Lists');
 const forms = require('./routes/Forms');
 const tabs = require('./routes/Tabs');
 const table = require('./routes/Table');
+const modals = require('./routes/Modals');
 
 app.prepare()
 .then(() => {
@@ -22,9 +23,10 @@ app.prepare()
   server.use('/forms', forms);
   server.use('/tabs', tabs);
   server.use('/table', table);
+  server.use('/modals', modals);
   
   server.get('*', (req, res) => {
-    return handle(req, res)
+    return handle(req, res);
   });
 
   //set global var to use in routes
