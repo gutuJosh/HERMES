@@ -13,13 +13,11 @@ export default class index extends React.Component {
      }
     }
 
-
-
     render(){
         return(
             <Layout pageInfo={this.state.pageInfo}>
-            <div className="pad20 mtop10 bg-white">
-             <p className="large">Css pattern library, code standards documents and content style guides.</p>
+             <div className="col-full pad20">
+              <p className="large">Css pattern library, code standards documents and content style guides.</p>
              </div>
             </Layout>
         )

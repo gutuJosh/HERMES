@@ -24,6 +24,14 @@ export default class typography extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}>
+         <div className="col-full pad20">
+            <p className="large">
+             The default font family used by this css library is "Comfortaa", designed by
+             &nbsp;<a className="underlined" rel="nofollow" target="_blank" href="https://www.deviantart.com/aajohan/art/Comfortaa-font-105395949">Johan Aakerlund</a>&nbsp;
+             and is absolutely free, both for personal and commercial use.
+             Comfortaa is a good looking, true type font with large number of different characters and symbols intended for large sizes.
+            </p>
+          </div>
           <div className="grid pad10 m0">
               <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
               <div className="pad20 m0">

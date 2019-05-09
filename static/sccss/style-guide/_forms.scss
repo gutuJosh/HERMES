@@ -104,29 +104,30 @@ input[type="url"]{
 
 
  //validation
- .text-hint, 
- .text-error, 
- .text-warning, 
- .text-success,
- .text-disabled{
-  display:none;
-  opacity:0;
-  transition:all 0.3s ease-out;
-  &:after{
-    display:block;
-    position:absolute;
-    top:3.5rem;
-    right:1rem;
-    z-index:0;
-    font-family: "Font Awesome 5 Free";
-    font-size:1rem;
-    font-style: normal; 
-    font-variant: normal;
-    text-rendering: auto;
-    font-weight: 900;
+ form{
+  .text-hint, 
+  .text-error, 
+  .text-warning, 
+  .text-success,
+  .text-disabled{
+    display:none;
+    opacity:0;
+    transition:all 0.3s ease-out;
+    &:after{
+      display:block;
+      position:absolute;
+      top:3.5rem;
+      right:1rem;
+      z-index:0;
+      font-family: "Font Awesome 5 Free";
+      font-size:1rem;
+      font-style: normal; 
+      font-variant: normal;
+      text-rendering: auto;
+      font-weight: 900;
+    }
   }
  }
-
 
 //custom file input
 
@@ -531,10 +532,6 @@ select ~ .arrow2:after{
   color:$middle-grey;
 }
 
-.btn-dark{
-  @extend .btn;
-  background-color:$dark-grey;
-}
 
 .btn-warning{
   @extend .btn;

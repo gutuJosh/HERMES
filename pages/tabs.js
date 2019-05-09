@@ -29,7 +29,10 @@ export default class tabs extends React.Component {
       return(
         <Layout pageInfo={this.state.pageInfo}> 
           <div className="col-full pad20">
-            <p className="large">Dynamic tab and accordion functionality to transition through panes of local content, even via dropdown menus.</p>
+            <p className="large">
+            Dynamic tabs and accordion functionality to transition through panes of local content. JavaScript was 
+            used to control the tabs. Accordion instead use only css.
+            </p>
           </div>
           <div className="grid pad10">
            <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">

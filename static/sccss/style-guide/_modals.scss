@@ -1,57 +1,78 @@
 //Alert boxes, media, modals and badges
 
-.alert{
-    padding:15px;
+.alert-label{
+    padding:10px 20px 10px 10px;
     margin-bottom:20px;
     transition:all 0.3s ease-out;
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    &.alert-on{
+        visibility:visible;
+        opacity: 1;
+    }
     .close{
-        float:right;
-        color:#000;
-        opacity:0.3;
-        border:none;
-        background-color:transparent;
-        transition:opacity 0.3s ease-out;
+        align-items: center;
+        position: absolute;
+        top:12px;
+        right:12px;
         cursor:pointer;
-        &:hover{
-            opacity:0.6;
+    }
+
+    &.default{
+        background-color:$super-light-grey;
+    }
+    &.dark{
+        background-color:$dark-grey;
+        color:$snow;
+    }
+    
+    &.info{
+        background-color:$azure;
+        color:$snow;
+        p:before{
+            @include add-icon('\f05a', 12px);
+            position: relative;
+            color:$snow;
+            display: inline;
+            margin-right:5px;
         }
     }
-     span:before{
-     font-family: FontAwesome;
-     display:inline-block;
-     margin-right:5px;
+    
+    &.error{
+        background-color:$red;
+        color:$snow;
+        p:before{
+            @include add-icon('\f057', 12px);
+            position: relative;
+            color:$snow;
+            display: inline;
+            margin-right:5px;
+        }
     }
-}
-
-.alert-info{
-    background-color:$sky-blue;
-    color:$snow;
-    span:before{
-     content:'\f05a';
+    
+    &.warning{
+        background-color:$yellow;
+        color:$snow;
+        p:before{
+            @include add-icon('\f071', 12px);
+            position: relative;
+            color:$snow;
+            display: inline;
+            margin-right:5px;
+        }
     }
-}
-
-.alert-error{
-    background-color:$hot-red;
-    color:$snow;
-    span:before{
-     content:'\f071';
-    }
-}
-
-.alert-warning{
-    background-color:$gold-yellow;
-    color:$snow;
-    span:before{
-     content:'\f071';
-    }
-}
-
-.alert-success{
-    background-color:$green;
-    color:$snow;
-    span:before{
-     content:'\f00c';
+    
+    &.success{
+        background-color:$green;
+        color:$snow;
+        p:before{
+            @include add-icon('\f058', 12px);
+            position: relative;
+            color:$snow;
+            display: inline;
+            margin-right:5px;
+        }
     }
 }
 
@@ -69,32 +90,153 @@
     z-index: 100;
     visibility:hidden;
     opacity: 0;
-    transition: all 0.3s ease-out;
+    transition: all 0.4s ease-out;
+    &.dark{
+        background-color:rgba(0, 0, 0, 0.8);
+        .modal{
+            background-color: $snow;
+            color:$asphalt-grey;
+            header{
+                background-color: $light-grey;
+                color:$dark-grey;
+            }
+            .btn-white{
+                background-color:$light-grey;
+            }
+            &.info{
+                background-color: $snow;
+                header{
+                    background-color: $azure;
+                    color:$snow;
+                }
+                .modal-icon{
+                    color:$azure;
+                }
+                .btn-white{
+                    background-color:$azure;
+                }
+                .text-info{
+                    color:$snow;
+                }
+            }
+            &.warning{
+                background-color: $snow;
+                header{
+                    background-color: $yellow;
+                    color:$dark-grey;
+                }
+                .modal-icon{
+                    color:$yellow;
+                }
+                .btn-white{
+                    background-color:$yellow;
+                }
+                .text-warning{
+                    color:$dark-grey;
+                }
+                .btn-outline-white{
+                    border:1px solid $yellow;
+                    color:$dark-grey;
+                }
+            }
+            &.alert{
+                background-color: $snow;
+                header{
+                    background-color: $red;
+                    color:$snow;
+                }
+                .modal-icon{
+                    color:$red;
+                }
+                .btn-white{
+                    background-color:$red;
+                }
+                .text-alert{
+                    color:$snow;
+                }
+            }
+            &.success{
+                background-color: $snow;
+                header{
+                    background-color: $jade;
+                    color:$snow;
+                }
+                .modal-icon{
+                    color:$jade;
+                }
+                .btn-white{
+                    background-color:$jade;
+                }
+                .text-success{
+                    color:$snow;
+                }
+            }
+            
+
+        }   
+    }
     &.mask-on{
       visibility:visible;
       opacity:1;
+      .modal{
+        transition:all 0.3s ease-out;
+        transition-delay: 0.2s;
+        top:30px;
+      }
     }
 }
 
 .modal{
+    width:100%;
+    max-width:600px;
+    min-width: 300px;
+    box-sizing: border-box;
     position:relative;
-    top:50%;
+    top:-50%;
     left:50%;
-    transform:translate(-50%,-50%);
+    transform:translateX(-50%);
     z-index: 101;
-    background-color:$snow;
+    transition:all 0.3s ease-out;
+    transition-delay: 0s;
+    &.info{
+     background-color:$azure;
+     color:$snow;
+    }
+    &.warning{
+        background-color:$yellow;
+        color:$snow;
+    }
+    &.alert{
+        background-color:$red;
+        color:$snow;
+    }
+    &.success{
+        background-color:$jade;
+        color:$snow;
+    }
 }
 
 .modal-header{
-        background-color:$azure;
-        color:$snow;
         min-height:40px;
-        line-height:40px;
-        padding:10px;
+        line-height:20px;
+        position: relative;
+        &:after{
+            @include add-icon('\f00d', 14px);
+            color:$snow;
+            cursor:pointer;
+            @include align-right;
+            right:10px;
+        }
 }
 
 .modal-body, .modal-footer{
     padding:10px;
+    .btn{
+        margin:0 5px;
+    }
+}
+.modal-footer{
+    margin-bottom:20px;
 }
 
 /***badges***/

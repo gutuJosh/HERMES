@@ -370,7 +370,7 @@ export default class forms extends React.Component {
            <div className="pad20 m0">
            <h4>Selectors and switchers:</h4>
            <hr className="thin"/>
-           <div className="flex-grid wrap">
+           <form className="flex-grid wrap">
             <BasicSelector
               containerClass="flex-lg-6 flex-md-6 flex-sm-6 flex-sx-12"
               id="basic-selector"
@@ -426,7 +426,7 @@ export default class forms extends React.Component {
             change={this.updateState}
             errorMessage="This field is required"
             />
-            </div>
+            </form>
             <hr className="thin"/>
             <div className="flex-grid wrap">
              <Switcher
@@ -562,6 +562,7 @@ export default class forms extends React.Component {
            <div className="pad20 m0">
             <h4>Uploaders:</h4>
             <hr className="thin"/>
+            <form>
             <BasicUpload
                containerClass="item-lg-12-1 item-md-12-1 item-sm-12-1 item-xs-12-1" 
                name="input-file" 
@@ -575,6 +576,7 @@ export default class forms extends React.Component {
                id="custom-input-file" 
                label="Click or drop your images here"
               />
+            </form>
            </div>
           </div>
 

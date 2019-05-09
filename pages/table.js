@@ -26,7 +26,12 @@ export default class table extends React.Component {
       return(
         <Layout pageInfo={this.state.pageInfo}> 
           <div className="col-full pad20">
-            <p className="large">The following examples show how different components can be used together with basic and responsive tables.</p>
+            <p className="large">
+             The following examples show how different components can be used together with basic and responsive tables. 
+             Add the class "table" to a table html element. This step is requested in order to apply the css rules correctly, after that
+             you can add "table-bordered", "table-borderless", "zebra-stripes" or "table-hover" classes to further styling your tables.
+             Also you can add "disabled" class to a "tr" element to mark it as disabled.
+            </p>
           </div>
           <div className="grid pad10">
            <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
@@ -135,16 +140,30 @@ export default class table extends React.Component {
              <hr className="thin"/>
              <pre>
               <code>
-              &lt;div&nbsp;class&#61;"<span className="text-green">tabs-container-horizontal</span>"&gt;<br/>
-              &nbsp;&lt;nav&nbsp;class&#61;"<span className="text-green">tab-menu</span>"&gt;<br/>
-              &nbsp;&nbsp;&lt;ul&nbsp;class&#61;"<span className="text-green">flex</span>"&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;li&nbsp;class&#61;"<span className="text-green">[flex-item]</span>"&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">tab_3</span>"&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;<span className="text-middle-grey">Tab 3</span>&lt;/h3&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/p&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>
-              &nbsp;&nbsp;&lt;/div&gt;<br/>
-              &lt;/div&gt;
+              &lt;table&nbsp;class&#61;"<span className="text-green">table [table-bordered|table-borderless] [zebra-stripes] [table-hover]</span>"&gt;<br/>
+              &nbsp;&lt;thead&gt;<br/>
+              &nbsp;&nbsp;&lt;tr&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">Id</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">First Name</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">Last Name</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">Username</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&lt;/tr&gt;<br/>
+              &nbsp;&lt;/thead&gt;<br/>
+              &nbsp;&lt;tbody&gt;<br/>
+              &nbsp;&nbsp;&lt;tr&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">1</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">Cosmin</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">Horvath</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">@cos</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&lt;tr&gt;<br/>
+              &nbsp;&nbsp;&lt;tr&nbsp;class&#61;"<span className="text-green">[disabled]</span>&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">2</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">Otilia</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">Maier</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">@oti</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&lt;tr&gt;<br/>
+              &nbsp;&lt;tbody&gt;<br/>
+              &lt;/table&gt;<br/>
               </code>
              </pre>
             </div>
@@ -227,17 +246,24 @@ export default class table extends React.Component {
              <hr className="thin"/>
              <pre>
               <code>
-              &lt;div&nbsp;class&#61;"<span className="text-green">accordion [info|warning|error|success]</span>"&gt;<br/>
-              &nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">accordion-item</span>"&gt;<br/>
-              &nbsp;&nbsp;&lt;input&nbsp;type="checkbox" type="checkbox" name="option_1"/&gt;<br/>
-              &nbsp;&nbsp;&lt;label&nbsp;for&#61;"option_1"&gt;<span className="text-middle-grey">Collapsibile Group 1</span>&lt;/label&gt;<br/>
-              &nbsp;&nbsp;&lt;div&nbsp;class&#61;"<span className="text-green">accordion-content</span>"&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;h1&gt;<span className="text-middle-grey">Group 1</span>&lt;/h1&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;p&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/p&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;p&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/p&gt;<br/>
-              &nbsp;&nbsp;&nbsp;&lt;p&gt;<span className="text-middle-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>&lt;/p&gt;<br/>
-              &nbsp;&nbsp;&lt;/div&gt;<br/>
-              &nbsp;&lt;/div&gt;<br/>
+              &lt;div&nbsp;class&#61;"<span className="text-green">table-flip-scroll</span>&gt;<br/>
+              &nbsp;&lt;table&nbsp;class&#61;"<span className="text-green">table responsive [table-bordered|table-borderless] [zebra-stripes] [table-hover]</span>"&gt;<br/>
+              &nbsp;&nbsp;&lt;thead&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">Id</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">First Name</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">Last Name</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;<span className="text-middle-grey">Username</span>&lt;/th&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br/>
+              &nbsp;&nbsp;&lt;/thead&gt;<br/>
+              &nbsp;&nbsp;&lt;tbody&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&lt;tr&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">1</span>&lt;/td&gt;<br/>
+              &nbsp; &nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">Cosmin</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">Horvath</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<span className="text-middle-grey">@cos</span>&lt;/td&gt;<br/>
+              &nbsp;&nbsp;&lt;tbody&gt;<br/>
+              &nbsp;&lt;/table&gt;<br/>
               &lt;/div&gt;<br/>
               </code>
             </pre>
