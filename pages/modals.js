@@ -82,7 +82,7 @@ export default class modals extends React.Component {
               <button className="btn btn-warning mtop10" onClick={this.manageModalDialog} data-action="mask-on" data-type="warning">.modal .warning</button>&nbsp;
               <button className="btn btn-alert mtop10" onClick={this.manageModalDialog} data-action="mask-on" data-type="alert">.modal .alert</button>&nbsp;
               <button className="btn btn-success mtop10" onClick={this.manageModalDialog} data-action="mask-on" data-type="success">.modal .success</button>
-              </p>
+             </p> 
              <p className="mtop10">
               <button className="btn btn-outline-info mtop10" onClick={this.manageModalDialog} data-action="dark mask-on" data-type="info">.modal .info</button>&nbsp;
               <button className="btn btn-outline-warning mtop10" onClick={this.manageModalDialog} data-action="dark mask-on" data-type="warning">.modal .warning</button>&nbsp;
