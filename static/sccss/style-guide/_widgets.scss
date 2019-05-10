@@ -1,4 +1,4 @@
-//widgest
+//widgest & badges
 
 .widget{
     //border:1px solid $asphalt-grey;
@@ -56,5 +56,51 @@
     label:hover, input[name="show-widget-options"]:checked ~ label, a:hover{
          color:$azure;
      }
+}
+
+//badges
+.badge{
+    position: relative;
+    &:after{
+        content: attr(data-badge);
+        position: absolute;
+        right: -1rem;
+        top: -1rem;
+        display: inline-block;
+        min-width:1rem;
+        min-height: 1rem;
+        white-space: nowrap;
+        vertical-align: baseline;
+        background-color:$dark-grey;
+        padding: 5px;
+        color:$snow;
+        border-radius: 1rem;
+        font-size: 1rem;
+        line-height: 1rem;
+        font-weight: bold;
+        z-index: 700;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    }
+    &.info{
+        &:after{
+         background-color:$azure;
+        }
+    }
+    &.warning{
+        &:after{
+         background-color:$yellow;
+         color:$dark-grey;
+        }
+    }
+    &.alert{
+        &:after{
+         background-color:$red;
+        }
+    }
+    &.success{
+        &:after{
+         background-color:$jade;
+        }
+    }
 }
 

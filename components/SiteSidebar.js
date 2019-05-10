@@ -54,7 +54,7 @@ import { withRouter } from 'next/router';
       <li className={page === 'lists' ? 'block active' : 'block'}>
       <Link href="/lists">
        <a className="block">
-        <i className="fas fa-list"></i> Lists & media {props.pageInfo.page}
+        <i className="fas fa-list"></i> Lists &amp; media
        </a>
       </Link>
       </li>
@@ -83,6 +83,13 @@ import { withRouter } from 'next/router';
       <Link href="/modals">
         <a className="block">
          <i className="fas fa-exclamation-triangle"></i> Modals &amp; Alerts
+       </a>
+      </Link>
+      </li>
+      <li className={page === 'miscellaneous' ? 'block active' : 'block'}>
+      <Link href="/miscellaneous">
+        <a className="block">
+         <i className="fas fa-mortar-pestle"></i> Miscellaneous
        </a>
       </Link>
       </li>

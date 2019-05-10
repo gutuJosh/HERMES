@@ -190,7 +190,7 @@
  
    @if $position == after { //content
     &:after{
-         content:attr(data-title);
+         content:attr(data-tip);
          display:block;
          background-color:$bg-color;
          padding:0 10px;
@@ -199,7 +199,7 @@
          color:$text-color;
          white-space: nowrap;
          position:absolute;
-         max-width: 100%;
+         //max-width: 100%;
          //word-wrap: break-word;     
          //overflow-wrap: break-word;
          @if $type == left{

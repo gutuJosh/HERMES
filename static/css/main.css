@@ -80,27 +80,27 @@ body {
 
 /****Headers****/
 .h1, h1 {
-  font-size: 2.6rem;
+  font-size: 3rem;
 }
 
 .h2, h2 {
-  font-size: 2.25rem;
+  font-size: 2.6rem;
 }
 
 .h3, h3 {
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 
 .h4, h4 {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .h5, h5 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .h6, h6 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -4739,42 +4739,6 @@ textarea {
   margin-bottom: 20px;
 }
 
-/***badges***/
-.badge {
-  border-radius: 50%;
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  font-size: 10px;
-  text-align: center;
-}
-
-.badge-left {
-  top: -5px;
-  left: 0;
-}
-
-.badge-right {
-  top: 2px;
-  right: 0;
-}
-
-.badge-blue {
-  background-color: #05afd1;
-  color: #fff;
-}
-
-.badge-purple {
-  background-color: #9b479f;
-  color: #fff;
-}
-
-.badge-red {
-  background-color: #FE5E3A;
-  color: #fff;
-}
-
 .label {
   display: inline-block;
   position: relative;
@@ -4814,88 +4778,49 @@ textarea {
   color: #fff;
 }
 
-.tip-top {
-  /*
-      $type= top | right | bottom | left
-      $position = :before | :after
-      $bg-color = hexadecimal | rgba
-      $text-color = hexadecimal | rgba
-   */
-  position: relative;
-  /*
-      $type= top | right | bottom | left
-      $position = :before | :after
-      $bg-color = hexadecimal | rgba
-      $text-color = hexadecimal | rgba
-   */
+.tip {
   position: relative;
 }
 
-.tip-top:after {
-  content: attr(data-title);
-  display: block;
-  background-color: #474949;
-  padding: 0 10px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #fff;
-  white-space: nowrap;
+.tip:before, .tip:after {
   position: absolute;
-  max-width: 100%;
   left: 50%;
-  top: -10px;
+  opacity: 0;
+  margin-bottom: 0;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  bottom: 120%;
+}
+
+.tip:after {
+  white-space: normal;
+  content: attr(data-tip);
+  display: block;
+  padding: .25em .5em;
+  background: #474949;
+  color: #fff;
+  pointer-events: none;
+  z-index: 999;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  -webkit-box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  visibility: hidden;
-  opacity: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.tip-top:hover:before {
-  visibility: visible;
-  opacity: 1;
-  top: -10px;
-}
-
-.tip-top:hover:after {
-  visibility: visible;
-  opacity: 1;
-  top: -30px;
-}
-
-.tip-top:before {
+.tip:before {
   content: '';
-  display: block;
   width: 0;
   height: 0;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  border-right: 6px solid transparent;
-  border-top: 6px solid #474949;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid transparent;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  visibility: hidden;
-  opacity: 0;
+  border-top: 8px solid #474949;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin-left: -4px;
+  bottom: 100%;
 }
 
-.tip-top:hover:before {
-  visibility: visible;
+.tip:hover:before, .tip:hover:after {
   opacity: 1;
-  top: -10px;
-}
-
-.tip-top:hover:after {
-  visibility: visible;
-  opacity: 1;
-  top: -30px;
 }
 
 .tip-top.info {
@@ -4916,7 +4841,7 @@ textarea {
 }
 
 .tip-top.info:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #00bfed;
   padding: 0 10px;
@@ -4925,7 +4850,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   top: -10px;
   -webkit-transform: translateX(-50%);
@@ -5000,7 +4924,7 @@ textarea {
 }
 
 .tip-top.warning:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #f1c40f;
   padding: 0 10px;
@@ -5009,7 +4933,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   top: -10px;
   -webkit-transform: translateX(-50%);
@@ -5084,7 +5007,7 @@ textarea {
 }
 
 .tip-top.alert:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #FE5E3A;
   padding: 0 10px;
@@ -5093,7 +5016,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   top: -10px;
   -webkit-transform: translateX(-50%);
@@ -5168,7 +5090,7 @@ textarea {
 }
 
 .tip-top.success:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #469408;
   padding: 0 10px;
@@ -5177,7 +5099,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   top: -10px;
   -webkit-transform: translateX(-50%);
@@ -5252,7 +5173,7 @@ textarea {
 }
 
 .tip-right:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #474949;
   padding: 0 10px;
@@ -5261,7 +5182,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   left: 100%;
   -webkit-transform: translateY(-50%);
@@ -5336,7 +5256,7 @@ textarea {
 }
 
 .tip-right.info:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #00bfed;
   padding: 0 10px;
@@ -5345,7 +5265,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   left: 100%;
   -webkit-transform: translateY(-50%);
@@ -5420,7 +5339,7 @@ textarea {
 }
 
 .tip-right.warning:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #f1c40f;
   padding: 0 10px;
@@ -5429,7 +5348,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   left: 100%;
   -webkit-transform: translateY(-50%);
@@ -5504,7 +5422,7 @@ textarea {
 }
 
 .tip-right.alert:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #FE5E3A;
   padding: 0 10px;
@@ -5513,7 +5431,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   left: 100%;
   -webkit-transform: translateY(-50%);
@@ -5588,7 +5505,7 @@ textarea {
 }
 
 .tip-right.success:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #469408;
   padding: 0 10px;
@@ -5597,7 +5514,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   left: 100%;
   -webkit-transform: translateY(-50%);
@@ -5672,7 +5588,7 @@ textarea {
 }
 
 .tip-bottom:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #474949;
   padding: 0 10px;
@@ -5681,7 +5597,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   bottom: -10px;
   -webkit-transform: translateX(-50%);
@@ -5756,7 +5671,7 @@ textarea {
 }
 
 .tip-bottom.info:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #00bfed;
   padding: 0 10px;
@@ -5765,7 +5680,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   bottom: -10px;
   -webkit-transform: translateX(-50%);
@@ -5840,7 +5754,7 @@ textarea {
 }
 
 .tip-bottom.warning:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #f1c40f;
   padding: 0 10px;
@@ -5849,7 +5763,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   bottom: -10px;
   -webkit-transform: translateX(-50%);
@@ -5924,7 +5837,7 @@ textarea {
 }
 
 .tip-bottom.alert:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #FE5E3A;
   padding: 0 10px;
@@ -5933,7 +5846,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   bottom: -10px;
   -webkit-transform: translateX(-50%);
@@ -6008,7 +5920,7 @@ textarea {
 }
 
 .tip-bottom.success:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #469408;
   padding: 0 10px;
@@ -6017,7 +5929,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   left: 50%;
   bottom: -10px;
   -webkit-transform: translateX(-50%);
@@ -6092,7 +6003,7 @@ textarea {
 }
 
 .tip-left:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #474949;
   padding: 0 10px;
@@ -6101,7 +6012,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   right: 100%;
   -webkit-transform: translateY(-50%);
@@ -6174,7 +6084,7 @@ textarea {
 }
 
 .tip-left.info:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #00bfed;
   padding: 0 10px;
@@ -6183,7 +6093,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   right: 100%;
   -webkit-transform: translateY(-50%);
@@ -6256,7 +6165,7 @@ textarea {
 }
 
 .tip-left.warning:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #f1c40f;
   padding: 0 10px;
@@ -6265,7 +6174,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   right: 100%;
   -webkit-transform: translateY(-50%);
@@ -6338,7 +6246,7 @@ textarea {
 }
 
 .tip-left.alert:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #FE5E3A;
   padding: 0 10px;
@@ -6347,7 +6255,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   right: 100%;
   -webkit-transform: translateY(-50%);
@@ -6420,7 +6327,7 @@ textarea {
 }
 
 .tip-left.success:after {
-  content: attr(data-title);
+  content: attr(data-tip);
   display: block;
   background-color: #469408;
   padding: 0 10px;
@@ -6429,7 +6336,6 @@ textarea {
   color: #fff;
   white-space: nowrap;
   position: absolute;
-  max-width: 100%;
   top: 50%;
   right: 100%;
   -webkit-transform: translateY(-50%);
@@ -6551,6 +6457,49 @@ textarea {
 
 .widget-footer label:hover, .widget-footer input[name="show-widget-options"]:checked ~ label, .widget-footer a:hover {
   color: #00bfed;
+}
+
+.badge {
+  position: relative;
+}
+
+.badge:after {
+  content: attr(data-badge);
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  display: inline-block;
+  min-width: 1rem;
+  min-height: 1rem;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #474949;
+  padding: 5px;
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
+  z-index: 700;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.badge.info:after {
+  background-color: #00bfed;
+}
+
+.badge.warning:after {
+  background-color: #f1c40f;
+  color: #474949;
+}
+
+.badge.alert:after {
+  background-color: #FE5E3A;
+}
+
+.badge.success:after {
+  background-color: #2BB6BC;
 }
 
 /****Text alignment****/

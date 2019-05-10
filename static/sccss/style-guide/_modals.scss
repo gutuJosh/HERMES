@@ -239,42 +239,6 @@
     margin-bottom:20px;
 }
 
-/***badges***/
-
-.badge{
-    border-radius: 50%;
-    position:absolute;
-    width:18px;
-    height:18px;
-    line-height:18px; 
-    font-size:10px;
-    text-align:center;
-}
-
-.badge-left{
-    top:-5px;
-    left:0;
-}
-
-.badge-right{ 
-    top:2px;
-    right:0;
-}
-
-.badge-blue{
-    background-color:$sky-blue;
-    color:$snow;
-}
-
-.badge-purple{
-    background-color:$purple;
-    color:$snow;
-}
-
-.badge-red{
-    background-color:#FE5E3A;
-    color:$snow;
-}
 
 //Labels
 .label{
@@ -308,9 +272,50 @@
   }
 
   //Tips  
+  .tip{
+
+    position:relative;
+    &:before, &:after{
+        position: absolute;
+        left: 50%;
+        opacity: 0;
+        margin-bottom: 0;
+        transition: all 0.25s;
+        bottom: 120%;
+    }
+    &:after{
+        white-space: normal;
+        content: attr(data-tip);
+        display: block;
+        padding: .25em .5em;
+        background: $dark-grey;
+        color: $snow;
+        pointer-events: none;
+        z-index: 999;
+        transform: translateX(-50%);
+        width:100%;
+        box-sizing:border-box;
+    }
+    &:before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 8px solid $dark-grey;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        margin-left: -4px;
+        bottom: 100%;
+    }
+    
+  }
+
+.tip:hover{
+    &:before, &:after{
+        opacity: 1;
+    }
+}
+
   .tip-top{
-    @include tip(top, after, $dark-grey, $snow);
-    @include tip(top, before, $dark-grey, '');
     &.info{
         @include tip(top, after, $azure, $snow);
         @include tip(top, before, $azure, '');
