@@ -60,6 +60,12 @@ export default class miscellaneous extends React.Component {
                <button className="btn-info mtop10 tip-right info" data-tip="If you need help just call us.">
                 <i className="fas fa-question"></i> Help .tip-right
                </button>&nbsp;&nbsp;
+               <br/><br/>
+               <p className="large">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aspernatur quidem, maiores, 
+         ducimus atque odit <span className="tip strong underlined" data-tip="Dolorum dignissimos illum beatae mollitia recusandae, repellendus id perspiciatis ut, tempora in aperiam">explicabo expedita</span> dolorum dignissimos illum beatae mollitia recusandae, 
+         repellendus id perspiciatis ut, tempora in aperiam.   
+               </p>
               </div>
              </div>
 
@@ -77,7 +83,7 @@ export default class miscellaneous extends React.Component {
 
                <pre>
                 <code>
-                  &lt;button&nbsp;class&#61;"<span className="text-green">tip [tip-top|tip-right|tip-bottom|tip-left] [info|warning|alert|success]</span>" data-tip="<span className="text-green">Tips message here</span>"&gt;<br/>
+                  &lt;button&nbsp;class&#61;"<span className="text-green">[tip|tip-top|tip-right|tip-bottom|tip-left] [info|warning|alert|success]</span>" data-tip="<span className="text-green">Tips message here</span>"&gt;<br/>
                   &nbsp;&lt;span&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/span&gt;<br/>
                   &lt;/button&gt;
                  </code>

@@ -14,19 +14,8 @@ body{
     position: fixed;
     top:0;
     z-index: 10;
-    .hamburger{
-        width:60px;
-        line-height: 60px;
-        font-size:2rem;
-        transition:all 0.3s ease-out;
-        &:hover{
-            background-color: $super-light-grey;
-        }
-    }
 }
-.logo-holder{
-    width:240px;
-    background-color: $azure;
-    align-self:stretch; 
-    p{line-height: 6rem;}
+
+.main-nav{
+    min-height:60px;
 }

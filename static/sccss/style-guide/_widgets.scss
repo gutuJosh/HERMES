@@ -104,3 +104,117 @@
     }
 }
 
+//hamburger menu icon
+.hamburger{
+    position:relative;
+    width:60px;
+    transition: background 0.3s ease-out;
+    &:hover{
+        &.info{
+            background-color: $azure;
+        }
+        &.alert{
+            background-color: $red;
+        }
+        &.warning{
+            background-color: $yellow;
+        }
+        &.success{
+            background-color: $jade;
+        }
+        li:first-child, li:last-child{
+         &:before{
+          width:100%;
+         }
+       }
+       li:nth-child(2){
+        &:after{
+            width:100%;
+        }
+       }
+    }
+    &.active{
+        &.info{
+            background-color: $azure;
+        }
+        &.alert{
+            background-color: $red;
+        }
+        &.warning{
+            background-color: $yellow;
+        }
+        &.success{
+            background-color: $jade;
+        }
+        li:first-child, li:last-child{
+            &:before{
+             width:100%;
+            }
+          }
+          li:nth-child(2){
+           &:after{
+               width:100%;
+           }
+          }
+    }
+    &.info{
+        li{
+            background-color: $azure;
+        }
+    }
+    &.alert{
+        li{
+            background-color: $red;
+        }
+    }
+    &.warning{
+        li{
+            background-color: $yellow;
+        }
+    }
+    &.success{
+        li{
+            background-color: $jade;
+        }
+    }
+}
+.hamburger-icon{
+    width:24px;
+    height:20px;
+    @include centered-absolute;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    li{
+        width:100%;
+        height:3px;
+        position: relative;
+    }
+    li:first-child, li:last-child{
+        &:before{
+            content:'';
+            display: inline-block;
+            width: 0;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            transition: width 0.3s ease-out;
+            background-color: $snow;
+        }
+    }
+    li:nth-child(2){
+        &:after{
+            content:'';
+            display: inline-block;
+            width: 0;
+            height: 100%;
+            position: absolute;
+            top:0;
+            right:0;
+            transition: width 0.3s ease-out;
+            background-color: $snow;
+        }
+    }
+}
+
