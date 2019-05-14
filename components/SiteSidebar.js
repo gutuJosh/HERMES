@@ -8,15 +8,13 @@ import { withRouter } from 'next/router';
 
   return (
     
-    <aside className="site-sidebar flex-item">
-     <ul className="list-group library-menu">
-     <li>
+    <aside className="site-sidebar">
      <div className="logo-holder">
       <p className="text-center text-white m0">
        <i className="fas fa-th"></i> The Grid
       </p>
      </div>
-     </li>
+     <ul className="list-group library-menu">
       <li className={props.pageInfo.page === 'grid' ? 'block active' : 'block'}>
        <div className="accordion">
         <div className="accordion-item m0">

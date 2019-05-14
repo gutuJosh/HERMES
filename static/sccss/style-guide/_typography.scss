@@ -129,17 +129,4 @@ pre{
   box-sizing: border-box;
   white-space: pre-wrap;
   word-wrap: break-word;
-  
- @media (max-width: $screen-md-max) {
-    max-width: 900px; 
- }
-
- @media (max-width: $screen-sm-max) {
-  max-width: 600px; 
- }
-
- @media (max-width: $screen-xs-max) {
-  max-width: 300px;
- }
-
 }

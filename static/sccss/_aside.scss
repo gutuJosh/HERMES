@@ -1,22 +1,24 @@
 .site-sidebar{
-    width:240px;
-    height: 100%;
     background-color: $snow;
-    position: fixed;
-    top:0;
-    left:0;
-    overflow-y: auto;
-    transition:width 0.3s ease-out;
-
+    position: relative;
+    z-index: 1;
+    &:after{
+        content: '';
+        display:block;
+        width: 1px;
+        height:calc(100% - 60px);
+        position: absolute;
+        top:60px;
+        right:0px;
+        background-color:$dirty-snow;
+        z-index: 1;
+    }
 }
 
-#__next .content-wrapper{
-    transition:margin 0.3s ease-out;
-}
 
 #__next .content-wrapper.close{
-    margin-left:60px;
-    .site-sidebar{
+   
+    .library-menu{
         width:60px;
     }
     .library-menu li{
@@ -25,6 +27,8 @@
         }
         &:after{
             display:none;
+            visibility: hidden;
+            width:0;
         }
         a:before, a:after{
             display:none;
@@ -32,20 +36,25 @@
         label, a{
             text-align: center;
         }
-        input:checked ~ .accordion-content{
+       .accordion-content{
             border:none;
             position: absolute;
+            top:0;
             left:60px;
-            width: 100%;
-            max-width: 200px;
-            background-color: $snow;
+            width: 200px;
+            background-color: $azure;
+            a{
+                color:$snow;
+            }
         }
     }
 }
 .library-menu{
     border:none;
+    transition:width 0.3s ease-out;
+    width: 240px;
     & > li{
-        &:nth-child(2){
+        &:first-child{
             &.active{
               border-top:1px solid $snow;
               .accordion label{
@@ -91,6 +100,7 @@
                 width:100%;
             } 
         }
+        
     }
     .accordion-item{
         label{
@@ -113,16 +123,14 @@
     margin-right:2rem;
     //color:$azure;
 }
-.library-menu > li:first-child{
-    padding:0;
-}
-.library-menu > li:first-child:after, li:nth-child(2):after{
+
+.library-menu > li:first-child:after{
     content:'';
     display: none;
 }
 
 
-.library-menu > li > a, .library-menu > li:nth-child(2) label{
+.library-menu > li > a, .library-menu > li:first-child label{
     font-weight: 400;
     line-height: 4rem;
     color:$middle-grey;
@@ -132,7 +140,7 @@
         color:$snow;
     }
 }
-li:nth-child(2) label:before{
+li:first-child label:before{
     content: attr(title);
     font-family: inherit;
     font-weight: normal;
@@ -156,4 +164,7 @@ li:nth-child(2) label:before{
     width:100%;
     height:60px;
     background-color: $azure;
+    position: sticky;
+    top:0;
+    z-index: 10;
 }

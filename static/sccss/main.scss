@@ -29,8 +29,12 @@
    height: 100%; 
 }
 .content-wrapper{
+    display: flex; 
     box-sizing: border-box;
-    margin-left:240px; 
+    min-height:100%;
+}
+main.content{
+    padding-top: 6rem;
 }
 
   
