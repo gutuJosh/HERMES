@@ -7405,4 +7405,10 @@ div[class*="offset"] {
 main.content {
   padding-top: 6rem;
 }
+
+.library-banner {
+  display: inline-block;
+  width: 100%;
+  max-width: 499px;
+}
 /*# sourceMappingURL=main.css.map */
