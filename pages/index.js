@@ -23,7 +23,7 @@ export default class index extends React.Component {
                 <h1 className="mtop50">Css pattern library<br/>
                 <small>code standards documents and content style guides</small></h1>
                 <p className="large">
-                    This is a css pattern library which <a href="https://www.linkedin.com/in/cosmin-h-004500129/" target="_blank" rel="nofollow">I developed</a></a> for the company I work for, as a part of a
+                    This is a css pattern library which <a href="https://www.linkedin.com/in/cosmin-h-004500129/" target="_blank" rel="nofollow">I developed</a> for the company I work for, as a part of a
                     bigger project called Hermes. I decided to share it in order to showcase my work and because I belive it could be useful for others 
                     front end developers as well, to create any new project.
                 </p>
