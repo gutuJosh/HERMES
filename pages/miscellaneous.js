@@ -1,5 +1,5 @@
 import Layout from '../components/Layout.js';
-
+import HamburgerMenuIcon from '../components/ui/HamburgerMenuIcon.js';
 export default class miscellaneous extends React.Component {
 
     constructor(props) {
@@ -91,8 +91,63 @@ export default class miscellaneous extends React.Component {
 
               </div>
              </div>
-
             </div>
+
+            <div className="grid pad10">
+              <div className="item-lg-6-1 item-md-6-1 item-sm-12-1 item-xs-12-1 bg-white">
+               <div className="pad20 m0">
+                <h4>Hamburger menu icon &amp; dropwdown menu</h4>
+                <hr className="thin"/>
+                <nav className="flex wrap sample-menu">
+                  <HamburgerMenuIcon type="info" action={false}/>
+                  <ul className="flex menu-items">
+                   <li className="menu-items"><a className="pad-x-20">Home</a></li>
+                   <li className="menu-items">
+                    <a className="pad-x-20">Services <i className="fas fa-sort-down"></i></a>
+                     <div className="dropdown-box">
+                      <div className="panel">
+                       <ul className="main">
+                        <li>
+                          <a className="has-options">Web Design</a>
+                          <ul>
+                            <li className="header">
+                             <span>Back</span>
+                            </li>
+                            <li>Psd to Html</li>
+                            <li>Css</li>
+                            <li>Javascript</li>
+                            <li>Php</li>
+                          </ul>
+                        </li>
+                        <li>System architecture</li>
+                        <li>Software development</li>
+                       </ul>
+                      </div>
+                     </div>
+                   </li>
+                   <li className="menu-items">
+                   <a className="pad-x-20">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+               </div>
+             </div>
+
+             <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
+             <div className="pad20 m0">
+              <h4>Code sample:</h4>
+              <hr className="thin"/>
+               <pre>
+                <code>
+                  &lt;button&nbsp;class&#61;"<span className="text-green">badge [info|warning|alert|success]</span>"&gt;<br/>
+                  &nbsp;&lt;span&gt;<span className="text-middle-grey">Lorem ipsum</span>&lt;/span&gt;<br/>
+                  &lt;/button&gt;
+                 </code>
+               </pre>
+              </div>
+             </div>
+            </div>
+
         </Layout>
         )
     }

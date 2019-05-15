@@ -1,12 +1,17 @@
-import HamburgerMenuIcon from './HamburgerMenuIcon.js';
+import HamburgerMenuIcon from './ui/HamburgerMenuIcon.js';
 
 const TopBar = (props) => {
 
-  
+  function toggleSideBar(e){
+    const sideBar = document.querySelector('#__next .content-wrapper');
+    sideBar.classList.toggle('close');
+    e.currentTarget.classList.toggle('active'); 
+  }
+
   return(
     <header id="mainHeader" className="flex-grid v-align-middle main-header">
       <nav className="main-nav flex-auto flex">
-       <HamburgerMenuIcon />
+       <HamburgerMenuIcon action={toggleSideBar} type="info"/>
       <h3 className="pad-x-10">{props.topic}</h3>
      </nav> 
    </header>

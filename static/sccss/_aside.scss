@@ -56,10 +56,16 @@
     & > li{
         &:first-child{
             &.active{
-              border-top:1px solid $snow;
+              border-top:1px solid $snow; 
               .accordion label{
                   color:$snow;
               }
+            }
+            &:hover{
+                border-right:none;
+                label{
+                    color:$snow;
+                }
             }
         }
         position: relative;
@@ -167,4 +173,5 @@ li:first-child label:before{
     position: sticky;
     top:0;
     z-index: 10;
+    box-shadow: rgba(255,255,255,0.09) 0px 1px 0px inset,rgba(0,0,0,0.075) 0px 1px 5px; 
 }
