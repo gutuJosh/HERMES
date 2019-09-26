@@ -1,0 +1,30 @@
+//main file 
+//Load variables
+@import "style-guide/numbers";
+@import "style-guide/colors";
+
+//Layout
+@import "style-guide/reset";
+@import "style-guide/mixins";
+
+// Load style-guide
+@import "style-guide/typography";
+@import "style-guide/grid-layout";
+@import "style-guide/flex-grid";
+@import "style-guide/forms";
+@import "style-guide/lists";
+@import "style-guide/tables";
+@import "style-guide/accordions-and-tabs";
+@import "style-guide/modals";
+@import "style-guide/widgets";
+@import "style-guide/helpers";
+
+
+html, body{
+    height:100%;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color:$washed-grey;
+    color:$grey;
+}
