@@ -82,7 +82,7 @@ const CustomSelector = props => {
           )}
         </div>
       </div>
-      <span className="text-error small mtop10">{props.errorMessage}</span>
+      <span className="text-alert small mtop10">{props.errorMessage}</span>
       <span className="text-warning small mtop10">{props.warningMessage}</span>
       <span className="text-success small mtop10">{props.successMessage}</span>
     </div>

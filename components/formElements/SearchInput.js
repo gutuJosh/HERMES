@@ -47,6 +47,13 @@ const SearchInput = props => {
           } else if (element !== null) {
             element.classList.remove("active");
           }
+          //where on home page
+          if (
+            props.name === "where" &&
+            document.querySelector(`input[name="tab"]`) !== null
+          ) {
+            document.querySelector(`input[name="tab"]`).value = "";
+          }
         }}
         onKeyUp={event => {
           clearTimeout(timer);
@@ -68,10 +75,29 @@ const SearchInput = props => {
               const element = document.querySelector(
                 `input[name="${props.name}"]`
               );
-              element.value = event.target.getAttribute("title");
+              let tab = "";
+              if (event.target.dataset.value !== undefined) {
+                let split = event.target.dataset.value.split("|");
+                element.value = split[0];
+                tab = split[1];
+              } else {
+                element.value = event.target.getAttribute("title");
+              }
               element.nextSibling.classList.remove("active");
+              //home page
+              if (
+                props.name === "where" &&
+                document.querySelector(`input[name="tab"]`) !== null
+              ) {
+                document.querySelector(`input[name="tab"]`).value = tab;
+              }
+              //search page
               if (props.performSearch) {
-                props.performSearch(props.name, element.value);
+                let value =
+                  event.target.dataset.value !== undefined
+                    ? event.target.dataset.value
+                    : element.value;
+                props.performSearch(props.name, value);
               }
             }}
           />
