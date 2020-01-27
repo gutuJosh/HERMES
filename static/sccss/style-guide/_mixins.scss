@@ -42,7 +42,7 @@
       }
     } @else {
       .col-#{$column-prefix}-#{$i} {
-        width: $width + "%";
+        width: $width + %;
       }
     }
   }

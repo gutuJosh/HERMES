@@ -138,14 +138,14 @@
     max-width: 100%;
   }
 
-  @media (max-width: $screen-md-max) {
+  @media (max-width: $screen-lg-max) {
     [class*="item-lg-"] {
       grid-column-start: 1;
       grid-column-end: 13;
     }
     @include grid-items("md");
   }
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-md-max) {
     [class*="item-md-"] {
       grid-column-start: 1;
       grid-column-end: 13;
@@ -153,7 +153,7 @@
     @include grid-items("sm");
   }
 
-  @media (max-width: $screen-xs-max) {
+  @media (max-width: $screen-sm-max) {
     [class*="item-sm-"] {
       grid-column-start: 1;
       grid-column-end: 13;

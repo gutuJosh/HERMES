@@ -318,6 +318,8 @@
 }
 
 .tip-top {
+  @include tip(top, after, $dark-grey, $snow);
+  @include tip(top, before, $dark-grey, "");
   &.info {
     @include tip(top, after, $azure, $snow);
     @include tip(top, before, $azure, "");

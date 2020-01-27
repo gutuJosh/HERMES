@@ -36,15 +36,15 @@
     @include set-column-width("lg", "flex");
   }
 
-  @media (max-width: $screen-md-max) {
+  @media (max-width: $screen-lg-max) {
     @include set-column-width("md", "flex");
   }
 
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-md-max) {
     @include set-column-width("sm", "flex");
   }
 
-  @media (max-width: $screen-xs-max) {
+  @media (max-width: $screen-sm-max) {
     @include set-column-width("xs", "flex");
   }
 
@@ -52,8 +52,8 @@
     [class*="flex-lg-"],
     [class*="flex-md-"],
     [class*="flex-sm-"],
-    [clflex-one-half*="flex-xs-"] {
-      mflex-one-halfin: ($flex-grid-gap/2);
+    [class*="flex-xs-"] {
+      margin: ($flex-grid-gap/2);
     }
   }
   //pieflex-one-half

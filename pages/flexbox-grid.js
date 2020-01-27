@@ -41,8 +41,8 @@ export default class flexboxGrid extends React.Component {
           </div>
 
           <div className="flex-grid">
-            <div className="flex-lg-6 flex-md-6 flex-sm-6 flex-xs-6 pad20 text-center">.flex-prefix-6</div>
-            <div className="flex-lg-6 flex-md-6 flex-sm-6 flex-xs-6 pad20 text-center">.flex-prefix-6</div>
+            <div className="flex-lg-6 flex-md-6 flex-sm-8 flex-xs-12 pad20 text-center">.flex-prefix-6</div>
+            <div className="flex-lg-6 flex-md-6 flex-sm-4 flex-xs-12 pad20 text-center">.flex-prefix-6</div>
           </div>
 
           <div className="flex-grid">
