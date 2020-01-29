@@ -1,5 +1,6 @@
 import Layout from '../components/Layout.js';
 import BreakPointsTable from '../components/BreakPointsTable';
+import ResizeComponent from "./../helpers/ResizeComponents";
 
 export default class cssGrid extends React.Component {
 
@@ -20,6 +21,18 @@ export default class cssGrid extends React.Component {
           'pageInfo' :  this.props.pageInfo
         });
       }
+
+      const resize = new ResizeComponent({
+        reakpoints: {
+          "xs" : 576,
+          "sm" : 768,
+          "md" : 992,
+          "lg" : 1200,
+          "xlg" : 1201
+       },
+       items: '[data-observe-resizes]',
+       itemClass: 'grid pad20'
+      })
     }
     
     render(){
@@ -43,7 +56,7 @@ export default class cssGrid extends React.Component {
                 </div>
               </div>
 
-              <div className="grid pad-x-20">
+              <div className="grid pad-x-20" data-observe-resizes>
               <div className="item-lg-12-1 item-md-12-1 item-sm-12-1 text-center pad20 column">.item-prefix-12-1</div>
               <div className="item-lg-6-1 item-md-6-1 item-sm-6-1 item-xs-6-1 text-center pad20 column">.item-prefix-6-1</div>
               <div className="item-lg-6-7 item-md-6-7 item-sm-6-7 item-xs-6-7 text-center pad20 column">.item-prefix-6-7</div>

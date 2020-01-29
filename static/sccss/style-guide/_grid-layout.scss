@@ -164,4 +164,32 @@
   @media (min-width: $screen-lg-min) {
     @include grid-items("lg");
   }
+
+}
+
+
+[data-observe-resizes]{
+  &.xlg, &.lg{
+    @include grid-items("lg");
+  }
+
+  &.md{
+    @include grid-items("md");
+  }
+
+  &.sm{
+    [class*="item-md-"] {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
+    @include grid-items("sm");
+  }
+
+  &.xs{
+    [class*="item-sm-"] {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
+    @include grid-items("xs");
+  }
 }
