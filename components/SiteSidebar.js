@@ -9,9 +9,11 @@ import { withRouter } from 'next/router';
   return (
     
     <aside className="site-sidebar">
-     <div className="logo-holder">
+     <div className="logo-holder"> 
       <p className="text-center text-white m0">
-       <i className="fas fa-th"></i> The Grid
+       <Link href="/">
+        <span className="pointer"><i className="fas fa-heading"></i>ermes</span>
+       </Link>
       </p>
      </div>
      <ul className="list-group library-menu">

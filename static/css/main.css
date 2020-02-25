@@ -9537,6 +9537,10 @@ li:first-child label:before {
           box-shadow: rgba(255, 255, 255, 0.09) 0px 1px 0px inset, rgba(0, 0, 0, 0.075) 0px 1px 5px;
 }
 
+.logo-holder p {
+  line-height: 60px;
+}
+
 .column {
   background-color: #f1f1f1;
   border-top: 1px solid #dfdfdd;

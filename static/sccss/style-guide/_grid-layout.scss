@@ -167,6 +167,8 @@
 
 }
 
+//container queries
+//used in conjunction with ResizeComponent plugin, located in /helpers
 
 [data-observe-resizes]{
   &.xlg, &.lg{
