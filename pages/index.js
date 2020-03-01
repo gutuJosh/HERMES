@@ -35,9 +35,9 @@ export default class index extends React.Component {
                  How to use it? Just <a>download</a> the .css file and start reading the documentation.
                 </p>
                 <p>PS: One important thing is that I do not support if there is a bug or other types of errors.</p>
-                <button className="btn btn-info mtop20">
-                 <span>Download .css file</span>
-                </button>
+                <a className="btn btn-info mtop20" href="/download" title="Click to download">
+                 <span>Download .css files</span>
+                </a>
                 
                </div>
               </div>

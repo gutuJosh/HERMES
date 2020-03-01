@@ -12,6 +12,8 @@ const forms = require('./routes/Forms');
 const tabs = require('./routes/Tabs');
 const table = require('./routes/Table');
 const modals = require('./routes/Modals');
+const miscellaneous = require('./routes/Miscellaneous');
+const download = require('./routes/Download');
 
 app.prepare()
 .then(() => {
@@ -24,6 +26,9 @@ app.prepare()
   server.use('/tabs', tabs);
   server.use('/table', table);
   server.use('/modals', modals);
+  server.use('/miscellaneous', miscellaneous);
+  server.use('/download',download);
+  server.use('/static', express.static(__dirname + '/static'));
   
   server.get('*', (req, res) => {
     return handle(req, res);
