@@ -32,22 +32,22 @@
 
   //columns 1 to 12
 
-  @media (min-width: $screen-lg-min) {
-    @include set-column-width("lg", "flex");
-  }
-
-  @media (max-width: $screen-lg-max) {
-    @include set-column-width("md", "flex");
-  }
-
-  @media (max-width: $screen-md-max) {
-    @include set-column-width("sm", "flex");
-  }
-
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-xs-max) {
     @include set-column-width("xs", "flex");
   }
 
+  @media (min-width: $screen-sm-min) {
+    @include set-column-width("sm", "flex");
+  }
+
+  @media (min-width: $screen-md-min) {
+    @include set-column-width("md", "flex");
+  }
+
+  @media (min-width: $screen-lg-min) { 
+    @include set-column-width("lg", "flex");
+  }
+ 
   @if $flex-grid-gap != 0px {
     [class*="flex-lg-"],
     [class*="flex-md-"],

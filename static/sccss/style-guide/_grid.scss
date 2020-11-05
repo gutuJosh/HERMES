@@ -32,18 +32,17 @@
   display: block;
 }
 
-@media (max-width: $screen-lg-max) {
-  @include set-column-width("md", "div");
+@media (max-width: $screen-xs-max) {
+  @include set-column-width("xs", "div");
 }
-
-@media (max-width: $screen-md-max) {
+@media (min-width: $screen-sm-min) {
   @include set-column-width("sm", "div");
 }
 
-@media (max-width: $screen-sm-max) {
-  @include set-column-width("xs", "div");
+@media (min-width: $screen-md-min) {
+  @include set-column-width("md", "div");
 }
 
-@media (min-width: $screen-lg-min) {
+@media (min-width: $screen-lg-min) { 
   @include set-column-width("lg", "div");
 }

@@ -6,7 +6,7 @@ class ResizeComponent{
   
     this.options = {
       breakpoints: {
-         "xs" : 576,
+         "xs" : 767,
          "sm" : 768,
          "md" : 992,
          "lg" : 1200
@@ -31,12 +31,12 @@ class ResizeComponent{
       }
       //load images if get into view
       if ('ResizeObserver' in window) {
-        const observer = new ResizeObserver(
+        const resizer = new ResizeObserver(
           this.handleResize.bind(this),
           this.options
         );
         document.querySelectorAll(this.options.items).forEach( item => {
-          observer.observe(item);
+          resizer.observe(item);
         });
       } else {
         console.log('ResizeObserver not supported!');
@@ -45,34 +45,34 @@ class ResizeComponent{
   }
 
 
-  handleResize(entries, observer) {
-    const self = this;
-    entries.forEach(entry => {
-       if (entry.contentRect.width <= 576) {
-            entry.target.classList.remove('sm', 'md', 'lg');
-            entry.target.classList.add('xs');
-       }
-       else if(entry.contentRect.width > 576 && entry.contentRect.width <= 768) {
-        entry.target.classList.remove('xs', 'md', 'lg');
-        entry.target.classList.add('sm');
-       }
-       else if(entry.contentRect.width > 768 && entry.contentRect.width <= 992) {
-        entry.target.classList.remove('xs', 'sm', 'lg');
-        entry.target.classList.add('md');
-       }
-       else if(entry.contentRect.width > 1200) {
-        entry.target.classList.remove('xs', 'sm', 'md');
-        entry.target.classList.add('lg');
-       }
-       /*Object.keys(this.options.breakpoints).forEach( (breakpoint) => {
-         let minWidth = this.options.breakpoints[breakpoint];
-         if (entry.contentRect.width >= minWidth) {
-             entry.target.className = `${this.options.itemClass} ${breakpoint}`
-         } else {
-            //entry.target.classList.remove(breakpoint);
-         }
-       });*/
-    });
+  handleResize(entries) {  
+    try{
+      var self = this;
+       const breakpoints = self.options.breakpoints;
+       entries.forEach((entry) => {
+          Object.keys(breakpoints).forEach( (breakpoint) => {
+            let minWidth = breakpoints[breakpoint];
+              if(entry.contentRect.width <= breakpoints['xs']) {
+                entry.target.classList.add('xs');
+                entry.target.classList.remove('sm', 'md', 'lg');
+              }
+              else{
+                if (entry.contentRect.width >= minWidth) {
+                  entry.target.classList.add(breakpoint);
+              
+                } else {
+                  entry.target.classList.remove(breakpoint);
+                }
+
+                  entry.target.classList.remove('xs');
+              }
+          });//end object keys
+        });
+    }
+    catch(e){
+      console.log(e.message);
+    }
+
   }
 }
 

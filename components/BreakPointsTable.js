@@ -4,10 +4,10 @@ const BreakPointsTable = (props) => (
             <thead>
              <tr>
               <th>Screen width:</th>
-              <th> &gt;= 1201px</th>
-              <th> &gt;= 960px</th>
+              <th> &gt;= 1200px</th>
+              <th> &gt;= 992px</th>
               <th> &gt;= 768px</th>
-              <th> &gt;= 576px</th>
+              <th> &lt;= 767px</th>
              </tr>
             </thead>
             <tbody>

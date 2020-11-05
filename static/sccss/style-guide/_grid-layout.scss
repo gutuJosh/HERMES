@@ -138,7 +138,7 @@
     max-width: 100%;
   }
 
-  @media (max-width: $screen-lg-max) {
+  /*@media (max-width: $screen-lg-max) {
     [class*="item-lg-"] {
       grid-column-start: 1;
       grid-column-end: 13;
@@ -163,6 +163,21 @@
 
   @media (min-width: $screen-lg-min) {
     @include grid-items("lg");
+  }*/ 
+
+  @media (max-width: $screen-xs-max) {
+    @include grid-items("xs");
+  }
+  @media (min-width: $screen-sm-min) {
+     @include grid-items("sm");
+  }
+
+  @media (min-width: $screen-md-min) {
+    @include grid-items("md");
+  }
+
+  @media (min-width: $screen-lg-min) { 
+    @include grid-items("lg");
   }
 
 }
@@ -171,27 +186,25 @@
 //used in conjunction with ResizeComponent plugin, located in /helpers
 
 [data-observe-resizes]{
-  &.xlg, &.lg{
-    @include grid-items("lg");
+  &.xs{
+    /*[class*="item-sm-"] {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }*/
+    @include grid-items("xs");
   }
-
+  &.sm{
+    /*[class*="item-md-"] {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }*/
+    @include grid-items("sm");
+  }
   &.md{
     @include grid-items("md");
   }
-
-  &.sm{
-    [class*="item-md-"] {
-      grid-column-start: 1;
-      grid-column-end: 13;
-    }
-    @include grid-items("sm");
+  &.lg{
+    @include grid-items("lg");
   }
 
-  &.xs{
-    [class*="item-sm-"] {
-      grid-column-start: 1;
-      grid-column-end: 13;
-    }
-    @include grid-items("xs");
-  }
 }

@@ -23,12 +23,11 @@ export default class cssGrid extends React.Component {
       }
 
       const resize = new ResizeComponent({
-        reakpoints: {
-          "xs" : 576,
+        breakpoints: {
+          "xs" : 767,
           "sm" : 768,
           "md" : 992,
-          "lg" : 1200,
-          "xlg" : 1201
+          "lg" : 1200
        },
        items: '[data-observe-resizes]',
        itemClass: 'grid pad20'
@@ -63,10 +62,10 @@ export default class cssGrid extends React.Component {
               <div className="item-lg-4-1 item-md-4-1 item-sm-4-1 item-xs-4-1 text-center pad20 column">.item-prefix-4-1</div>
               <div className="item-lg-4-5 item-md-4-5 item-sm-4-5 item-xs-4-5 text-center pad20 column">.item-prefix-4-5</div>
               <div className="item-lg-4-9 item-md-4-9 item-sm-4-9 item-xs-4-9 text-center pad20 column">.item-prefix-4-9</div>
-              <div className="item-lg-3-1 item-md-6-1 item-sm-3-1 item-sm-12-1 text-center pad20 column">.item-lg-3-1 .item-md-6-1<br/>.item-sm-3-1 .item-sm-12-1</div>
-              <div className="item-lg-3-4 item-md-6-7 item-sm-3-4 item-sm-12-1 text-center pad20 column">.item-lg-3-4 .item-md-6-7<br/>.item-sm-3-4 .item-sm-12-1</div>
-              <div className="item-lg-3-7 item-md-8-1 item-sm-3-7 item-sm-12-1 text-center pad20 column">.item-lg-3-7 .item-md-8-1<br/>.item-sm-3-7 .item-sm-12-1</div>
-              <div className="item-lg-3-10 item-md-4-9 item-sm-3-10 item-sm-12-1 text-center pad20 column">.item-lg-3-10 .item-md-4-9<br/>.item-sm-3-10 .item-sm-12-1</div>
+              <div className="item-lg-3-1 item-md-6-1 item-sm-3-1 item-xs-12-1 text-center pad20 column">.item-lg-3-1 .item-md-6-1<br/>.item-sm-3-1 .item-sm-12-1</div>
+              <div className="item-lg-3-4 item-md-6-7 item-sm-3-4 item-xs-12-1 text-center pad20 column">.item-lg-3-4 .item-md-6-7<br/>.item-sm-3-4 .item-sm-12-1</div>
+              <div className="item-lg-3-7 item-md-8-1 item-sm-3-7 item-xs-12-1 text-center pad20 column">.item-lg-3-7 .item-md-8-1<br/>.item-sm-3-7 .item-sm-12-1</div>
+              <div className="item-lg-3-10 item-md-4-9 item-sm-3-10 item-xs-12-1 text-center pad20 column">.item-lg-3-10 .item-md-4-9<br/>.item-sm-3-10 .item-sm-12-1</div>
               <div className="item-lg-2-1 item-md-2-1 item-sm-2-1 item-xs-6-1 text-center pad20 column">.item-prefix-2-1</div>
               <div className="item-lg-1-3 item-md-1-3 item-sm-1-3 item-xs-6-7 text-center pad20 column">.item-prefix-1-3</div>
               <div className="item-lg-5-4 item-md-5-4 item-sm-5-4 item-xs-12-1 text-center pad20 column">.item-prefix-5-5</div>
