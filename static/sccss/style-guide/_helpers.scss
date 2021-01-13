@@ -199,6 +199,15 @@ a.text-azure {
   &.auto {
     flex: 1 1 auto;
   }
+  &.center{
+   align-self:center;
+  }
+  &.left{
+   align-self:flex-start;
+  }
+  &.right{
+   align-self:flex-end;
+  }
 }
 
 //show/hide

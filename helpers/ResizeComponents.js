@@ -29,7 +29,7 @@ class ResizeComponent{
         console.log('Missing html object');
         return;
       }
-      //load images if get into view
+      
       if ('ResizeObserver' in window) {
         const resizer = new ResizeObserver(
           this.handleResize.bind(this),
