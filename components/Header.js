@@ -12,7 +12,7 @@ class Header extends React.Component {
 		}
 	}
 
-	async componentWillMount(){
+	async componentDidMount(){
 		 let getPath = window.location.pathname.split('/').filter((item) => item.length > 0);
 		 let url = getPath.length > 1 ? `/${getPath[0]}/${getPath[1]}/page-info` : `/${getPath[0]}/page-info`;
 		 if(!this.props.pageInfo){
@@ -34,9 +34,6 @@ class Header extends React.Component {
 		
   }
 
-	componentDidMount(){
-		
-	}
 
 
 render(){
