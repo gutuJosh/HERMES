@@ -2,7 +2,7 @@
 Css pattern library for responsive and fluid applications that appropriately scales up to 12 columns as the device or viewport size increases.
 The library is build with [Sass](https://sass-lang.com/) css preprocessor and use [Next Js](https://nextjs.org/) framework and a node js server for presentaion.
 
-##Scss files
+## Scss files
 To use .scss files copy and paste the `style-guide` folder from the /static/scss dir to your project
 
 ## Available Scripts
