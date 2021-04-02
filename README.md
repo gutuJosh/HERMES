@@ -3,7 +3,7 @@ Css pattern library for responsive and fluid applications that appropriately sca
 The library is build with [Sass](https://sass-lang.com/) css preprocessor and use [Next Js](https://nextjs.org/) framework and a node js server for presentaion.
 
 ## Library files
-To use the `.scss` files copy and paste the `style-guide` folder from the /static/scss dir to your project
+To use the `.scss` files copy and paste the `/style-guide` folder from the /static/scss dir to your project
 
 ## Available Scripts
 
