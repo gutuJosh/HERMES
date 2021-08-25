@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from '../components/Layout.js';
 import Paragraph from '../components/PharagraphSample.js';
 
@@ -24,7 +25,7 @@ export default class typography extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}>
-         <div className="col-full pad20">
+         <div className="col-full pad20 mtop50">
             <p className="large">
              The default font family used by this css library is "Comfortaa", designed by
              &nbsp;<a className="underlined" rel="nofollow" target="_blank" href="https://www.deviantart.com/aajohan/art/Comfortaa-font-105395949">Johan Aakerlund</a>&nbsp;

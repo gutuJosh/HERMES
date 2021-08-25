@@ -11,7 +11,7 @@ const ModalDialog = (props) => {
         <header className="modal-header pad10" onClick={props.close}></header>
         <div className="modal-body pad10">
           <div className="text-center pad-x-20">
-           <icon className={`${props.icon} fa-2x modal-icon`}></icon>
+           <i className={`${props.icon} fa-2x modal-icon`}></i>
            <h4>{props.message.title}</h4>
            <p className="small">
             {props.message.text}

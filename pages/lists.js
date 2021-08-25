@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from '../components/Layout.js';
 
 export default class lists extends React.Component {
@@ -24,7 +25,7 @@ export default class lists extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}> 
-          <div className="col-full pad20">
+          <div className="col-full pad20 mtop50">
             <p className="large">The following examples show how different components can be composed to produce lists.</p>
           </div>
 

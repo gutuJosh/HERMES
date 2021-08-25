@@ -1,6 +1,6 @@
           
 const BreakPointsTable = (props) => (
-          <table className="table table-bordered table-hover">
+          <table className="table table-bordered table-hover mtop50">
             <thead>
              <tr>
               <th>Screen width:</th>

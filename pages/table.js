@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from '../components/Layout.js';
 
 
@@ -25,7 +26,7 @@ export default class table extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}> 
-          <div className="col-full pad20">
+          <div className="col-full pad20 mtop50">
             <p className="large">
              The following examples show how different components can be used together with basic and responsive tables. 
              Add the class "table" to a table html element. This step is requested in order to apply the css rules correctly, after that

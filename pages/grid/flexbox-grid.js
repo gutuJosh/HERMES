@@ -1,5 +1,6 @@
-import Layout from '../components/Layout.js';
-import BreakPointsTable from '../components/BreakPointsTable';
+import React from "react";
+import Layout from '../../components/Layout.js';
+import BreakPointsTable from '../../components/BreakPointsTable';
 export default class flexboxGrid extends React.Component {
 
   constructor(props) {
@@ -25,13 +26,13 @@ export default class flexboxGrid extends React.Component {
   render(){
     return(
       <Layout pageInfo={this.state.pageInfo}>
-          <div className="pad20 flex-grid-system">
+          <div className="pad20 flex-grid-system mtop50">
           <div className="col-full">
             <p className="large">Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. </p>
           </div>
 
       
-            <div className="col-full">
+            <div className="col-full mbottom20">
               <BreakPointsTable colPrefix=".flex"/>
             </div>
         

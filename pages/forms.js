@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from '../components/Layout.js';
 import BasicInput from '../components/formElements/BasicInput';
 import BasicUpload from '../components/formElements/BasicUpload';
@@ -40,7 +41,7 @@ export default class forms extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}> 
-           <div className="col-full pad20">
+           <div className="col-full pad20 mtop50">
             <p className="large">For every element of a form, we have expanded the styling with custom selects, checkboxes, radios, switches and a few additional classes.</p>
           </div>
 

@@ -8,7 +8,7 @@ import { withRouter } from 'next/router';
 
   return (
     
-    <aside className="site-sidebar">
+    <div className="site-sidebar">
      <div className="logo-holder"> 
       <p className="text-center text-white m0">
        <Link href="/">
@@ -98,7 +98,7 @@ import { withRouter } from 'next/router';
       </Link>
       </li>
      </ul>
-    </aside>
+    </div>
   )
 };
  export default withRouter(Sidebar);

@@ -1,3 +1,4 @@
+import React from "react";
 import Head from 'next/head';
 import TopBar from './TopBar';
 import { get } from '../helpers/Get';
@@ -30,10 +31,6 @@ class Header extends React.Component {
 		 }
 	}
 
-	componentWillUnmount() {
-		
-  }
-
 
 
 render(){
@@ -49,9 +46,7 @@ render(){
 		<meta name="apple-mobile-web-app-capable" content="yes"/> 
 		<meta name="apple-mobile-web-app-status-bar-style" content="#ffd43a"/> 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossOrigin="anonymous"/>
-		<link rel="shortcut icon" type="image/x-icon" href="/static/images/twiner-ico.jpg" />
 		<link href="/static/css/main.min.css" rel="stylesheet" media="screen"/> 
 		</Head>
 		<TopBar topic={this.state.pageTopic}/>

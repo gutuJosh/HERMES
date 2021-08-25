@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from '../components/Layout.js';
 import ModalDialog from '../components/ui/ModalDialog.js';
 import AlertLabel from '../components/ui/AlertLabel.js';
@@ -64,7 +65,7 @@ export default class modals extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}> 
-          <div className="col-full pad20">
+          <div className="col-full pad20 mtop50">
             <p className="large">
             Following are some examples with modals. There are two types of modal dialog boxes: with colored header on dark background
             and full coloured on white background. Every modal box is enclosed in a div class "mask", which by default is hidden. By adding

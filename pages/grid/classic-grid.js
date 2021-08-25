@@ -1,5 +1,6 @@
-import Layout from '../components/Layout.js';
-import BreakPointsTable from '../components/BreakPointsTable';
+import React from "react";
+import Layout from '../../components/Layout.js';
+import BreakPointsTable from '../../components/BreakPointsTable';
 
 
 export default class classicGrid  extends React.Component {
@@ -27,7 +28,7 @@ export default class classicGrid  extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}>
-            <div className="pad20 old-grid">
+            <div className="pad20 old-grid mtop50">
             <div className="col-full">
                 <p className="large">
                     The Grid system follows the mobile-first approach and accommodates up to 12 grid columns.
@@ -36,7 +37,7 @@ export default class classicGrid  extends React.Component {
             </div>
 
         
-                <div className="col-full">
+                <div className="col-full mbottom20">
                 <BreakPointsTable colPrefix=".col"/>
                 </div>
             

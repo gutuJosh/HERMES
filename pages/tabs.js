@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from '../components/Layout.js';
 import HorizontalTabs from '../components/ui/HorizontalTabs';
 import VerticalTabs from '../components/ui/VerticalTabs';
@@ -28,7 +29,7 @@ export default class tabs extends React.Component {
     render(){
       return(
         <Layout pageInfo={this.state.pageInfo}> 
-          <div className="col-full pad20">
+          <div className="col-full pad20 mtop50">
             <p className="large">
             Dynamic tabs and accordion functionality to transition through panes of local content. JavaScript was 
             used to control the tabs. Accordion instead use only css.
@@ -79,7 +80,7 @@ export default class tabs extends React.Component {
            <div className="item-lg-6-7 item-md-6-7 item-sm-12-1 item-xs-12-1 bg-white">
             <div className="pad20 m0">
              <h4>Code sample:</h4> 
-             <hr class="thin"/>
+             <hr className="thin"/> 
              <pre>
               <code>
               &lt;div&nbsp;class&#61;"<span className="text-green">[tabs-container-horizontal|tabs-container-vertical flex]</span>"&gt;<br/>
