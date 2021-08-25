@@ -38,9 +38,9 @@ app.prepare()
   //set global var to use in routes
   server.set('app', app);
 
-  server.listen(5000, (err) => {
+  server.listen(3000, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:5000')
+    console.log('> Ready on http://localhost:3000')
   })
 })
 .catch((ex) => {
